@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
 
 class HomePage extends Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class HomePage extends Component {
 
   render() {
     return (
-      <h2>This is the home page</h2>
+      <Button variant="primary">Primary</Button>
     );
   }
 }
