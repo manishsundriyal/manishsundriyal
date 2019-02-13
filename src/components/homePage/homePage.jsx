@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
+import Typography from '@material-ui/core/Typography';
+
+// import components
+import ResponsiveDrawer from '../responsiveDrawer/responsiveDrawer';
 
 class HomePage extends Component {
   constructor(props) {
@@ -11,7 +14,14 @@ class HomePage extends Component {
 
   render() {
     return (
-      <Button variant="primary">Primary</Button>
+      <ResponsiveDrawer>
+        <Typography paragraph>
+            Add Main content here
+          </Typography>
+          <Typography paragraph>
+          Add Sub Main content here
+          </Typography>
+      </ResponsiveDrawer>
     );
   }
 }
