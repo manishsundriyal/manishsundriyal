@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 
-class HomePage extends Component {
+class AboutPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,13 +13,13 @@ class HomePage extends Component {
     return (
       <React.Fragment>
         <Typography paragraph>
-          Add Main content here
+          Add Main content here for About Page
         </Typography>
         <Typography paragraph>
-          Add Sub Main content here
+          Add Sub Main content here for About Page
         </Typography>
       </React.Fragment>
     );
   }
 }
-export default HomePage;
+export default AboutPage;

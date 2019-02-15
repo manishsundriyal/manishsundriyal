@@ -6,16 +6,25 @@ import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import MailIcon from '@material-ui/icons/Mail';
-import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+
+// import page components
+import HomePage from '../homePage/homePage';
+import AboutPage from '../aboutPage/aboutPage';
+
+// import Icons
+import MailIcon from '@material-ui/icons/Mail';
+import MenuIcon from '@material-ui/icons/Menu';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import AccountIcon from '@material-ui/icons/AccountBox';
+import Description from '@material-ui/icons/Description';
+import HomeIcon from '@material-ui/icons/Home';
 
 const drawerWidth = 240;
 
@@ -56,6 +65,7 @@ class ResponsiveDrawer extends Component {
     super(props);
     this.state = {
       mobileOpen: false,
+      mainPage: 'Home',
     }
   }
 
@@ -63,9 +73,49 @@ class ResponsiveDrawer extends Component {
     this.setState(prevState => ({
       mobileOpen: !prevState.mobileOpen,
     }));
-  };
+  };x
   handleListItemClick = key => {
+    this.setState({ mainPage: key })
     console.log("---key---", key);
+  };
+  getPrimarySideOptions = () => {
+    return [
+      {
+        text: 'Home',
+        icon: <HomeIcon />,
+      },
+      {
+        text: 'About',
+        icon: <AccountIcon />,
+      },
+      {
+        text: 'Blog',
+        icon: <Description />,
+      },
+    ];
+  };
+  getSecondarySideOptions = () => {
+    return [
+      {
+        text: 'Instagram',
+        icon: <MailIcon />,
+      },
+      {
+        text: 'Contact',
+        icon: <InboxIcon />,
+      },
+    ];
+  };
+  getMainPage = () => {
+    const { mainPage } = this.state;
+    if (mainPage === 'Home') {
+      return <HomePage />;
+    }
+    if (mainPage === 'About') {
+      return <AboutPage />;
+    }
+    // TODO: add more cases
+    return <HomePage />
   }
   render() {
     const { classes, theme } = this.props;
@@ -75,18 +125,18 @@ class ResponsiveDrawer extends Component {
         <div className={classes.toolbar} />
         <Divider />
         <List>
-          {['Option 1', 'Option 2', 'Option 3', 'Option 4'].map((text, index) => (
+          {this.getPrimarySideOptions().map(({text, icon}) => (
             <ListItem button key={text} onClick={() => this.handleListItemClick(text)}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemIcon>{icon}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
         </List>
         <Divider />
         <List>
-          {['Option 5', 'Option 6', 'Option 7'].map((text, index) => (
+          {this.getSecondarySideOptions().map(({text, icon}) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemIcon>{icon}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
@@ -142,7 +192,7 @@ class ResponsiveDrawer extends Component {
         </nav>
         <main className={classes.content}>
           <div className={classes.toolbar} />
-          {this.props.children}
+              {this.getMainPage()}
         </main>
       </div>
     );

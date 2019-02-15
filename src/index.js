@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 // import components
-import HomePage from './components/homePage/homePage';
+import MainLayout from './components/mainLayout/mainLayout';
 
 function App() {
   return (
-    <HomePage />
+    <MainLayout />
   );
 }
 ReactDOM.render(
