@@ -14,9 +14,16 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 
+// import components
+import ImageAvatar from '../imageAvatar/imageAvatar';
+
 // import page components
 import HomePage from '../homePage/homePage';
 import AboutPage from '../aboutPage/aboutPage';
+import BlogPage from '../blogPage/blogPage';
+import InstagramPage from '../instagramPage/instagramPage';
+import ContactPage from '../contactPage/contactPage';
+import ErrorPage from '../errorPage/errorPage';
 
 // import Icons
 import MailIcon from '@material-ui/icons/Mail';
@@ -66,6 +73,7 @@ class ResponsiveDrawer extends Component {
     this.state = {
       mobileOpen: false,
       mainPage: 'Home',
+      appBarTitle: 'Home',
     }
   }
 
@@ -75,7 +83,7 @@ class ResponsiveDrawer extends Component {
     }));
   };x
   handleListItemClick = key => {
-    this.setState({ mainPage: key })
+    this.setState({ mainPage: key, mobileOpen: false, appBarTitle: key })
     console.log("---key---", key);
   };
   getPrimarySideOptions = () => {
@@ -114,15 +122,28 @@ class ResponsiveDrawer extends Component {
     if (mainPage === 'About') {
       return <AboutPage />;
     }
-    // TODO: add more cases
-    return <HomePage />
+    if (mainPage === 'Blog') {
+      return <BlogPage />;
+    }
+
+    if (mainPage === 'Instagram') {
+      return <InstagramPage />;
+    }
+
+    if (mainPage === 'Contact') {
+      return <ContactPage />;
+    }
+
+    return <ErrorPage />;
   }
   render() {
     const { classes, theme } = this.props;
 
     const drawer = (
       <div>
-        <div className={classes.toolbar} />
+        <div className={classes.toolbar}>
+          <ImageAvatar />
+        </div>
         <Divider />
         <List>
           {this.getPrimarySideOptions().map(({text, icon}) => (
@@ -135,7 +156,7 @@ class ResponsiveDrawer extends Component {
         <Divider />
         <List>
           {this.getSecondarySideOptions().map(({text, icon}) => (
-            <ListItem button key={text}>
+            <ListItem button key={text} onClick={() => this.handleListItemClick(text)}>
               <ListItemIcon>{icon}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
@@ -158,7 +179,7 @@ class ResponsiveDrawer extends Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" color="inherit" noWrap>
-              LOGO
+              {this.state.appBarTitle}
             </Typography>
           </Toolbar>
         </AppBar>
