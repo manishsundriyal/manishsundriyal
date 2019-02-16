@@ -46,9 +46,8 @@ const styles = theme => ({
     },
   },
   appBar: {
-    marginLeft: drawerWidth,
     [theme.breakpoints.up('sm')]: {
-      width: `calc(100% - ${drawerWidth}px)`,
+      display: 'none',
     },
   },
   menuButton: {
