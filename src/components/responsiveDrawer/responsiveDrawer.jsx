@@ -12,7 +12,8 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import { withStyles, createMuiTheme } from '@material-ui/core/styles';
 
 // import components
 import ImageAvatar from '../imageAvatar/imageAvatar';
@@ -32,6 +33,8 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import AccountIcon from '@material-ui/icons/AccountBox';
 import Description from '@material-ui/icons/Description';
 import HomeIcon from '@material-ui/icons/Home';
+import BrightnessHigh from '@material-ui/icons/BrightnessHigh';
+import BrightnessLow from '@material-ui/icons/BrightnessLow';
 
 const drawerWidth = 240;
 
@@ -73,6 +76,7 @@ class ResponsiveDrawer extends Component {
       mobileOpen: false,
       mainPage: 'Home',
       appBarTitle: 'Home',
+      isLightTheme: true,
     }
   }
 
@@ -80,10 +84,20 @@ class ResponsiveDrawer extends Component {
     this.setState(prevState => ({
       mobileOpen: !prevState.mobileOpen,
     }));
-  };x
+  };
   handleListItemClick = key => {
-    this.setState({ mainPage: key, mobileOpen: false, appBarTitle: key })
+    if (key === 'Lights Off' || key === 'Lights On') {
+      this.setState({ isLightTheme: !this.state.isLightTheme });
+    } else {
+      this.setState({ mainPage: key, mobileOpen: false, appBarTitle: key })
+    }
     console.log("---key---", key);
+  };
+  handleSwitch = () => {
+    console.log("---check for handle switch---");
+    this.setState({
+      isLightTheme: !this.state.isLightTheme,
+    });
   };
   getPrimarySideOptions = () => {
     return [
@@ -111,6 +125,10 @@ class ResponsiveDrawer extends Component {
         text: 'Contact',
         icon: <InboxIcon />,
       },
+      {
+        text: this.state.isLightTheme ? 'Lights Off' : 'Lights On',
+        icon: this.state.isLightTheme ? <BrightnessLow /> : <BrightnessHigh />,
+      },
     ];
   };
   getMainPage = () => {
@@ -137,7 +155,15 @@ class ResponsiveDrawer extends Component {
   }
   render() {
     const { classes, theme } = this.props;
-
+    const { isLightTheme } = this.state;
+    const customTheme = createMuiTheme({
+      palette: {
+        type: isLightTheme ? 'light' : 'dark',
+      },
+      typography: {
+        useNextVariants: true,
+      },
+    });
     const drawer = (
       <div>
         <div className={classes.toolbar}>
@@ -165,56 +191,58 @@ class ResponsiveDrawer extends Component {
     );
 
     return (
-      <div className={classes.root}>
-        <CssBaseline />
-        <AppBar position="fixed" className={classes.appBar}>
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="Open drawer"
-              onClick={this.handleDrawerToggle}
-              className={classes.menuButton}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" color="inherit" noWrap>
-              {this.state.appBarTitle}
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <nav className={classes.drawer}>
-          {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-          <Hidden smUp implementation="css">
-            <Drawer
-              container={this.props.container}
-              variant="temporary"
-              anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-              open={this.state.mobileOpen}
-              onClose={this.handleDrawerToggle}
-              classes={{
-                paper: classes.drawerPaper,
-              }}
-            >
-              {drawer}
-            </Drawer>
-          </Hidden>
-          <Hidden xsDown implementation="css">
-            <Drawer
-              classes={{
-                paper: classes.drawerPaper,
-              }}
-              variant="permanent"
-              open
-            >
-              {drawer}
-            </Drawer>
-          </Hidden>
-        </nav>
-        <main className={classes.content}>
-          <div className={classes.toolbar} />
-              {this.getMainPage()}
-        </main>
-      </div>
+      <MuiThemeProvider theme={customTheme}>
+        <div className={classes.root}>
+          <CssBaseline />
+          <AppBar position="fixed" className={classes.appBar}>
+            <Toolbar>
+              <IconButton
+                color="inherit"
+                aria-label="Open drawer"
+                onClick={this.handleDrawerToggle}
+                className={classes.menuButton}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography variant="h6" color="inherit" noWrap>
+                {this.state.appBarTitle}
+              </Typography>
+            </Toolbar>
+          </AppBar>
+          <nav className={classes.drawer}>
+            {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+            <Hidden smUp implementation="css">
+              <Drawer
+                container={this.props.container}
+                variant="temporary"
+                anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+                open={this.state.mobileOpen}
+                onClose={this.handleDrawerToggle}
+                classes={{
+                  paper: classes.drawerPaper,
+                }}
+              >
+                {drawer}
+              </Drawer>
+            </Hidden>
+            <Hidden xsDown implementation="css">
+              <Drawer
+                classes={{
+                  paper: classes.drawerPaper,
+                }}
+                variant="permanent"
+                open
+              >
+                {drawer}
+              </Drawer>
+            </Hidden>
+          </nav>
+          <main className={classes.content}>
+            <div className={classes.toolbar} />
+                {this.getMainPage()}
+          </main>
+        </div>
+      </MuiThemeProvider>
     );
   }
 }

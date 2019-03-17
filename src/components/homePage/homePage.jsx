@@ -24,7 +24,7 @@ class HomePage extends Component {
     return (
       <React.Fragment>
         <Grid container spacing={24}>
-          <Grid item xs={12} sm={12} md={6} lg={6}>
+          <Grid item xs={12} sm={12} md={12} lg={12}>
             <Typography paragraph>
             <Typing>
               <span>Hello, my name is Manish.</span>
@@ -40,11 +40,14 @@ class HomePage extends Component {
               Add Sub Main content here
             </Typography>
           </Grid>
-          <Grid item xs={12} sm={12} md={6} lg={6}>
+          <Grid item xs={12} sm={12} md={12} lg={12}>
             <img
               src="https://amp.businessinsider.com/images/5be9ede366be501cf82e377b-750-422.jpg"
               alt="Nature"
               style={{
+                display: 'block',
+                marginLeft: 'auto',
+                marginRight: 'auto',
                 width: '100%',
                 maxWidth: '500px',
                 height: 'auto'

@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
+// import { createMuiTheme } from '@material-ui/core/styles';
 
 // import components
 import ResponsiveDrawer from '../responsiveDrawer/responsiveDrawer';
-
 
 class MainLayout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
     };
   }
   render() {
+    const { isLightTheme } = this.state;
+    
     return (
       <ResponsiveDrawer />
     );
