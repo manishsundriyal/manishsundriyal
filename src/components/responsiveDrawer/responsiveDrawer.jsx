@@ -36,6 +36,9 @@ import HomeIcon from '@material-ui/icons/Home';
 import BrightnessHigh from '@material-ui/icons/BrightnessHigh';
 import BrightnessLow from '@material-ui/icons/BrightnessLow';
 
+// import theme
+import { lightTheme, darkTheme } from "../../theme/muiTheme";
+
 const drawerWidth = 240;
 
 const styles = theme => ({
@@ -156,14 +159,14 @@ class ResponsiveDrawer extends Component {
   render() {
     const { classes, theme } = this.props;
     const { isLightTheme } = this.state;
-    const customTheme = createMuiTheme({
-      palette: {
-        type: isLightTheme ? 'light' : 'dark',
-      },
-      typography: {
-        useNextVariants: true,
-      },
-    });
+    // const customTheme = createMuiTheme({
+    //   palette: {
+    //     type: isLightTheme ? 'light' : 'dark',
+    //   },
+    //   typography: {
+    //     useNextVariants: true,
+    //   },
+    // });
     const drawer = (
       <div>
         <div className={classes.toolbar}>
@@ -191,10 +194,10 @@ class ResponsiveDrawer extends Component {
     );
 
     return (
-      <MuiThemeProvider theme={customTheme}>
+      <MuiThemeProvider theme={darkTheme}>
         <div className={classes.root}>
           <CssBaseline />
-          <AppBar position="fixed" className={classes.appBar}>
+          <AppBar position="fixed" className={classes.appBar} color="secondary">
             <Toolbar>
               <IconButton
                 color="inherit"
@@ -249,8 +252,6 @@ class ResponsiveDrawer extends Component {
 
 ResponsiveDrawer.propTypes = {
   classes: PropTypes.object.isRequired,
-  // Injected by the documentation to work in an iframe.
-  // You won't need it on your project.
   container: PropTypes.object,
   theme: PropTypes.object.isRequired,
 };

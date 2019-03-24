@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Typing from 'react-typing-animation';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
@@ -26,15 +25,7 @@ class HomePage extends Component {
         <Grid container spacing={24}>
           <Grid item xs={12} sm={12} md={12} lg={12}>
             <Typography paragraph>
-            <Typing>
               <span>Hello, my name is Manish.</span>
-              <br />
-              <span> This span will get typed, then erased.</span>
-              <Typing.Backspace count={38} />
-              <span> This span will get typed, then erased.</span>
-              <Typing.Backspace count={38} />
-              <span> This span will get typed, not erased.</span>
-            </Typing>
             </Typography>
             <Typography paragraph>
               Add Sub Main content here
