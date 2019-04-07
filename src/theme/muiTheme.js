@@ -6,16 +6,22 @@ const lightTheme = createMuiTheme({
   },
   palette: {
     primary: {
-      light: '#ffffff',
-      main: '#fafafa',
-      dark: '#c6c6c6',
-      contrastText: '#000000',
+      light: '#4f83cc',
+      main: '#01579b',
+      dark: '#002f6c',
     },
     secondary: {
         light: '#6ec6ff',
         main: '#2196f3',
         dark: '#0069c0',
-        contrastText: '#000000',
+    },
+    mainPage: {
+      height: '100%',
+      background: 'linear-gradient(to bottom left, #473B7B 0%, #3584A7 30%, #30D2BE 100%)',
+      color: '#000000',
+    },
+    fullHeight: {
+      height: '100%',
     },
   },
 });
@@ -26,16 +32,22 @@ const darkTheme = createMuiTheme({
   },
   palette: {
     primary: {
-      light: '#595959',
-      main: '#303030',
-      dark: '#070707',
-      contrastText: '#ffffff',
+      light: '#4f83cc',
+      main: '#01579b',
+      dark: '#002f6c',
     },
     secondary: {
         light: '#6ec6ff',
         main: '#2196f3',
         dark: '#0069c0',
-        contrastText: '#ffffff',
+    },
+    mainPage: {
+      height: '100%',
+      background: 'linear-gradient(to bottom left, #473B7B 0%, #3584A7 30%, #30D2BE 100%)',
+      color: '#000000',
+    },
+    fullHeight: {
+      height: '100%',
     },
   },
 });

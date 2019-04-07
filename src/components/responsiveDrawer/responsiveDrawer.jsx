@@ -64,6 +64,7 @@ const styles = theme => ({
   },
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
+    background: 'linear-gradient(to left, #473B7B 1%, #3584A7 1%, #30D2BE 100%)',
     width: drawerWidth,
   },
   content: {
@@ -194,10 +195,10 @@ class ResponsiveDrawer extends Component {
     );
 
     return (
-      <MuiThemeProvider theme={darkTheme}>
-        <div className={classes.root}>
+      <MuiThemeProvider theme={lightTheme}>
+        <div className={classes.root} style={lightTheme.palette.fullHeight}>
           <CssBaseline />
-          <AppBar position="fixed" className={classes.appBar} color="secondary">
+          <AppBar position="fixed" className={classes.appBar}>
             <Toolbar>
               <IconButton
                 color="inherit"
@@ -240,8 +241,8 @@ class ResponsiveDrawer extends Component {
               </Drawer>
             </Hidden>
           </nav>
-          <main className={classes.content}>
-            <div className={classes.toolbar} />
+          <main className={classes.content} style={lightTheme.palette.mainPage}>
+            <div className={classes.toolbar}/>
                 {this.getMainPage()}
           </main>
         </div>

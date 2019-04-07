@@ -11,8 +11,8 @@ class MainLayout extends Component {
     };
   }
   render() {
-    const { isLightTheme } = this.state;
-    
+    const { } = this.state;
+
     return (
       <ResponsiveDrawer />
     );
