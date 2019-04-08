@@ -64,7 +64,7 @@ const styles = theme => ({
   },
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
-    background: 'linear-gradient(to left, #473B7B 1%, #3584A7 1%, #30D2BE 100%)',
+    background: '#0a192f',
     width: drawerWidth,
   },
   content: {

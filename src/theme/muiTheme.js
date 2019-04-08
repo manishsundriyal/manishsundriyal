@@ -9,16 +9,18 @@ const lightTheme = createMuiTheme({
       light: '#4f83cc',
       main: '#01579b',
       dark: '#002f6c',
+      contrastText: '#ffffff',
     },
     secondary: {
         light: '#6ec6ff',
         main: '#2196f3',
         dark: '#0069c0',
+        contrastText: '#ffffff',
     },
     mainPage: {
       height: '100%',
-      background: 'linear-gradient(to bottom left, #473B7B 0%, #3584A7 30%, #30D2BE 100%)',
-      color: '#000000',
+      background: 'linear-gradient(to top, #0a192f 30%, #020c1b 100%)',
+      color: '#ffffff',
     },
     fullHeight: {
       height: '100%',
@@ -43,8 +45,8 @@ const darkTheme = createMuiTheme({
     },
     mainPage: {
       height: '100%',
-      background: 'linear-gradient(to bottom left, #473B7B 0%, #3584A7 30%, #30D2BE 100%)',
-      color: '#000000',
+      background: 'linear-gradient(to top, #0a192f 30%, #020c1b 100%)',
+      color: '#ffffff',
     },
     fullHeight: {
       height: '100%',

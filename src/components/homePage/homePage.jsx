@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import { lightTheme } from '../../theme/muiTheme';
 
 const styles = theme => ({
   container: {
@@ -9,6 +10,13 @@ const styles = theme => ({
     gridTemplateColumns: 'repeat(12, 1fr)',
     gridGap: `${theme.spacing.unit * 3}px`,
   },
+  overrides: {
+    MuiTypography: {
+      display3: {
+        color: '#ffffff'
+      },
+    }
+  }
 });
 
 class HomePage extends Component {
@@ -24,7 +32,7 @@ class HomePage extends Component {
       <React.Fragment>
         <Grid container spacing={24}>
           <Grid item xs={12} sm={12} md={12} lg={12}>
-            <Typography paragraph>
+            <Typography variant="display3">
               <span>Hello, my name is Manish.</span>
             </Typography>
             <Typography paragraph>
