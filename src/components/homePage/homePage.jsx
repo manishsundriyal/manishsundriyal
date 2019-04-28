@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import Grid from '@material-ui/core/Grid';
-import { lightTheme } from '../../theme/muiTheme';
+import { darkTheme, lightTheme } from "../../theme/muiTheme";
 
 const styles = theme => ({
   container: {
@@ -29,15 +30,15 @@ class HomePage extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <MuiThemeProvider theme={darkTheme}>
         <Grid container spacing={24}>
           <Grid item xs={12} sm={12} md={12} lg={12}>
-            <Typography variant="display3">
-              <span>Hello, my name is Manish.</span>
+            <Typography variant="h2">
+              <span>Hello, I'm Manish</span>
             </Typography>
-            <Typography paragraph>
-              Add Sub Main content here
-            </Typography>
+            <Typography variant="h5">
+              Software Developer
+          </Typography>
           </Grid>
           <Grid item xs={12} sm={12} md={12} lg={12}>
             <img
@@ -54,7 +55,7 @@ class HomePage extends Component {
               width="800" height="500" />
           </Grid>
         </Grid>
-      </React.Fragment>
+      </MuiThemeProvider>
     );
   }
 }

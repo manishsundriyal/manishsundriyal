@@ -34,7 +34,7 @@ import AccountIcon from '@material-ui/icons/AccountBox';
 import Description from '@material-ui/icons/Description';
 import HomeIcon from '@material-ui/icons/Home';
 import BrightnessHigh from '@material-ui/icons/BrightnessHigh';
-import BrightnessLow from '@material-ui/icons/BrightnessLow';
+import Brightness3 from '@material-ui/icons/Brightness3';
 
 // import theme
 import { lightTheme, darkTheme } from "../../theme/muiTheme";
@@ -63,9 +63,12 @@ const styles = theme => ({
     },
   },
   toolbar: theme.mixins.toolbar,
-  drawerPaper: {
-    background: '#0a192f',
+  lightDrawerPaper: {
     width: drawerWidth,
+  },
+  darkDrawerPaper: {
+    width: drawerWidth,
+    background: '#0a192f',
   },
   content: {
     flexGrow: 1,
@@ -80,7 +83,7 @@ class ResponsiveDrawer extends Component {
       mobileOpen: false,
       mainPage: 'Home',
       appBarTitle: 'Home',
-      isLightTheme: true,
+      isLightTheme: false,
     }
   }
 
@@ -91,14 +94,12 @@ class ResponsiveDrawer extends Component {
   };
   handleListItemClick = key => {
     if (key === 'Lights Off' || key === 'Lights On') {
-      this.setState({ isLightTheme: !this.state.isLightTheme });
+      this.handleSwitch();
     } else {
       this.setState({ mainPage: key, mobileOpen: false, appBarTitle: key })
     }
-    console.log("---key---", key);
   };
   handleSwitch = () => {
-    console.log("---check for handle switch---");
     this.setState({
       isLightTheme: !this.state.isLightTheme,
     });
@@ -131,7 +132,7 @@ class ResponsiveDrawer extends Component {
       },
       {
         text: this.state.isLightTheme ? 'Lights Off' : 'Lights On',
-        icon: this.state.isLightTheme ? <BrightnessLow /> : <BrightnessHigh />,
+        icon: this.state.isLightTheme ? <Brightness3 /> : <BrightnessHigh />,
       },
     ];
   };
@@ -195,8 +196,8 @@ class ResponsiveDrawer extends Component {
     );
 
     return (
-      <MuiThemeProvider theme={lightTheme}>
-        <div className={classes.root} style={lightTheme.palette.fullHeight}>
+      <MuiThemeProvider theme={isLightTheme ? lightTheme : darkTheme}>
+        <div className={classes.root} style={darkTheme.palette.fullHeight}>
           <CssBaseline />
           <AppBar position="fixed" className={classes.appBar}>
             <Toolbar>
@@ -223,7 +224,7 @@ class ResponsiveDrawer extends Component {
                 open={this.state.mobileOpen}
                 onClose={this.handleDrawerToggle}
                 classes={{
-                  paper: classes.drawerPaper,
+                  paper: isLightTheme ? classes.lightDrawerPaper : classes.darkDrawerPaper,
                 }}
               >
                 {drawer}
@@ -232,7 +233,7 @@ class ResponsiveDrawer extends Component {
             <Hidden xsDown implementation="css">
               <Drawer
                 classes={{
-                  paper: classes.drawerPaper,
+                  paper: isLightTheme ? classes.lightDrawerPaper : classes.darkDrawerPaper,
                 }}
                 variant="permanent"
                 open
@@ -241,7 +242,7 @@ class ResponsiveDrawer extends Component {
               </Drawer>
             </Hidden>
           </nav>
-          <main className={classes.content} style={lightTheme.palette.mainPage}>
+          <main className={classes.content} style={isLightTheme ? lightTheme.palette.mainPage : darkTheme.palette.mainPage}>
             <div className={classes.toolbar}/>
                 {this.getMainPage()}
           </main>

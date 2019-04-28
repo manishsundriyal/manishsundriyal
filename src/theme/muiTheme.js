@@ -3,6 +3,8 @@ import { createMuiTheme } from '@material-ui/core/styles';
 const lightTheme = createMuiTheme({
   typography: {
     useNextVariants: true,
+    fontFamily: "\"Roboto\", sans-serif",
+    fontWeightLight: '600',
   },
   palette: {
     primary: {
@@ -10,6 +12,9 @@ const lightTheme = createMuiTheme({
       main: '#01579b',
       dark: '#002f6c',
       contrastText: '#ffffff',
+    },
+    textPrimary: {
+      main: "#ffffff",
     },
     secondary: {
         light: '#6ec6ff',
@@ -19,8 +24,7 @@ const lightTheme = createMuiTheme({
     },
     mainPage: {
       height: '100%',
-      background: 'linear-gradient(to top, #0a192f 30%, #020c1b 100%)',
-      color: '#ffffff',
+      background: '#ffffff',
     },
     fullHeight: {
       height: '100%',
@@ -31,12 +35,20 @@ const lightTheme = createMuiTheme({
 const darkTheme = createMuiTheme({
   typography: {
     useNextVariants: true,
+    fontFamily: "\"Roboto\", sans-serif",
+    fontWeightLight: '600',
+    // fontWeightMedium: '700',
+    // fontWeightRegular: '700'
   },
   palette: {
     primary: {
       light: '#4f83cc',
       main: '#01579b',
       dark: '#002f6c',
+      contrastText: '#ffffff',
+    },
+    textPrimary: {
+      main: "#ffffff",
     },
     secondary: {
         light: '#6ec6ff',
@@ -46,7 +58,6 @@ const darkTheme = createMuiTheme({
     mainPage: {
       height: '100%',
       background: 'linear-gradient(to top, #0a192f 30%, #020c1b 100%)',
-      color: '#ffffff',
     },
     fullHeight: {
       height: '100%',
