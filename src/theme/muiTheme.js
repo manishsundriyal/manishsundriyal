@@ -5,16 +5,20 @@ const lightTheme = createMuiTheme({
     useNextVariants: true,
     fontFamily: "\"Roboto\", sans-serif",
     fontWeightLight: '600',
+    color: "#ffffff",
   },
   palette: {
+    type: "light",
+    text: {
+      primary: {
+        main: '#000000',
+      },
+    },
     primary: {
       light: '#4f83cc',
       main: '#01579b',
       dark: '#002f6c',
       contrastText: '#ffffff',
-    },
-    textPrimary: {
-      main: "#ffffff",
     },
     secondary: {
         light: '#6ec6ff',
@@ -33,6 +37,8 @@ const lightTheme = createMuiTheme({
 });
 
 const darkTheme = createMuiTheme({
+  overrides: {
+  },
   typography: {
     useNextVariants: true,
     fontFamily: "\"Roboto\", sans-serif",
@@ -41,11 +47,12 @@ const darkTheme = createMuiTheme({
     // fontWeightRegular: '700'
   },
   palette: {
+    type: "dark",
     primary: {
       light: '#4f83cc',
       main: '#01579b',
       dark: '#002f6c',
-      contrastText: '#ffffff',
+      contrastText: '#ffff22',
     },
     textPrimary: {
       main: "#ffffff",

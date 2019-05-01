@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import Grid from '@material-ui/core/Grid';
-import { darkTheme, lightTheme } from "../../theme/muiTheme";
 
 const styles = theme => ({
   container: {
@@ -30,10 +28,10 @@ class HomePage extends Component {
 
   render() {
     return (
-      <MuiThemeProvider theme={darkTheme}>
+      <>
         <Grid container spacing={24}>
           <Grid item xs={12} sm={12} md={12} lg={12}>
-            <Typography variant="h2">
+            <Typography variant="h2" color="text">
               <span>Hello, I'm Manish</span>
             </Typography>
             <Typography variant="h5">
@@ -55,7 +53,7 @@ class HomePage extends Component {
               width="800" height="500" />
           </Grid>
         </Grid>
-      </MuiThemeProvider>
+      </>
     );
   }
 }
