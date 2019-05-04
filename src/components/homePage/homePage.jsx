@@ -9,13 +9,6 @@ const styles = theme => ({
     gridTemplateColumns: 'repeat(12, 1fr)',
     gridGap: `${theme.spacing.unit * 3}px`,
   },
-  overrides: {
-    MuiTypography: {
-      display3: {
-        color: '#ffffff'
-      },
-    }
-  }
 });
 
 class HomePage extends Component {
@@ -31,10 +24,10 @@ class HomePage extends Component {
       <>
         <Grid container spacing={24}>
           <Grid item xs={12} sm={12} md={12} lg={12}>
-            <Typography variant="h2" color="text">
+            <Typography variant="h2">
               <span>Hello, I'm Manish</span>
             </Typography>
-            <Typography variant="h5">
+            <Typography variant="h5" color="textSecondary">
               Software Developer
           </Typography>
           </Grid>

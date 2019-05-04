@@ -65,6 +65,7 @@ const styles = theme => ({
   toolbar: theme.mixins.toolbar,
   lightDrawerPaper: {
     width: drawerWidth,
+    background: '#f5f5f5',
   },
   darkDrawerPaper: {
     width: drawerWidth,
@@ -199,7 +200,7 @@ class ResponsiveDrawer extends Component {
       <MuiThemeProvider theme={isLightTheme ? lightTheme : darkTheme}>
         <div className={classes.root} style={darkTheme.palette.fullHeight}>
           <CssBaseline />
-          <AppBar position="fixed" className={classes.appBar}>
+          <AppBar position="fixed" className={classes.appBar} color="secondary">
             <Toolbar>
               <IconButton
                 color="inherit"
