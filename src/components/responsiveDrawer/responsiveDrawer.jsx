@@ -13,6 +13,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import Switch from '@material-ui/core/Switch';
 import { withStyles, createMuiTheme } from '@material-ui/core/styles';
 
 // import components
@@ -27,15 +28,11 @@ import ContactPage from '../contactPage/contactPage';
 import ErrorPage from '../errorPage/errorPage';
 
 // import Icons
-import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import AccountIcon from '@material-ui/icons/AccountBox';
-import Description from '@material-ui/icons/Description';
-import HomeIcon from '@material-ui/icons/Home';
-import BrightnessHigh from '@material-ui/icons/BrightnessHigh';
-import Brightness3 from '@material-ui/icons/Brightness3';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faUserCircle, faEnvelope, faCloudSun, faCloudMoon } from '@fortawesome/free-solid-svg-icons';
+import { faInstagram, faMedium } from '@fortawesome/free-brands-svg-icons';
+import Fade from '@material-ui/core/Fade';
 // import theme
 import { lightTheme, darkTheme } from "../../theme/muiTheme";
 
@@ -75,6 +72,9 @@ const styles = theme => ({
     flexGrow: 1,
     padding: theme.spacing.unit * 3,
   },
+  listItemIcon: {
+    width: 32,
+  },
 });
 
 class ResponsiveDrawer extends Component {
@@ -89,14 +89,12 @@ class ResponsiveDrawer extends Component {
   }
 
   handleDrawerToggle = () => {
-    this.setState(prevState => ({
-      mobileOpen: !prevState.mobileOpen,
+    this.setState(previousState => ({
+      mobileOpen: !previousState.mobileOpen,
     }));
   };
   handleListItemClick = key => {
-    if (key === 'Lights Off' || key === 'Lights On') {
-      this.handleSwitch();
-    } else {
+    if (!(key === 'Lights Off' || key === 'Lights On')) {
       this.setState({ mainPage: key, mobileOpen: false, appBarTitle: key })
     }
   };
@@ -108,32 +106,38 @@ class ResponsiveDrawer extends Component {
   getPrimarySideOptions = () => {
     return [
       {
-        text: 'Home',
-        icon: <HomeIcon />,
+        text: "Home",
+        icon: <FontAwesomeIcon icon={faHome} size="2x" />,
       },
       {
-        text: 'About',
-        icon: <AccountIcon />,
+        text: "About",
+        icon: <FontAwesomeIcon icon={faUserCircle} size="2x" />,
       },
       {
-        text: 'Blog',
-        icon: <Description />,
+        text: "Blog",
+        icon: <FontAwesomeIcon icon={faMedium} size="2x" />,
       },
     ];
   };
   getSecondarySideOptions = () => {
     return [
       {
-        text: 'Instagram',
-        icon: <MailIcon />,
+        text: "Instagram",
+        icon: <FontAwesomeIcon icon={faInstagram} size="2x" />,
       },
       {
-        text: 'Contact',
-        icon: <InboxIcon />,
+        text: "Contact",
+        icon: <FontAwesomeIcon icon={faEnvelope} size="2x" />,
       },
       {
-        text: this.state.isLightTheme ? 'Lights Off' : 'Lights On',
-        icon: this.state.isLightTheme ? <Brightness3 /> : <BrightnessHigh />,
+        text: this.state.isLightTheme ? "Lights Off" : "Lights On",
+        icon: this.state.isLightTheme ? <Fade in={this.state.isLightTheme} timeout={1000}><FontAwesomeIcon icon={faCloudMoon} size="2x" /></Fade> : <Fade in={!this.state.isLightTheme} timeout={1000}><FontAwesomeIcon icon={faCloudSun} size="2x" /></Fade>,
+        switchMode: <Switch
+          checked={this.state.isLightTheme}
+          onChange={this.handleSwitch}
+          value="checkedB"
+          color="primary"
+        />
       },
     ];
   };
@@ -162,14 +166,6 @@ class ResponsiveDrawer extends Component {
   render() {
     const { classes, theme } = this.props;
     const { isLightTheme } = this.state;
-    // const customTheme = createMuiTheme({
-    //   palette: {
-    //     type: isLightTheme ? 'light' : 'dark',
-    //   },
-    //   typography: {
-    //     useNextVariants: true,
-    //   },
-    // });
     const drawer = (
       <div>
         <div className={classes.toolbar}>
@@ -177,19 +173,24 @@ class ResponsiveDrawer extends Component {
         </div>
         <Divider />
         <List>
-          {this.getPrimarySideOptions().map(({text, icon}) => (
-            <ListItem button key={text} onClick={() => this.handleListItemClick(text)}>
-              <ListItemIcon>{icon}</ListItemIcon>
-              <ListItemText primary={text} />
+          {this.getPrimarySideOptions().map(({ text, icon }) => (
+            <ListItem button key={text} onClick={() => this.handleListItemClick(text)} alignItems="center">
+              <ListItemIcon className={classes.listItemIcon}>{icon}</ListItemIcon>
+              <ListItemText>
+                <Typography variant="button">{text}</Typography>
+              </ListItemText>
             </ListItem>
           ))}
         </List>
         <Divider />
         <List>
-          {this.getSecondarySideOptions().map(({text, icon}) => (
+          {this.getSecondarySideOptions().map(({ text, icon, switchMode = null }) => (
             <ListItem button key={text} onClick={() => this.handleListItemClick(text)}>
-              <ListItemIcon>{icon}</ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemIcon className={classes.listItemIcon}>{icon}</ListItemIcon>
+              <ListItemText>
+                <Typography variant="button">{text}</Typography>
+              </ListItemText>
+              {switchMode}
             </ListItem>
           ))}
         </List>
@@ -232,20 +233,22 @@ class ResponsiveDrawer extends Component {
               </Drawer>
             </Hidden>
             <Hidden xsDown implementation="css">
-              <Drawer
-                classes={{
-                  paper: isLightTheme ? classes.lightDrawerPaper : classes.darkDrawerPaper,
-                }}
-                variant="permanent"
-                open
-              >
-                {drawer}
-              </Drawer>
+              <div>
+                <Drawer
+                  classes={{
+                    paper: isLightTheme ? classes.lightDrawerPaper : classes.darkDrawerPaper,
+                  }}
+                  variant="permanent"
+                  open
+                >
+                  {drawer}
+                </Drawer>
+              </div>
             </Hidden>
           </nav>
           <main className={classes.content} style={isLightTheme ? lightTheme.palette.mainPage : darkTheme.palette.mainPage}>
-            <div className={classes.toolbar}/>
-                {this.getMainPage()}
+            <div className={classes.toolbar} />
+            {this.getMainPage()}
           </main>
         </div>
       </MuiThemeProvider>
