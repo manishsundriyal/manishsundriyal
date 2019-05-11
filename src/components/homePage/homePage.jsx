@@ -25,10 +25,10 @@ class HomePage extends Component {
         <Grid container spacing={24}>
           <Grid item xs={12} sm={12} md={12} lg={12}>
             <Typography variant="h2">
-              <span>Hello, I'm Manish</span>
+              <span>Hi, I'm Manish</span>
             </Typography>
-            <Typography variant="h5" color="textSecondary">
-              Software Developer
+            <Typography variant="h4" color="textSecondary">
+              Software Artisan
           </Typography>
           </Grid>
           <Grid item xs={12} sm={12} md={12} lg={12}>
