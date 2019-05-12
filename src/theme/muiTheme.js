@@ -5,6 +5,11 @@ const lightTheme = createMuiTheme({
     useNextVariants: true,
     fontFamily: "\"Roboto\", sans-serif",
     fontWeightLight: '600',
+    body1: {
+      fontSize: "1.3125rem",
+      fontWeight: 400,
+      lineHeight: "1.5em",
+    }
   },
   palette: {
     type: "light",
@@ -37,7 +42,13 @@ const darkTheme = createMuiTheme({
     useNextVariants: true,
     fontFamily: "\"Roboto\", sans-serif",
     fontWeightLight: '600',
+    body1: {
+      fontSize: "1.3125rem",
+      fontWeight: 400,
+      lineHeight: "1.5em",
+    }
   },
+
   palette: {
     type: "dark",
     text: {

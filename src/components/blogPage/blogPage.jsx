@@ -1,25 +1,56 @@
 import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
+import { withStyles } from '@material-ui/core/styles';
 
+
+const styles = theme => ({
+  root: {
+    ...theme.mixins.gutters(),
+    paddingTop: theme.spacing.unit * 2,
+    paddingBottom: theme.spacing.unit * 2,
+    background: '#0a192f',
+    backgroundColor: 'rgba(255, 255, 255, 0.1)'
+  },
+});
 class BlogPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      blogPosts : [],
     };
   }
-
+  componentDidMount() {
+    fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@manishsundriyal')
+    .then(res => res.json())
+    .then(data => {
+      const posts = data.items;
+      const blogPosts = posts.filter(post => post.categories.length > 0);
+      this.setState({ blogPosts });
+    });
+  }
+  getBlogPosts = () => {
+    const { classes } = this.props;
+    const { blogPosts = [] } = this.state;
+    return blogPosts.map(blog => {
+      return (
+        <Paper className={classes.root} elevation={1}>
+            <Typography variant="h5" component="h3">
+              {blog.title}
+            </Typography>
+            <Typography component="p">
+              Paper can be used to build surface or other elements for your application.
+            </Typography>
+        </Paper>
+      )
+    });
+  }
   render() {
     return (
       <React.Fragment>
-        <Typography paragraph>
-          Add Main content here for BLog Page
-        </Typography>
-        <Typography paragraph>
-          Add Sub Main content here for Blog Page
-        </Typography>
+        {this.getBlogPosts()}
       </React.Fragment>
     );
   }
 }
-export default BlogPage;
+export default withStyles(styles)(BlogPage);

@@ -12,12 +12,15 @@ class AboutPage extends Component {
   render() {
     return (
       <React.Fragment>
-        <Typography variant="h4">
-          I'm Manish Sundriyal, <br/> A Software Developer from Delhi, India.
+        <Typography variant="h3">
+          I'm Manish Sundriyal,
+        </Typography>
+        <Typography variant="h5">
+          A Software Developer from Delhi, India.
           <br/> Please take a look around!
         </Typography>
         <br />
-        <Typography variant="h6">
+        <Typography variant="body1">
           I am passionate about building things that make a difference.<br />
           I love to solve problems that may or may not related to code.<br />
           Always up to learn, explore and build cool things.
