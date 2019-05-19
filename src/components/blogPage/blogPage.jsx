@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
+import CardMedia from '@material-ui/core/CardMedia';
 import { withStyles } from '@material-ui/core/styles';
+import { Card, CardActionArea, CardContent, CardActions, Button, Link } from '@material-ui/core';
 
 
 const styles = theme => ({
   root: {
-    ...theme.mixins.gutters(),
-    paddingTop: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2,
+    // ...theme.mixins.gutters(),
+    // paddingTop: theme.spacing.unit * 2,
+    // paddingBottom: theme.spacing.unit * 2,
+    padding: theme.spacing.unit * 2,
     background: '#0a192f',
     backgroundColor: 'rgba(255, 255, 255, 0.1)'
+  },
+  media: {
+    height: 200,
   },
 });
 class BlogPage extends Component {
@@ -34,18 +40,37 @@ class BlogPage extends Component {
     const { blogPosts = [] } = this.state;
     return blogPosts.map(blog => {
       return (
-        <Paper className={classes.root} elevation={1}>
-            <Typography variant="h5" component="h3">
-              {blog.title}
-            </Typography>
-            <Typography component="p">
-              Paper can be used to build surface or other elements for your application.
-            </Typography>
-        </Paper>
+        <Card className={classes.root}>
+          <CardActionArea>
+            <Link href={blog.link}>
+              <CardMedia
+                className={classes.media}
+                image={blog.thumbnail}
+              />
+            </Link>
+            <CardContent>
+              <Typography variant="h5" component="h3">
+                {blog.title}
+              </Typography>
+              <Typography component="p">
+                Paper can be used to build surface or other elements for your application.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small" color="primary">
+                Share
+              </Button>
+              <Button size="small" color="primary">
+                Learn More
+              </Button>
+            </CardActions>
+          </CardActionArea>
+        </Card>
       )
     });
   }
   render() {
+    console.log(this.state.blogPosts);
     return (
       <React.Fragment>
         {this.getBlogPosts()}

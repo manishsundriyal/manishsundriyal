@@ -23,7 +23,6 @@ import ImageAvatar from '../imageAvatar/imageAvatar';
 import HomePage from '../homePage/homePage';
 import AboutPage from '../aboutPage/aboutPage';
 import BlogPage from '../blogPage/blogPage';
-import InstagramPage from '../instagramPage/instagramPage';
 import ContactPage from '../contactPage/contactPage';
 import ErrorPage from '../errorPage/errorPage';
 
@@ -31,7 +30,7 @@ import ErrorPage from '../errorPage/errorPage';
 import MenuIcon from '@material-ui/icons/Menu';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faUserCircle, faEnvelope, faCloudSun, faCloudMoon } from '@fortawesome/free-solid-svg-icons';
-import { faInstagram, faMedium } from '@fortawesome/free-brands-svg-icons';
+import { faMedium } from '@fortawesome/free-brands-svg-icons';
 import Fade from '@material-ui/core/Fade';
 // import theme
 import { lightTheme, darkTheme } from "../../theme/muiTheme";
@@ -122,10 +121,6 @@ class ResponsiveDrawer extends Component {
   getSecondarySideOptions = () => {
     return [
       {
-        text: "Instagram",
-        icon: <FontAwesomeIcon icon={faInstagram} size="2x" />,
-      },
-      {
         text: "Contact",
         icon: <FontAwesomeIcon icon={faEnvelope} size="2x" />,
       },
@@ -152,11 +147,6 @@ class ResponsiveDrawer extends Component {
     if (mainPage === 'Blog') {
       return <BlogPage />;
     }
-
-    if (mainPage === 'Instagram') {
-      return <InstagramPage />;
-    }
-
     if (mainPage === 'Contact') {
       return <ContactPage />;
     }

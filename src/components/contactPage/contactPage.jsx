@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import Typography from '@material-ui/core/Typography';
+import { unstable_Box as Box } from '@material-ui/core/Box';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInstagram, faMedium, faFacebookSquare, faTwitterSquare, faLinkedin, faGithubSquare } from '@fortawesome/free-brands-svg-icons';
 
 class ContactPage extends Component {
   constructor(props) {
@@ -12,12 +14,26 @@ class ContactPage extends Component {
   render() {
     return (
       <React.Fragment>
-        <Typography paragraph>
-          Add Main content here for Contact Page
-        </Typography>
-        <Typography paragraph>
-          Add Sub Main content here for Contact Page
-        </Typography>
+        <Box display="flex" justifyContent="center" m={5} p={5}>
+        <Box p={5}>
+          <FontAwesomeIcon icon={faInstagram} size="2x" />
+        </Box>
+        <Box p={5}>
+          <FontAwesomeIcon icon={faTwitterSquare} size="2x" />
+        </Box>
+        <Box p={5}>
+          <FontAwesomeIcon icon={faFacebookSquare} size="2x" />
+        </Box>
+        <Box p={5}>
+          <FontAwesomeIcon icon={faLinkedin} size="2x" />
+        </Box>
+        <Box p={5}>
+          <FontAwesomeIcon icon={faGithubSquare} size="2x" />
+        </Box>
+        <Box p={5}>
+          <FontAwesomeIcon icon={faMedium} size="2x" />
+        </Box>
+      </Box>
       </React.Fragment>
     );
   }
