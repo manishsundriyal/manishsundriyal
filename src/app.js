@@ -86,9 +86,17 @@ const NavBar = () => {
   );
 }
 
-const Header = () => {
+const Header = (props) => {
+  const { setToggleNavBar } = props;
   return (
     <header className="header">
+      <div className="menuIcon" onClick={() => setToggleNavBar(prev => (
+        prev.includes("active") ? "navBar" : "navBar active")
+      )}>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
       <img src={logo} width="16px;" height="35px;" />
       <span>home.js</span>
     </header>
@@ -96,12 +104,15 @@ const Header = () => {
 };
 
 function App() {
+  const [toggleNavBar, setToggleNavBar] = useState("navBar");
   return (
     <>
       <div id="main">
-        <NavBar />
+        <div className={toggleNavBar}>
+          <NavBar />
+        </div>
         <div id="right" className="column">
-          <Header />
+          <Header setToggleNavBar={setToggleNavBar} />
           <main className="content" id="something1">
             <pre class="line-numbers" id="something2">
               <code class="language-javascript">
