@@ -108,5 +108,32 @@
 
 /* Handle on hover */
 #something1::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.27); 
+  background: rgba(255, 255, 255, 0.27);
+}
+
+.menuIcon > div {
+  padding: 0.2em;
+  border-bottom: 2px solid white;
+  width: 1.4em;
+  margin: 0 1em 0 -1.2em;
+}
+
+.navBar {
+  display: none;
+}
+.menuIcon {
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .menuIcon {
+    display: none;
+  }
+  .navBar {
+    display: block;
+  }
+}
+
+.navBar.active {
+  display: block;
 }
