@@ -1,14 +1,18 @@
-import React from 'react'
+import React from "react";
+import useSyntaxHighlighting from "../../lib/context/highlightHook/highlighHook";
 
 const Work = () => {
+    useSyntaxHighlighting();
     return (
-        <code className="language-javascript">
+        <pre>
+            <code class="javascript">
                 {
-                   `function Work() {
+                `function Work() {
     console.log("This is Work");
-}` 
+    }` 
                 }
             </code>
+        </pre>
     )
 }
 

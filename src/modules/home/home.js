@@ -1,14 +1,54 @@
-import React from 'react'
+import React from "react";
+import useSyntaxHighlighting from "../../lib/context/highlightHook/highlighHook";
 
 const Home = () => {
+    useSyntaxHighlighting();
     return (
-        <code className="language-javascript">
+        <pre>
+            <code class="javascript">
                 {
-                   `function home() {
+                `function home() {
+    console.log("This is home");
+}
+function home() {
+    console.log("This is home");
+}
+function home() {
+    console.log("This is home");
+}
+function home() {
+    console.log("This is home");
+}
+function home() {
+    console.log("This is home");
+}
+function home() {
+    console.log("This is home");
+}
+function home() {
+    console.log("This is home");
+}
+function home() {
+    console.log("This is home");
+}
+function home() {
+    console.log("This is home");
+}
+function home() {
+    console.log("This is home");
+}
+function home() {
+    console.log("This is home");
+}
+function home() {
+    console.log("This is home");
+}
+function home() {
     console.log("This is home");
 }` 
                 }
             </code>
+        </pre>
     )
 }
 

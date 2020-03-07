@@ -1,14 +1,14 @@
 import React from "react";
 import useSyntaxHighlighting from "../../lib/context/highlightHook/highlighHook";
 
-const About = () => {
+const Experience = () => {
     useSyntaxHighlighting();
     return (
         <pre>
             <code class="javascript">
                 {
-                `function About() {
-    console.log("This is About");
+                `function Experience() {
+    console.log("This is Experience");
     }` 
                 }
             </code>
@@ -16,4 +16,4 @@ const About = () => {
     )
 }
 
-export default About;
+export default Experience;
