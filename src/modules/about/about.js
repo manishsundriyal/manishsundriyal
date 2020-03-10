@@ -1,19 +1,61 @@
 import React from "react";
-import useSyntaxHighlighting from "../../lib/context/highlightHook/highlighHook";
+import { UnControlled as CodeMirror } from "react-codemirror2"
+require('codemirror/mode/javascript/javascript.js');
+require('codemirror/lib/codemirror.css');
+require('codemirror/lib/codemirror.js');
+require('codemirror/theme/material-darker.css'); 
+
 
 const About = () => {
-    useSyntaxHighlighting();
-    return (
-        <pre>
-            <code class="javascript">
-                {
-                `function About() {
+    return <CodeMirror
+    value={`function About() {
     console.log("This is About");
-    }` 
-                }
-            </code>
-        </pre>
-    )
+}
+function About() {
+    console.log("This is About");
+}
+function About() {
+    console.log("This is About");
+}
+function About() {
+    console.log("This is About");
+}
+function About() {
+    console.log("This is About");
+}
+function About() {
+    console.log("This is About");
+}
+function About() {
+    console.log("This is About");
+}
+function About() {
+    console.log("This is About");
+}
+function About() {
+    console.log("This is About");
+}
+function About() {
+    console.log("This is About");
+}
+function About() {
+    console.log("This is About");
+}
+function About() {
+    console.log("This is About");
+}
+function About() {
+    console.log("This is About");
+}
+     `}
+    options={{
+      mode: {name: "javascript", json: true},
+      theme: 'material-darker',
+      lineNumbers: true,
+      readOnly: true,
+      scrollbarStyle: null,
+    }}
+  />;
 }
 
 export default About;

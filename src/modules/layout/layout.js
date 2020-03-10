@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../header/header";
 
 import { NavBar } from "../";
+import MenuHeader from "../header/menuHeader";
 
 const getMainContent = (props) => {
     const { children } = props;
@@ -17,6 +18,7 @@ const getMainContent = (props) => {
 const Layout = props => {
     return (
         <div id="main">
+            <MenuHeader />
             <NavBar />
             <div id="right" className="column">
                 <Header />

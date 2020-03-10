@@ -1,55 +1,32 @@
 import React from "react";
-import useSyntaxHighlighting from "../../lib/context/highlightHook/highlighHook";
+import { UnControlled as CodeMirror } from "react-codemirror2"
+require('codemirror/mode/javascript/javascript.js');
+require('codemirror/lib/codemirror.css');
+require('codemirror/lib/codemirror.js');
+require('codemirror/theme/dracula.css'); 
+
 
 const Home = () => {
-    useSyntaxHighlighting();
-    return (
-        <pre>
-            <code class="javascript">
-                {
-                `function home() {
-    console.log("This is home");
+    return <CodeMirror
+    value={
+`
+function greetVisitor => userName => {
+    return \`Hello \${userName} \`; 
 }
-function home() {
-    console.log("This is home");
+
+function introduce = () => {
+    return "I am Manish, a Software Artisan"; 
 }
-function home() {
-    console.log("This is home");
-}
-function home() {
-    console.log("This is home");
-}
-function home() {
-    console.log("This is home");
-}
-function home() {
-    console.log("This is home");
-}
-function home() {
-    console.log("This is home");
-}
-function home() {
-    console.log("This is home");
-}
-function home() {
-    console.log("This is home");
-}
-function home() {
-    console.log("This is home");
-}
-function home() {
-    console.log("This is home");
-}
-function home() {
-    console.log("This is home");
-}
-function home() {
-    console.log("This is home");
-}` 
-                }
-            </code>
-        </pre>
-    )
+`
+    }
+    options={{
+      mode: {name: "javascript", json: true},
+      theme: 'dracula',
+      lineNumbers: true,
+      readOnly: true,
+      scrollbarStyle: null,
+    }}
+  />;
 }
 
 export default Home;
