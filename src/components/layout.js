@@ -22,9 +22,34 @@ const Layout = ({ children }) => {
     }
   `)
 
+  // useEffect(() => {
+  //   const elem = document.getElementById("terminal");
+  //   if (elem.requestFullscreen) {
+  //       elem.requestFullscreen();
+  //   } else if (elem.mozRequestFullScreen) { /* Firefox */
+  //       elem.mozRequestFullScreen();
+  //   } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+  //       elem.webkitRequestFullscreen();
+  //   } else if (elem.msRequestFullscreen) { /* IE/Edge */
+  //       elem.msRequestFullscreen();
+  //   }
+  // }, []);
+
+  const fullScreen = () => {
+    const elem = document.getElementById("terminal");
+      if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) { /* Firefox */
+          elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+          elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+          elem.msRequestFullscreen();
+      }
+  };
+
   return (
-    <>
-      {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
+    <div id="terminal">
       <div id="windowheader" class="title-bar">
         <button class="close"></button>
         <button class="minimize"></button>
@@ -38,13 +63,8 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
-        {/* <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer> */}
       </div>
-    </>
+    </div>
   )
 }
 

@@ -6,6 +6,11 @@ html body {
 	font-size: 14px;
 }
 
+a {
+	background-color: #3F638A;
+	color: #fff;
+}
+
 .inlineTypist {
 	display: inline;
 	color: #fff;
@@ -95,4 +100,8 @@ html body {
 .maximize {
 	background: #00ca4e;
 	margin-left: 5px !important;
+}
+
+.pad-left-40 {
+	padding-left: 40px;
 }
