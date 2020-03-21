@@ -1,9 +1,13 @@
-import React, { useState } from "react"
+import React, { useState, useEffect} from "react"
 import Typist from 'react-typist';
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { CommandPrefix, About } from "../components";
+
+const updateScroll = () => {
+  window.scrollTo(0,document.body.scrollHeight);
+}
 
 const typistConfig = {
   className: "inlineTypist",
@@ -12,7 +16,8 @@ const typistConfig = {
     element: '▓',
     hideWhenDone: true,
   },
-  avgTypingDelay: 25
+  avgTypingDelay: 25,
+  onLineTyped: updateScroll
 };
 
 const IndexPage = () => {
@@ -21,6 +26,11 @@ const IndexPage = () => {
   const [isSection4Visible, setIsSection4Visible] = useState(false);
   const [isSection5Visible, setIsSection5Visible] = useState(false);
   const [isEndVisible, setIsEndVisible] = useState(false);
+
+  // useEffect(() => {
+  //   var element = document.getElementById('scrollBotton');
+  //   element.scrollTop = element.scrollHeight;
+  // }, [isEndVisible, isSection2Visible, isSection3Visible, isSection4Visible, isSection5Visible]);
 
   const animationCompleted = index => {
     setTimeout(() => {
@@ -176,6 +186,7 @@ const IndexPage = () => {
       {anythingElse()}
       <br />
       {connect()}
+      <span id="scrollBottom" />
       <br />
       <br />
       {isEndVisible && <CommandPrefix />}
