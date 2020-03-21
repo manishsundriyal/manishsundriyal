@@ -27,11 +27,6 @@ const IndexPage = () => {
   const [isSection5Visible, setIsSection5Visible] = useState(false);
   const [isEndVisible, setIsEndVisible] = useState(false);
 
-  // useEffect(() => {
-  //   var element = document.getElementById('scrollBotton');
-  //   element.scrollTop = element.scrollHeight;
-  // }, [isEndVisible, isSection2Visible, isSection3Visible, isSection4Visible, isSection5Visible]);
-
   const animationCompleted = index => {
     setTimeout(() => {
       switch (index) {
