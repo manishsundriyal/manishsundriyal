@@ -24,6 +24,27 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          { 
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              offsetY: `50`,
+            },
+          },
+          {
+            resolve: `gatsby-remark-katex`,
+            options: {
+              strict: `ignore`,
+            },
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 730,
+            },
+          },
           {
             resolve: `gatsby-remark-prismjs`,
             classPrefix: "language-",
@@ -33,7 +54,7 @@ module.exports = {
             noInlineHighlight: false,
           },
           {
-            resolve: "gatsby-remark-external-links",
+            resolve: `gatsby-remark-external-links`,
           }
         ],
       }

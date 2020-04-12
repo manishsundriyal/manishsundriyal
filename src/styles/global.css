@@ -17,6 +17,11 @@ body, html {
                sans-serif;
   line-height: 1.5;
   width: 100%;
+  /* #191c23 */
+}
+
+.fixed-content {
+  position: fixed;
 }
 
 .main-content a {
@@ -28,7 +33,8 @@ body, html {
   margin-bottom: 24px;
 }
 
-img {
+.main-content img {
+  width: 100%;
   max-width: 100%;
   height: auto;
 }
@@ -274,13 +280,14 @@ img {
 /* prismjs-block:Start */
 .gatsby-highlight pre[class*="language-"] {
   border-radius: 6px;
+  margin-bottom: 2rem;
 }
 /* prismjs-block:End */
 
 /* Return To Top:Start */
 #return-to-top {
   display: inline-block;
-  background-color: rgba(51, 57, 64, 0.9);
+  /* background-color: rgba(51, 57, 64, 0.9); */
   width: 50px;
   height: 50px;
   text-align: center;
@@ -288,8 +295,8 @@ img {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  transition: background-color .3s, 
-    opacity .5s, visibility .5s;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
   opacity: 0;
   visibility: hidden;
   z-index: 1000;
@@ -297,7 +304,8 @@ img {
 }
 #return-to-top:hover {
   cursor: pointer;
-  background-color: #333;
+  -webkit-transform: translateY(-10px);
+  transform: translateY(-10px);
 }
 #return-to-top:active {
   background-color: #555;
@@ -306,9 +314,19 @@ img {
   opacity: 1;
   visibility: visible;
 }
-
-/* .tooltip {
-  background-color: rgba(51, 57, 64, 0.9);
-} */
-
 /* Return To Top:End */
+table {
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+table, th, td {
+  border: 1px solid black;
+}
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+tr:nth-child(even), th {
+  background-color: #f7f7f7;
+}

@@ -5,10 +5,12 @@ import Categories from '../components/categories';
 import SideWidget from '../components/sideWidget';
 import NewsLetter from '../components/newsLetter';
 import Layout from "../../components/layout";
+import { navigate, useLocation } from "@reach/router";  
 
 const Template1 = ({ data }) => {
+    const location = useLocation();
     const post = data.markdownRemark;
-    const { title, tags = [] } = post.frontmatter;
+    const { title, tags = [], slug } = post.frontmatter;
     console.log("--post--frontmatter--", post.frontmatter);
     return (
         <Layout>

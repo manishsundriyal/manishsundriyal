@@ -45,7 +45,7 @@ const Layout = ({ children }) => {
 
   const renderTooltip = props => {
     return (
-      <Tooltip id="button-tooltip" {...props}>
+      <Tooltip {...props}>
         Return to top
       </Tooltip>
     );
@@ -54,8 +54,9 @@ const Layout = ({ children }) => {
   return (
     <>
       <OverlayTrigger
+        className="trigger"
         placement="top"
-        delay={{ show: 250, hide: 0 }}
+        delay={{ hide: 0 }}
         overlay={renderTooltip}
       >
         <span href="javascript:" onClick={scrollToTop} id="return-to-top">☝</span>
