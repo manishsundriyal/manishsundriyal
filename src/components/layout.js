@@ -31,7 +31,10 @@ const Layout = ({ children }) => {
     window.document.documentElement.scrollTo(0,0);
   };
 
-  window.addEventListener("scroll", runOnScroll);
+  useEffect(() => {
+    window.addEventListener("scroll", runOnScroll);
+  });
+
 
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
