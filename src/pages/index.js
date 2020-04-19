@@ -19,7 +19,7 @@ const IndexPage = ({ data }) => {
               We've got tutorials and resources geared towards self-taught web developers.
             </p>
             <p>
-              <Button variant="primary">Check it out below!</Button>
+              <Button variant="light">Check it out below!</Button>
             </p>
           </Container>
         </Jumbotron>

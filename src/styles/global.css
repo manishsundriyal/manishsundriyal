@@ -30,11 +30,12 @@ body, html {
 }
 
 .jumbotron {
-  background-image: linear-gradient(to top, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%);
+  background-image: url("../images/hero-2.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 0;
+  color: #fff;
 }
 
 .card {

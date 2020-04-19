@@ -7,22 +7,23 @@ import BlogsListing from '../components/blogsListing';
 
 const Blogs = () => {
     return (
-        <div>
-            <Layout>
-                <SEO title="Blogs" />
-                <Jumbotron fluid>
-                    <Container>
-                        <h1>We've got some real cool Blogs</h1>
-                        <p>
-                            We've got tutorials and resources geared towards self-taught web developers.
-                        </p>
-                    </Container>
-                </Jumbotron>
+        <Layout>
+            <SEO title="Blogs" />
+            <Jumbotron fluid>
                 <Container>
-                    <BlogsListing />
+                    <h1>We've got some real cool Blogs</h1>
+                    <p>
+                        We've got tutorials and resources geared towards self-taught web developers.
+                    </p>
+                    <p>
+                        <Button variant="light">Check it out below!</Button>
+                    </p>
                 </Container>
-            </Layout>
-        </div>
+            </Jumbotron>
+            <Container>
+                <BlogsListing />
+            </Container>
+        </Layout>
     )
 }
 

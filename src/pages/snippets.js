@@ -16,6 +16,9 @@ const Snippets = () => {
                         <p>
                             We've got tutorials and resources geared towards self-taught web developers.
                         </p>
+                        <p>
+                            <Button variant="light">Check it out below!</Button>
+                        </p>
                     </Container>
                 </Jumbotron>
                 <Container>
