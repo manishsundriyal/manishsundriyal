@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 import { navigate, useLocation } from "@reach/router"  
 import { Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
 
