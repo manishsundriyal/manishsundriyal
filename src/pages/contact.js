@@ -1,6 +1,7 @@
 import React from 'react'
 import { faFacebookF, faTwitter, faLinkedinIn, faInstagram, faGithub, faMediumM } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { Container, Row, Col } from "react-bootstrap";
 
 import Layout from "../components/layout";
@@ -11,34 +12,21 @@ const Contact = () => {
         <Layout>
             <SEO title="Contact" />
             <Container>
-                <Row className="mt-5 contact text-center justify-content-md-center">
+                <Row className="mt-5 justify-content-md-center">
                     <Col xs={12} sm={12} md={12} lg={12} xl={12}>
                         <h1>Hello there</h1>
                         <p className="lead">
-                            If you want to contact me, the best way to reach me is on social media 👋.
+                            Looks like you'd like to connect with me.
+                            You might want to connect with me because
+                                <ul className="mt-4 mb-4">
+                                    <li>You need my mentorship</li>
+                                    <li>You need my help with some project</li>
+                                    <li>You would like to invite me</li>
+                                    <li>You would like to suggest me something</li>
+                                    <li>You would like to give some feedback</li>
+                                </ul>
+                            Alright, always feel free to connect with me at <span>msundriyal27@gmail.com</span>
                         </p>
-                    </Col>
-                    <Col xs={9} sm={6} md={5} lg={4} xl={3}>
-                        <Row className="mt-4">
-                            <Col xs={4} sm={4} md={4} lg={4} xl={4}>
-                                <ul className="social-icons">
-                                    <li><a className="facebook" href="http://scanfcode.com/about/"><FontAwesomeIcon icon={faFacebookF} /></a></li>
-                                    <li><a className="twitter" href="http://scanfcode.com/contact/"><FontAwesomeIcon icon={faTwitter} /></a></li>
-                                </ul>
-                            </Col>
-                            <Col xs={4} sm={4} md={4} lg={4} xl={4}>
-                                <ul className="social-icons">
-                                    <li><a className="linkedin" href="http://scanfcode.com/privacy-policy/"><FontAwesomeIcon icon={faLinkedinIn} /></a></li>
-                                    <li><a className="instagram" href="http://scanfcode.com/contribute-at-scanfcode/"><FontAwesomeIcon icon={faInstagram} /></a></li>
-                                </ul>
-                            </Col>
-                            <Col xs={4} sm={4} md={4} lg={4} xl={4}>
-                                <ul className="social-icons">
-                                    <li><a className="github" href="http://scanfcode.com/contribute-at-scanfcode/"><FontAwesomeIcon icon={faGithub} /></a></li>
-                                    <li><a className="medium" href="http://scanfcode.com/contribute-at-scanfcode/"><FontAwesomeIcon icon={faMediumM} /></a></li>
-                                </ul>
-                            </Col>
-                        </Row>
                     </Col>
                 </Row>
             </Container>

@@ -30,14 +30,23 @@ body, html {
 }
 
 .jumbotron {
-  background-image: url("../images/hero-2.png");
+  background-image: url("../images/light-hero.png");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: right;
   border-radius: 0;
   color: #fff;
 }
-
+@media (max-width: 992px) {
+  .jumbotron {
+    background-image: url("../images/light-hero-md.png");
+  }
+}
+@media (max-width: 576px) {
+  .jumbotron {
+    background-image: url("../images/light-hero-sm.png");
+  }
+}
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
@@ -165,14 +174,22 @@ body, html {
 }
 .contact .social-icons a
 {
-  font-size: 32px;
-  width:80px;
-  height:80px;
-  line-height:80px;
+  font-size: 16px;
+  width:40px;
+  height:40px;
+  line-height:40px;
   margin-bottom:8px;
-  margin-right:0;
+  margin-right:8px;
   border-radius:100%;
   background-color:#33353d;
+}
+.contact .social-icons li:hover
+{
+  transform: scale(1.02);
+  cursor: pointer;
+  -webkit-transition:all .2s linear;
+  -o-transition:all .2s linear;
+  transition:all .2s linear
 }
 .copyright-text
 {
@@ -233,9 +250,9 @@ body, html {
   width:34px;
   font-size:14px
 }
-.social-icons a.facebook:hover
+.social-icons a.email:hover
 {
-  background-color: #4267b2;
+  background-color: #B23121;
 }
 .social-icons a.twitter:hover
 {
