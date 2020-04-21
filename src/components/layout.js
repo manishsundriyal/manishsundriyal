@@ -37,6 +37,8 @@ const Layout = ({ children }) => {
 
   useEffect(() => {
     window.addEventListener("scroll", runOnScroll);
+    window.document.body.style.background = theme === "light" ? "#fff" : "#222";
+    window.document.body.style.color = theme === "light" ? "#444452" : "#fff";
   });
 
 
@@ -62,8 +64,7 @@ const Layout = ({ children }) => {
     );
   }
 
-  window.document.body.style.background = theme === "light" ? "#fff" : "#222";
-  window.document.body.style.color = theme === "light" ? "#444452" : "#fff";
+
   return (
     <>
       <ThemeProvider value={{
