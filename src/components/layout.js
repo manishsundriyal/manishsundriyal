@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import { config } from "@fortawesome/fontawesome-svg-core";
@@ -14,13 +14,13 @@ import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import Header from "./header";
 import Footer from "./footer";
 import "../styles/global.css";
+import { ThemeProvider } from "../context";
 
 config.autoAddCss = false
 
 
 const Layout = ({ children }) => {
-
-  // useEffectgh n
+  const [theme, setTheme] = useState("light");
   const runOnScroll = () => {
     const returnToTop = window.document.getElementById("return-to-top");
     const scrollPosition = window.document.documentElement.scrollTop
@@ -48,7 +48,11 @@ const Layout = ({ children }) => {
         }
       }
     }
-  `)
+  `);
+
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
 
   const renderTooltip = props => {
     return (
@@ -58,26 +62,27 @@ const Layout = ({ children }) => {
     );
   }
 
+  window.document.body.style.background = theme === "light" ? "#fff" : "#222";
+  window.document.body.style.color = theme === "light" ? "#444452" : "#fff";
   return (
     <>
-      <OverlayTrigger
-        className="trigger"
-        placement="top"
-        delay={{ hide: 0 }}
-        overlay={renderTooltip}
-      >
-        <span href="javascript:" onClick={scrollToTop} id="return-to-top">☝</span>
-      </OverlayTrigger>
-      <Header siteTitle={data.site.siteMetadata.title} />
-        <main>{children}</main>
-      {/* <div> */}
-        {/* <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer> */}
-      {/* </div> */}
-      <Footer />
+      <ThemeProvider value={{
+        toggleTheme,
+        theme,
+      }
+      }>
+        <OverlayTrigger
+          className="trigger"
+          placement="top"
+          delay={{ hide: 0 }}
+          overlay={renderTooltip}
+        >
+          <span onClick={scrollToTop} id="return-to-top">☝</span>
+        </OverlayTrigger>
+        <Header siteTitle={data.site.siteMetadata.title} />
+          <main>{children}</main>
+        <Footer />
+      </ThemeProvider>
     </>
   )
 }

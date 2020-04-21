@@ -1,7 +1,10 @@
-import React from "react"
+import React, { useContext } from "react"
 import { useStaticQuery, graphql } from "gatsby";
 import { navigate, useLocation } from "@reach/router"  
-import { Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
+import { Nav, Navbar, Form } from "react-bootstrap";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { ThemeContext } from "../context";
 
 const tabs = [
   {
@@ -27,8 +30,11 @@ const tabs = [
 ];
 
 const Header = props => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+  console.log("--theme---", theme);
   const location = useLocation();
   const currentPath = location.pathname;
+
   const data = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
@@ -38,8 +44,26 @@ const Header = props => {
           }
         }
       }
+      allMarkdownRemark {
+        nodes {
+          frontmatter {
+            template
+            slug
+            title
+          }
+        }
+      }
     }
   `);
+
+  const searchConfig = data.allMarkdownRemark.nodes.map(node => {
+    const { slug, type, title } = node.frontmatter;
+    return {
+      slug,
+      type,
+      title,
+    };
+  });
 
   const isActiveTab = path => {
     return path === currentPath ? "active" : "";
@@ -47,9 +71,17 @@ const Header = props => {
   const getTabs = (tabList = []) => {
     return tabList.map(tab => {
       return (
-        <Nav.Link onClick={() => navigate(tab.path)} className={isActiveTab(tab.path)}>{tab.content}</Nav.Link>
+        <Nav.Link onClick={() => navigate(tab.path)} key={tab.content} className={isActiveTab(tab.path)}>{tab.content}</Nav.Link>
       )
     })
+  };
+
+  const onSearch = event => {
+    // console.log("--value---", event.target.value);
+  };
+
+  const onThemeChange = () => {
+    toggleTheme();
   };
 
   return (
@@ -69,12 +101,18 @@ const Header = props => {
           {getTabs(tabs)}
         </Nav>
         <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" size="sm" />
-          <Button variant="outline-success" size="sm">Search</Button>
+          <div class="searchbar">
+            <input id="search-input" class="search_input" type="text" name="" placeholder="Search..." onChange={onSearch} />
+            <a href="#" class="search_icon"><FontAwesomeIcon icon={faSearch} className="mr-1" /></a>
+          </div>
         </Form>
+        <div class="day-night-checkbox">
+          <input type="checkbox" id="day-night-checkbox" onChange={onThemeChange} checked={theme === "light"} />
+          <label for="day-night-checkbox"><span class="day-night-switch"></span></label>
+        </div>
       </Navbar.Collapse>
     </Navbar>
   )
 };
 
-export default Header
+export default Header;
