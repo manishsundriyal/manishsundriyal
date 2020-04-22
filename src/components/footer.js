@@ -11,7 +11,7 @@ const Footer = () => {
               <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-el-6">
                 <h6>About</h6>
                 <p className="text-justify">
-                    ManishSundriyal.com is an initiative to help / mentor / guide the upcoming programmers. 
+                    manishsundriyal.com is an initiative to help / mentor / guide the upcoming programmers. 
                     This will help people to build up concepts in various programming languages and tech. stacks.
                 </p>
               </div>
@@ -30,20 +30,20 @@ const Footer = () => {
                 <div className="row">
                   <div className="col-xs-4">
                     <ul className="social-icons">
-                      <li><a className="facebook" href="http://scanfcode.com/about/"><FontAwesomeIcon icon={faFacebookF} /></a></li>
-                      <li><a className="twitter" href="http://scanfcode.com/contact/"><FontAwesomeIcon icon={faTwitter} /></a></li>
+                      <li><a className="facebook" target="_blank" href="https://www.facebook.com/sundriyal.manish"><FontAwesomeIcon icon={faFacebookF} /></a></li>
+                      <li><a className="twitter" target="_blank" href="https://twitter.com/sundriyalManish"><FontAwesomeIcon icon={faTwitter} /></a></li>
                     </ul>
                   </div>
                   <div className="col-xs-4">
                     <ul className="social-icons">
-                      <li><a className="linkedin" href="http://scanfcode.com/privacy-policy/"><FontAwesomeIcon icon={faLinkedinIn} /></a></li>
-                      <li><a className="instagram" href="http://scanfcode.com/contribute-at-scanfcode/"><FontAwesomeIcon icon={faInstagram} /></a></li>
+                      <li><a className="linkedin" target="_blank" href="https://www.linkedin.com/in/manish-kumar-sundriyal/"><FontAwesomeIcon icon={faLinkedinIn} /></a></li>
+                      <li><a className="instagram" target="_blank" href="https://www.instagram.com/manish_sundriyal/"><FontAwesomeIcon icon={faInstagram} /></a></li>
                     </ul>
                   </div>
                   <div className="col-xs-4">
                     <ul className="social-icons">
-                      <li><a className="github" href="http://scanfcode.com/contribute-at-scanfcode/"><FontAwesomeIcon icon={faGithub} /></a></li>
-                      <li><a className="medium" href="http://scanfcode.com/contribute-at-scanfcode/"><FontAwesomeIcon icon={faMediumM} /></a></li>
+                      <li><a className="github" target="_blank" href="https://github.com/manishsundriyal/"><FontAwesomeIcon icon={faGithub} /></a></li>
+                      <li><a className="medium" target="_blank" href="http://scanfcode.com/contribute-at-scanfcode/"><FontAwesomeIcon icon={faMediumM} /></a></li>
                     </ul>
                   </div>
                 </div>
