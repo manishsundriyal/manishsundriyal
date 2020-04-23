@@ -37,8 +37,13 @@ const Layout = ({ children }) => {
 
   useEffect(() => {
     window.addEventListener("scroll", runOnScroll);
-    window.document.body.style.background = theme === "light" ? "#fff" : "#222";
-    window.document.body.style.color = theme === "light" ? "#444452" : "#fff";
+    // window.document.body.style.background = theme === "light" ? "#fff" : "#222";
+    // window.document.body.style.color = theme === "light" ? "#444452" : "#fff";
+    if (theme === "light") {
+      window.document.body.classList.remove("night");
+    } else {
+      window.document.body.classList.add("night");
+    }
   });
 
 

@@ -101,14 +101,16 @@ const Header = props => {
           {getTabs(tabs)}
         </Nav>
         <Form inline>
-          <div class="searchbar">
-            <input id="search-input" class="search_input" type="text" name="" placeholder="Search..." onChange={onSearch} />
-            <a href="#" class="search_icon"><FontAwesomeIcon icon={faSearch} className="mr-1" /></a>
+          <div className="searchbar">
+            <input id="search-input" className="search_input" type="text" name="" placeholder="Search..." onChange={onSearch} />
+            <a href="#" className="search_icon"><FontAwesomeIcon icon={faSearch} className="mr-1" /></a>
           </div>
         </Form>
-        <div class="day-night-checkbox">
-          <input type="checkbox" id="day-night-checkbox" onChange={onThemeChange} checked={theme === "light"} />
-          <label for="day-night-checkbox"><span class="day-night-switch"></span></label>
+        <div className="switch-wrapper">
+          <div className="toggle-wrapper">
+            <input id="switch" type="checkbox" checked={theme !== "light"} onChange={onThemeChange} />
+            <label for="switch" id="toggle">Toggle</label>
+          </div>
         </div>
       </Navbar.Collapse>
     </Navbar>

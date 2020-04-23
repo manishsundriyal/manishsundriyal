@@ -1,3 +1,5 @@
+@font-face { font-family: 'Apercu'; font-style: normal; font-weight: normal; src: local('Apercu Regular'), url('./Apercu_Regular.woff') format('woff'); }
+
 body, html {
   margin: 0;
   padding: 0;
@@ -5,10 +7,37 @@ body, html {
   -moz-osx-font-smoothing: grayscale;
   background-color: #fff;
   color: #444452;
-  font-family: 'Open Sans', 'PT Sans', sans-serif;
+  font-family: 'Source Sans Pro', system, system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', Helvetica, Arial, sans-serif;
   line-height: 1.5;
   width: 100%;
 }
+
+::-moz-selection {
+	background: #ffdc00
+}
+
+::selection {
+	background: #ffdc00
+}
+
+body.night,
+html.night {
+	background-color: #171c28;
+	color: #afafbf
+}
+
+body.night ::-moz-selection,
+html.night ::-moz-selection {
+	color: #36363c;
+	background: #ffdc00
+}
+
+body.night ::selection,
+html.night ::selection {
+	color: #36363c;
+	background: #ffdc00
+}
+
 
 .fixed-content {
   position: fixed;
@@ -389,14 +418,13 @@ tr:nth-child(even), th {
   margin-right: 8px;
   margin-bottom: auto;
   margin-top: auto;
-  height: 40px;
+  height: 28px;
   background-color: #ffff;
   border-radius: 30px;
-  padding: 10px;
+  padding: 3px;
 }
 
 .search_input {
-  /* color: #000; */
   border: 0;
   outline: 0;
   background: none;
@@ -412,6 +440,8 @@ tr:nth-child(even), th {
   caret-color: red;
   transition: width 0.4s linear;
   background-color: #fff;
+  /* border-radius: 30px; */
+  margin-left: 10px;
 }
 
 .searchbar:hover>.search_icon {
@@ -420,7 +450,7 @@ tr:nth-child(even), th {
 
 .search_icon {
   height: 20px;
-  width: 40px;
+  width: 45px;
   float: right;
   display: flex;
   justify-content: center;
@@ -430,105 +460,84 @@ tr:nth-child(even), th {
   text-decoration: none;
 }
 
-/* Day-Night Switch */
-.day-night-checkbox {
-  width: 100px;
-  height: 40px;
+/* night switch */
+
+@media screen and (max-width:480px) {
+	.switch-wrapper {
+		top: 10px;
+		right: 20px
+	}
 }
-@media (max-width: 992px) {
-  .day-night-checkbox {
-    margin-top: 8px;
-  }
+
+/* .switch-wrapper .moon,
+.switch-wrapper .sun {
+	width: 17px;
+	height: 17px
 }
-.day-night-checkbox input {
-  display: none;
+
+.switch-wrapper .sun {
+	background: url(../images/sun.svg) no-repeat center;
+	background-size: 100%
 }
-.day-night-checkbox label {
-  height: 100%;
-  width: 100%;
-  display: inline-block;
-  cursor: pointer;
-  -webkit-transition: all 0.3s ease-in;
-  transition: all 0.3s ease-in;
-  border-radius: 50px;
-  background: #3f51b5;
-  position: relative;
-  box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, 0.3);
+
+.switch-wrapper .moon {
+	background: url(../images/moon.svg) no-repeat center;
+	background-size: 100%
+} */
+
+.switch-wrapper .toggle-wrapper {
+	margin: 10px
 }
-.day-night-checkbox .day-night-switch {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: blanchedalmond;
-  position: absolute;
-  -webkit-transition: all 0.3s ease-in;
-  transition: all 0.3s ease-in;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  right: 62px;
-  box-shadow: inset 2px -1px 0px 2px rgba(0, 0, 0, 0.05), 0px 0px 10px 0px #ffffff;
+
+.switch-wrapper .toggle-wrapper #switch {
+	height: 0;
+	width: 0;
+	visibility: hidden;
+	position: absolute
 }
-.day-night-checkbox .day-night-switch:after, .day-night-checkbox .day-night-switch:before {
-  content: "";
-  display: block;
-  border-radius: 50%;
-  position: absolute;
-  -webkit-transition: all 0.3s ease-in;
-  transition: all 0.3s ease-in;
+
+.switch-wrapper .toggle-wrapper #switch:checked+label {
+	background: #5D9FFF
 }
-.day-night-checkbox .day-night-switch:after {
-  width: 1px;
-  height: 1px;
-  background-color: white;
-  top: 13%;
-  left: 134%;
-  -webkit-transform: rotate(-35deg);
-          transform: rotate(-35deg);
-  box-shadow: -13px 14px 0px 1px white, 18px 20px 0px 1px white, 3px 31px 0px 0px white;
+
+.switch-wrapper .toggle-wrapper #switch:checked+label:after {
+	left: calc(100% - 3px);
+	-webkit-transform: translateX(-100%);
+	transform: translateX(-100%)
 }
-.day-night-checkbox .day-night-switch:before {
-  width: 6px;
-  height: 9px;
-  background-color: rgba(221, 221, 221, 0.17);
-  top: 10%;
-  left: 54%;
-  -webkit-transform: rotate(-35deg);
-          transform: rotate(-35deg);
-  box-shadow: -10px 8px 0px 4px rgba(221, 221, 221, 0.17);
+
+.switch-wrapper .toggle-wrapper label {
+	cursor: pointer;
+	text-indent: -9999px;
+	width: 45px;
+	height: 25px;
+	background: grey;
+	display: block;
+	border-radius: 100px;
+	position: relative
 }
-.day-night-checkbox input:checked + label {
-  background: #00bcd4;
+
+.switch-wrapper .toggle-wrapper label:after {
+	-webkit-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+	content: '';
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 19px;
+	height: 19px;
+	background: #fff;
+	border-radius: 100%
 }
-.day-night-checkbox input:checked + label .day-night-switch {
-  right: 5px;
-  background: ivory;
-  box-shadow: 0 0 20px 2px white;
+/* 
+body.night .switch-wrapper .sun,
+html.night .switch-wrapper .sun {
+	background: url(../images/sun-white.svg) no-repeat center;
+	background-size: 100%
 }
-.day-night-checkbox input:checked + label .day-night-switch:before {
-  width: 12px;
-  height: 3px;
-  background-color: white;
-  display: block;
-  border-radius: 10px;
-  top: 22%;
-  position: absolute;
-  left: -129%;
-  -webkit-transform: rotate(0);
-          transform: rotate(0);
-  box-shadow: 16px 16px 0px 1px white;
-}
-.day-night-checkbox input:checked + label .day-night-switch:after {
-  width: 2px;
-  height: 2px;
-  background-color: white;
-  display: block;
-  border-radius: 50%;
-  top: 15%;
-  position: absolute;
-  left: -126%;
-  -webkit-transform: rotate(0);
-          transform: rotate(0);
-  box-shadow: 3px 0px 0px 2px white, 7px 1px 0px 0px white, 16px 15px 0px 1px white, 21px 16px 0px 3px white, 26px 18px 0px 2px white;
-}
+
+body.night .switch-wrapper .moon,
+html.night .switch-wrapper .moon {
+	background: url(../images/moon-white.svg) no-repeat center;
+	background-size: 100%
+} */
