@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { useStaticQuery, graphql } from "gatsby";
 import { navigate, useLocation } from "@reach/router"  
-import { Nav, Navbar, Form } from "react-bootstrap";
+import { Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { ThemeContext } from "../context";
@@ -85,7 +85,7 @@ const Header = props => {
   };
 
   return (
-    <Navbar bg="dark" expand="lg" sticky="top" variant="dark">
+    <Navbar bg="dark" expand="md" sticky="top" variant="dark">
       <Navbar.Brand href="#home">
         <img
           src={data.placeholderImage.childImageSharp.fluid.src}
@@ -101,10 +101,7 @@ const Header = props => {
           {getTabs(tabs)}
         </Nav>
         <Form inline>
-          <div className="searchbar">
-            <input id="search-input" className="search_input" type="text" name="" placeholder="Search..." onChange={onSearch} />
-            <a href="#" className="search_icon"><FontAwesomeIcon icon={faSearch} className="mr-1" /></a>
-          </div>
+        <FormControl type="search" placeholder="Search" className="searchbar mr-sm-2" />
         </Form>
         <div className="switch-wrapper">
           <div className="toggle-wrapper">

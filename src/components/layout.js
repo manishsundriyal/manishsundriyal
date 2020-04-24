@@ -14,13 +14,11 @@ import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import Header from "./header";
 import Footer from "./footer";
 import "../styles/global.css";
-import { ThemeProvider } from "../context";
 
 config.autoAddCss = false
 
 
 const Layout = ({ children }) => {
-  const [theme, setTheme] = useState("light");
   const runOnScroll = () => {
     const returnToTop = window.document.getElementById("return-to-top");
     const scrollPosition = window.document.documentElement.scrollTop
@@ -37,13 +35,6 @@ const Layout = ({ children }) => {
 
   useEffect(() => {
     window.addEventListener("scroll", runOnScroll);
-    // window.document.body.style.background = theme === "light" ? "#fff" : "#222";
-    // window.document.body.style.color = theme === "light" ? "#444452" : "#fff";
-    if (theme === "light") {
-      window.document.body.classList.remove("night");
-    } else {
-      window.document.body.classList.add("night");
-    }
   });
 
 
@@ -57,10 +48,6 @@ const Layout = ({ children }) => {
     }
   `);
 
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
-
   const renderTooltip = props => {
     return (
       <Tooltip {...props}>
@@ -72,11 +59,6 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <ThemeProvider value={{
-        toggleTheme,
-        theme,
-      }
-      }>
         <OverlayTrigger
           className="trigger"
           placement="top"
@@ -88,7 +70,6 @@ const Layout = ({ children }) => {
         <Header siteTitle={data.site.siteMetadata.title} />
           <main>{children}</main>
         <Footer />
-      </ThemeProvider>
     </>
   )
 }
