@@ -1,9 +1,7 @@
 import React, { useContext } from "react"
 import { useStaticQuery, graphql } from "gatsby";
 import { navigate, useLocation } from "@reach/router"  
-import { Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { Nav, Navbar, FormControl } from "react-bootstrap";
 import { ThemeContext } from "../context";
 
 const tabs = [
@@ -31,13 +29,12 @@ const tabs = [
 
 const Header = props => {
   const { theme, toggleTheme } = useContext(ThemeContext);
-  console.log("--theme---", theme);
   const location = useLocation();
   const currentPath = location.pathname;
 
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
+      placeholderImage: file(relativePath: { eq: "web-logo.png" }) {
         childImageSharp {
           fluid(maxWidth: 300) {
             ...GatsbyImageSharpFluid
@@ -57,11 +54,11 @@ const Header = props => {
   `);
 
   const searchConfig = data.allMarkdownRemark.nodes.map(node => {
-    const { slug, type, title } = node.frontmatter;
+    const { slug, template, title } = node.frontmatter;
     return {
       slug,
-      type,
       title,
+      type: template,
     };
   });
 
@@ -76,8 +73,43 @@ const Header = props => {
     })
   };
 
+  const onBlurSearchBar = event => {
+    event.target.value = "";
+    closeAllSearchItems();
+  };
+
+  const closeAllSearchItems = () => {
+    const autocompleteList = window.document.getElementsByClassName("autocomplete-list");
+    for (let i = 0; i < autocompleteList.length; ++i) {
+      autocompleteList[i].parentNode.removeChild(autocompleteList[i]);
+    }
+  };
+
   const onSearch = event => {
-    // console.log("--value---", event.target.value);
+    closeAllSearchItems();
+    const autocompleteList = window.document.createElement("div");
+    autocompleteList.setAttribute("class", "autocomplete-list");
+    const autocompleteContainer = window.document.getElementById("autocomplete-container");
+    autocompleteContainer.appendChild(autocompleteList);
+
+    autocompleteList.addEventListener("keydown", () => console.log("---key down---"));
+
+    const searchedValue = event.target.value;
+    if (!searchedValue) {
+      closeAllSearchItems();
+      return;
+    };
+    
+    searchConfig.forEach((item, index) => {
+      if (item.title.toLowerCase().includes(searchedValue.toLowerCase())) {
+        const searchedItem = window.document.createElement("div");
+        searchedItem.innerHTML = item.title;
+        searchedItem.addEventListener("mousedown", () => {
+          navigate(`/${item.slug}`)
+        });
+        autocompleteList.appendChild(searchedItem);
+      }
+    });
   };
 
   const onThemeChange = () => {
@@ -86,13 +118,13 @@ const Header = props => {
 
   return (
     <Navbar bg="dark" expand="md" sticky="top" variant="dark">
-      <Navbar.Brand href="#home">
+      <Navbar.Brand onClick={() => navigate("/")}>
         <img
           src={data.placeholderImage.childImageSharp.fluid.src}
-          width="30"
-          height="30"
+          width="35"
+          height="35"
           className="d-inline-block align-top"
-          alt="React Bootstrap logo"
+          alt="Manish Sundriyal logo"
         />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -100,13 +132,13 @@ const Header = props => {
         <Nav className="mr-auto">
           {getTabs(tabs)}
         </Nav>
-        <Form inline>
-        <FormControl type="search" placeholder="Search" className="searchbar mr-sm-2" />
-        </Form>
+        <div id="autocomplete-container" onBlur={onBlurSearchBar}>
+          <FormControl type="text" placeholder="Search" className="searchbar mr-sm-2" onChange={onSearch} />
+        </div>
         <div className="switch-wrapper">
           <div className="toggle-wrapper">
             <input id="switch" type="checkbox" checked={theme !== "light"} onChange={onThemeChange} />
-            <label for="switch" id="toggle">Toggle</label>
+            <label htmlFor="switch" id="toggle">Toggle</label>
           </div>
         </div>
       </Navbar.Collapse>

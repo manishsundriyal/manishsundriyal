@@ -9,11 +9,9 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import { config } from "@fortawesome/fontawesome-svg-core";
-import "@fortawesome/fontawesome-svg-core/styles.css";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import Header from "./header";
 import Footer from "./footer";
-import "../styles/global.css";
 
 config.autoAddCss = false
 

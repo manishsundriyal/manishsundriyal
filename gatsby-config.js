@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Manish Sundriyal Blog`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Manish Sundriyal`,
+    description: `Manish Sundriyal is a software developer, currently working at Successive Technologies. He is a content creator, who mostly shares his content on various platforms like Instagram and Medium`,
+    url: "manishsundriyal.com",
+    author: `@manishsundriyal`,
   },
   plugins: [
     {
@@ -72,18 +73,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `manish-sundriyal`,
+        short_name: `manishsundriyal`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        background_color: `#089ECA`,
+        theme_color: `#089ECA`,
+        display: `standalone`,
+        icon: `src/images/web-logo.png`, // This path is relative to the root of the site.
       },
     },
-    // `gatsby-transformer-remark`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
   ],
 }

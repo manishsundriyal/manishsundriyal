@@ -4,7 +4,7 @@ date: "April 05, 2020"
 template: "snippet"
 slug: "insertion-sort-js"
 tags: ["sorting", "algorithms"]
-description: ""
+description: "In Selection sort, we first find the smallest element in the remaining list and then swap it with its appropriate position.What if instead of searching for the smallest element on each iteration, we just place the current element to its appropriate position in the so-far sorted list."
 media: ""
 ---
 In Selection sort, we first find the smallest element in the remaining list and then swap it with its appropriate position.

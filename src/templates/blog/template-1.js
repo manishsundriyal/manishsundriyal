@@ -6,20 +6,19 @@ import SideWidget from '../components/sideWidget';
 import NewsLetter from '../components/newsLetter';
 import Layout from "../../components/layout";
 import { navigate, useLocation } from "@reach/router";  
+import SEO from '../../components/seo';
 
 const Template1 = ({ data }) => {
-    const location = useLocation();
     const post = data.markdownRemark;
-    const { title, tags = [], slug } = post.frontmatter;
-    console.log("--post--frontmatter--", post.frontmatter);
+    const { title, tags = [], description } = post.frontmatter;
     return (
         <Layout>
+            <SEO title={title} description={description} />
             <Container>
                 <Row>
                     <Col lg={8} xl={8}>
                         <h1 className="mt-4">{title}</h1>
                         <hr />
-                        {/* <Image src="http://placehold.it/900x300" alt="alt text" fluid /> */}
                         <div className="mt-4 main-content" dangerouslySetInnerHTML={{ __html: post.html }} />
                         <hr />
                         <div className="tag">

@@ -5,12 +5,14 @@ import Categories from '../components/categories';
 import SideWidget from '../components/sideWidget';
 import NewsLetter from '../components/newsLetter';
 import Layout from "../../components/layout";
+import SEO from '../../components/seo';
 
 const Template1 = ({ data }) => {
     const post = data.markdownRemark;
-    const { title, tags = [] } = post.frontmatter;
+    const { title, tags = [], description } = post.frontmatter;
     return (
         <Layout>
+            <SEO title={title} description={description} />
             <Container>
                 <Row>
                     <Col lg={8} xl={8}>

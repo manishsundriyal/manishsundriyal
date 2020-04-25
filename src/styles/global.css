@@ -10,7 +10,7 @@ body, html {
   font-family: 'Source Sans Pro', system, system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', Helvetica, Arial, sans-serif;
   line-height: 1.5;
   width: 100%;
-  transition: all 0.8s;
+    transition: all 0.8s;
 }
 
 ::-moz-selection {
@@ -25,6 +25,10 @@ body.night,
 html.night {
 	background-color: #181818;
 	color: #fff
+}
+
+body.night hr {
+  border-top: 1px solid #aaa;
 }
 
 body.night .card {
@@ -52,6 +56,10 @@ html.night ::selection {
 	background: #ffdc00
 }
 
+.navbar-brand {
+  padding: 0;
+  cursor: pointer;
+}
 
 .fixed-content {
   position: fixed;
@@ -60,6 +68,10 @@ html.night ::selection {
 .main-content a {
   text-decoration: underline;
   color: #444452;
+}
+
+body.night .main-content a {
+  color: #aaa;
 }
 
 .row {
@@ -131,6 +143,37 @@ html.night ::selection {
   height: 100%;
 } */
 
+#autocomplete-container {
+  position: relative;
+}
+
+.autocomplete-list {
+  position: absolute;
+  z-index: 99;
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-list div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4;
+}
+
+body.night .autocomplete-list div {
+  color: #444452;
+}
+
+.autocomplete-list div:hover {
+  background-color: #e9e9e9; 
+}
+
+.autocomplete-list div:last-child {
+  border-radius: 0 0 0.8rem 0.8rem;
+}
+
 .card-img-top {
   border-radius: 0.8rem 0.8rem 0 0;
 }
@@ -162,6 +205,12 @@ html.night ::selection {
   display: inline-flex;
   flex-wrap: wrap;
 }
+
+body.night .tag span {
+  background: #212121;
+  color: #aaa;
+}
+
 
 @media (max-width: 991px) {
   [class*="col-"] {

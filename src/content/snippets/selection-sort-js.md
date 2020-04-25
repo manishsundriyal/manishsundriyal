@@ -4,7 +4,10 @@ date: "April 05, 2020"
 template: "snippet"
 slug: "selection-sort-js"
 tags: ["sorting", "algorithms"]
-description: ""
+description: "When it comes to sorting, our(at least mine) brain works in the following way?
+1. Find the smallest element and swap it with the first element.
+2. Find the second smallest element and swap it with the second element.
+3. Find the third smallest element and swap it with the third element."
 media: ""
 ---
 When it comes to sorting, our(at least mine) brain works in the following way?

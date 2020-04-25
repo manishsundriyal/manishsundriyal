@@ -4,7 +4,7 @@ date: "April 03, 2020"
 template: "blog"
 slug: "a-quick-way-for-hashing-passwords-using-bcrypt-with-nodejs"
 tags: ["security", "bcrypt", "nodejs", "expressjs", "passwords"]
-description: ""
+description: 'When I first came across the bcrypt module, I felt that it was fun and easy to use it for hashing passwords. According to Wikipedia “bcrypt is a password hashing function designed by Niels Provos and David Mazières, based on the Blowfish cipher”.'
 media: "/folder/image.png"
 ---
 When I first came across the bcrypt module, I felt that it was fun and easy to use it for hashing passwords. According to [Wikipedia](https://en.wikipedia.org/wiki/Bcrypt) “bcrypt is a password hashing function designed by [Niels Provos](https://en.wikipedia.org/wiki/Niels_Provos) and David Mazières, based on the [Blowfish](https://en.wikipedia.org/wiki/Blowfish_(cipher)) cipher”.

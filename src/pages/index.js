@@ -1,17 +1,15 @@
 import React from "react"
-import { graphql } from "gatsby"
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import Post from "../components/post";
 import RecentSnippets from "../components/recentSnippets";
 import RecentBlogs from "../components/recentBlogs";
 import { Container, Jumbotron, Button, Col, Row } from "react-bootstrap";
 
-const IndexPage = ({ data }) => {
+const IndexPage = () => {
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Manish Sundriyal" />
         <Jumbotron fluid>
           <Container>
             <Row>
@@ -30,43 +28,9 @@ const IndexPage = ({ data }) => {
       <Container>
         <RecentSnippets />
         <RecentBlogs />
-        {/* <div className="row justify-content-md-center">
-          <h1>Hi people</h1>
-          {
-            data.allMarkdownRemark.nodes.map(node => {
-              return (
-                <Post image={node.frontmatter.image} title={node.frontmatter.title} excerpt={node.excerpt} readMore={node.fields.slug} />
-              );
-            })
-          } */}
-          {/* <Link to="/page-2/">Go to page 2</Link> */}
-        {/* </div> */}
       </Container>
     </Layout>
   );
 }
 
 export default IndexPage
-
-export const query = graphql`
-{
-  allMarkdownRemark {
-    nodes {
-      frontmatter {
-        title
-        date
-        template
-        slug
-        tags
-        description
-        media
-      }
-      excerpt
-      html
-      fields {
-        slug
-      }
-    }
-  }
-}
-`;

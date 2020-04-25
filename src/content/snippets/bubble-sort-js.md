@@ -4,7 +4,7 @@ date: "April 08, 2020"
 template: "snippet"
 slug: "bubble-sort-js"
 tags: ["sorting", "algorithms"]
-description: ""
+description: "We all may agree that Bubble sort is the simplest sorting algorithm, that traverses the list and compares adjacent elements and swaps them if they are in the wrong order."
 media: ""
 ---
 We all may agree that Bubble sort is the simplest sorting algorithm, that traverses the list and compares adjacent elements and swaps them if they are in the wrong order.
