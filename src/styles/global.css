@@ -85,7 +85,7 @@ body.night .main-content a {
 }
 
 .jumbotron {
-  background-image: url("../images/light-hero.png");
+  background-color: transparent;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: right;
@@ -93,15 +93,9 @@ body.night .main-content a {
   color: #fff;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 476px) {
   .jumbotron {
-    background-image: url("../images/light-hero-md.png");
-  }
-}
-
-@media (max-width: 576px) {
-  .jumbotron {
-    background-image: url("../images/light-hero-sm.png");
+    padding-left: 0;
   }
 }
 

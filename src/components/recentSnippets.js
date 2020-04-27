@@ -16,7 +16,6 @@ const RecentSnippets = () => {
                                 <Card.Text>
                                     <small className="text-muted">April 04, 2020</small> <FontAwesomeIcon className="float-right mt-1" icon={faShareAlt} />
                                 </Card.Text>
-                                <div className="card-body-overlay" />
                             </Card.Body>
                         </Card>
                     </Col>
