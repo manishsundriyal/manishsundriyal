@@ -37,7 +37,7 @@ const Header = props => {
     query {
       placeholderImage: file(relativePath: { eq: "web-logo.png" }) {
         childImageSharp {
-          fluid(quality: 100) {
+          fluid(maxWidth: 35, maxHeight: 40, quality: 100) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
@@ -130,7 +130,7 @@ const Header = props => {
           {getTabs(tabs)}
         </Nav>
         <div id="autocomplete-container" onBlur={onBlurSearchBar}>
-          <FormControl type="text" placeholder="Search" className="searchbar mr-sm-2" onChange={onSearch} />
+          <FormControl type="text" placeholder="Search..." className="searchbar mr-sm-2" onChange={onSearch} aria-labelledby="search" />
         </div>
         <div className="switch-wrapper">
           <div className="toggle-wrapper">

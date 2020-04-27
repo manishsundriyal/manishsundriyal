@@ -10,28 +10,28 @@ const RecentSnippets = () => {
         query {
             image1: file(relativePath: { eq: "recentImage1.png" }) {
                 childImageSharp {
-                  fluid(quality: 100) {
+                  fluid(maxWidth: 300, maxHeight:300, quality: 100) {
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }
               }
             image2: file(relativePath: { eq: "recentImage2.png" }) {
                 childImageSharp {
-                    fluid(quality: 100) {
+                    fluid(maxWidth: 300, maxHeight:300, quality: 100) {
                         ...GatsbyImageSharpFluid_withWebp
                     }
                 }
             }
             image3: file(relativePath: { eq: "recentImage3.png" }) {
                 childImageSharp {
-                    fluid(quality: 100) {
+                    fluid(maxWidth: 300, maxHeight:300, quality: 100) {
                         ...GatsbyImageSharpFluid_withWebp
                     }
                 }
             }
             image4: file(relativePath: { eq: "recentImage4.png" }) {
                 childImageSharp {
-                    fluid(quality: 100) {
+                    fluid(maxWidth: 300, maxHeight:300, quality: 100) {
                         ...GatsbyImageSharpFluid_withWebp
                     }
                 }
