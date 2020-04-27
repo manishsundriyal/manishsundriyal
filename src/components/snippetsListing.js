@@ -97,11 +97,11 @@ const SnippetsListing = () => {
                         return (
                             <Col xs={12} sm={6} md={6} lg={3} xl={3}>
                                 <Card>
-                                    <Card.Img variant="top" src={snippet.media} />
+                                    <Card.Img variant="top" src={snippet.media} alt="" />
                                     <Card.Body>
                                         {snippet.title}
                                         <Card.Text>
-                                            <small className="text-muted">{snippet.date}</small> <FontAwesomeIcon icon={faShareAlt} className="float-right mt-1" />
+                                            <small>{snippet.date}</small> <FontAwesomeIcon icon={faShareAlt} className="float-right mt-1" />
                                         </Card.Text>
                                     </Card.Body>
                                 </Card>

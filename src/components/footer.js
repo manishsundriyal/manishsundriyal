@@ -30,20 +30,20 @@ const Footer = () => {
                 <div className="row">
                   <div className="col-xs-4">
                     <ul className="social-icons">
-                      <li><a className="facebook" target="_blank" href="https://www.facebook.com/sundriyal.manish"><FontAwesomeIcon icon={faFacebookF} /></a></li>
-                      <li><a className="twitter" target="_blank" href="https://twitter.com/sundriyalManish"><FontAwesomeIcon icon={faTwitter} /></a></li>
+                      <li><a className="facebook" aria-label="Facebook" rel="noopener" target="_blank" href="https://www.facebook.com/sundriyal.manish"><FontAwesomeIcon icon={faFacebookF} /></a></li>
+                      <li><a className="twitter" aria-label="Twitter" rel="noopener" target="_blank" href="https://twitter.com/sundriyalManish"><FontAwesomeIcon icon={faTwitter} /></a></li>
                     </ul>
                   </div>
                   <div className="col-xs-4">
                     <ul className="social-icons">
-                      <li><a className="linkedin" target="_blank" href="https://www.linkedin.com/in/manish-kumar-sundriyal/"><FontAwesomeIcon icon={faLinkedinIn} /></a></li>
-                      <li><a className="instagram" target="_blank" href="https://www.instagram.com/manish_sundriyal/"><FontAwesomeIcon icon={faInstagram} /></a></li>
+                      <li><a className="linkedin" aria-label="LinkedIn" rel="noopener" target="_blank" href="https://www.linkedin.com/in/manish-kumar-sundriyal/"><FontAwesomeIcon icon={faLinkedinIn} /></a></li>
+                      <li><a className="instagram" aria-label="Instagram" rel="noopener" target="_blank" href="https://www.instagram.com/manish_sundriyal/"><FontAwesomeIcon icon={faInstagram} /></a></li>
                     </ul>
                   </div>
                   <div className="col-xs-4">
                     <ul className="social-icons">
-                      <li><a className="github" target="_blank" href="https://github.com/manishsundriyal/"><FontAwesomeIcon icon={faGithub} /></a></li>
-                      <li><a className="medium" target="_blank" href="http://scanfcode.com/contribute-at-scanfcode/"><FontAwesomeIcon icon={faMediumM} /></a></li>
+                      <li><a className="github" aria-label="Github" rel="noopener" target="_blank" href="https://github.com/manishsundriyal/"><FontAwesomeIcon icon={faGithub} /></a></li>
+                      <li><a className="medium" aria-label="Medium" rel="noopener" target="_blank" href="http://scanfcode.com/contribute-at-scanfcode/"><FontAwesomeIcon icon={faMediumM} /></a></li>
                     </ul>
                   </div>
                 </div>

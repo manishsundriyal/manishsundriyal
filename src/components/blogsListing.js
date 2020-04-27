@@ -65,7 +65,7 @@ const BlogsListing = () => {
                     {
                         blogs.map(blog => (
                             <Card className="mt-4">
-                                <Card.Img variant="top" src={blog.media} />
+                                <Card.Img variant="top" src={blog.media} alt="" />
                                 <Card.Body>
                                     <Card.Title>{blog.title}</Card.Title>
                                     <Card.Text className="text-secondary">
@@ -73,7 +73,7 @@ const BlogsListing = () => {
                                     </Card.Text>
                                 </Card.Body>
                                 <Card.Footer>
-                                    <small className="text-muted">{blog.date}</small> <FontAwesomeIcon className="float-right mt-1" icon={faShareAlt} />
+                                    <small>{blog.date}</small> <FontAwesomeIcon className="float-right mt-1" icon={faShareAlt} />
                                 </Card.Footer>
                             </Card>
                         ))
