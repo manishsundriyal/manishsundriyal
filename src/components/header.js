@@ -37,7 +37,7 @@ const Header = props => {
       placeholderImage: file(relativePath: { eq: "web-logo.png" }) {
         childImageSharp {
           fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }

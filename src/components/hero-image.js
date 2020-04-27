@@ -9,35 +9,35 @@ const HeroImage = props => {
       jumbotronImageXl: file(relativePath: { eq: "light-hero.png" }) {
         childImageSharp {
           fluid(maxWidth: 2800, maxHeight: 580, quality: 100) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
       jumbotronImageLg: file(relativePath: { eq: "light-hero.png" }) {
         childImageSharp {
           fluid(maxWidth: 2500, maxHeight: 580, quality: 100) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
       jumbotronImageMd: file(relativePath: { eq: "light-hero.png" }) {
         childImageSharp {
           fluid(maxWidth: 1450, maxHeight: 400, quality: 100) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
       jumbotronImageSm: file(relativePath: { eq: "light-hero-sm.png" }) {
         childImageSharp {
           fluid(maxWidth: 1000, maxHeight: 719, quality: 100) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
       jumbotronImageXs: file(relativePath: { eq: "light-hero-sm.png" }) {
         childImageSharp {
           fluid(maxWidth: 600, maxHeight: 631, quality: 100) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }

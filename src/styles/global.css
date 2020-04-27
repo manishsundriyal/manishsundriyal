@@ -8,6 +8,7 @@ body, html {
   background-color: #fff;
   color: #444452;
   font-family: 'Source Sans Pro', system, system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', Helvetica, Arial, sans-serif;
+  font-display: swap;
   line-height: 1.5;
   width: 100%;
     transition: all 0.8s;

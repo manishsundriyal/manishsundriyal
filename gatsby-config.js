@@ -6,14 +6,6 @@ module.exports = {
     author: `@manishsundriyal`,
   },
   plugins: [
-    {
-      resolve: 'gatsby-plugin-web-font-loader',
-      options: {
-        google: {
-          families: ['Source Sans Pro', 'Roboto']
-        }
-      }
-    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
