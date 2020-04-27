@@ -2,6 +2,7 @@ import React, { useContext } from "react"
 import { useStaticQuery, graphql } from "gatsby";
 import { navigate, useLocation } from "@reach/router"  
 import { Nav, Navbar, FormControl } from "react-bootstrap";
+import Img from "gatsby-image";
 import { ThemeContext } from "../context";
 
 const tabs = [
@@ -36,7 +37,7 @@ const Header = props => {
     query {
       placeholderImage: file(relativePath: { eq: "web-logo.png" }) {
         childImageSharp {
-          fluid(maxWidth: 300) {
+          fluid(quality: 100) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
@@ -119,13 +120,9 @@ const Header = props => {
   return (
     <Navbar bg="dark" expand="md" sticky="top" variant="dark">
       <Navbar.Brand onClick={() => navigate("/")}>
-        <img
-          src={data.placeholderImage.childImageSharp.fluid.src}
-          width="35"
-          height="35"
-          className="d-inline-block align-top"
-          alt="Manish Sundriyal logo"
-        />
+        <div style={{ height: "35px", width: "40px" }} className="d-inline-block align-top">
+          <Img fluid={data.placeholderImage.childImageSharp.fluid} alt="Manish Sundrial logo"/>
+        </div>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">

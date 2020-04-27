@@ -11,7 +11,6 @@ body, html {
   font-display: swap;
   line-height: 1.5;
   width: 100%;
-    transition: all 0.8s;
 }
 
 ::-moz-selection {

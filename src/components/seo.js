@@ -75,7 +75,7 @@ const SEO = ({ description = "", lang = "", meta, title = "" }) => {
       ].concat(meta)}
     >
       <link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin></link>
-      <link rel="preload" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" crossorigin/>
+      <link rel="preload" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet" crossorigin/>
     </Helmet>
   )
 }
