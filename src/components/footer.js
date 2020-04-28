@@ -2,6 +2,7 @@ import React from 'react';
 import { navigate } from "@reach/router"  
 import { faFacebookF, faTwitter, faLinkedinIn, faInstagram, faGithub, faMediumM } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { OutboundLink } from "gatsby-plugin-google-analytics";
 
 const Footer = () => {
     return (
@@ -30,20 +31,20 @@ const Footer = () => {
                 <div className="row">
                   <div className="col-xs-4">
                     <ul className="social-icons">
-                      <li><a className="facebook" aria-label="Facebook" rel="noopener" target="_blank" href="https://www.facebook.com/sundriyal.manish"><FontAwesomeIcon icon={faFacebookF} /></a></li>
-                      <li><a className="twitter" aria-label="Twitter" rel="noopener" target="_blank" href="https://twitter.com/sundriyalManish"><FontAwesomeIcon icon={faTwitter} /></a></li>
+                      <li><OutboundLink className="facebook" aria-label="Facebook" rel="noopener" target="_blank" href="https://www.facebook.com/sundriyal.manish"><FontAwesomeIcon icon={faFacebookF} /></OutboundLink></li>
+                      <li><OutboundLink className="twitter" aria-label="Twitter" rel="noopener" target="_blank" href="https://twitter.com/sundriyalManish"><FontAwesomeIcon icon={faTwitter} /></OutboundLink></li>
                     </ul>
                   </div>
                   <div className="col-xs-4">
                     <ul className="social-icons">
-                      <li><a className="linkedin" aria-label="LinkedIn" rel="noopener" target="_blank" href="https://www.linkedin.com/in/manish-kumar-sundriyal/"><FontAwesomeIcon icon={faLinkedinIn} /></a></li>
-                      <li><a className="instagram" aria-label="Instagram" rel="noopener" target="_blank" href="https://www.instagram.com/manish_sundriyal/"><FontAwesomeIcon icon={faInstagram} /></a></li>
+                      <li><OutboundLink className="linkedin" aria-label="LinkedIn" rel="noopener" target="_blank" href="https://www.linkedin.com/in/manish-kumar-sundriyal/"><FontAwesomeIcon icon={faLinkedinIn} /></OutboundLink></li>
+                      <li><OutboundLink className="instagram" aria-label="Instagram" rel="noopener" target="_blank" href="https://www.instagram.com/manish_sundriyal/"><FontAwesomeIcon icon={faInstagram} /></OutboundLink></li>
                     </ul>
                   </div>
                   <div className="col-xs-4">
                     <ul className="social-icons">
-                      <li><a className="github" aria-label="Github" rel="noopener" target="_blank" href="https://github.com/manishsundriyal/"><FontAwesomeIcon icon={faGithub} /></a></li>
-                      <li><a className="medium" aria-label="Medium" rel="noopener" target="_blank" href="http://scanfcode.com/contribute-at-scanfcode/"><FontAwesomeIcon icon={faMediumM} /></a></li>
+                      <li><OutboundLink className="github" aria-label="Github" rel="noopener" target="_blank" href="https://github.com/manishsundriyal/"><FontAwesomeIcon icon={faGithub} /></OutboundLink></li>
+                      <li><OutboundLink className="medium" aria-label="Medium" rel="noopener" target="_blank" href="http://scanfcode.com/contribute-at-scanfcode/"><FontAwesomeIcon icon={faMediumM} /></OutboundLink></li>
                     </ul>
                   </div>
                 </div>

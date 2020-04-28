@@ -10,7 +10,7 @@ const RecentBlogs = () => {
         query {
             image: file(relativePath: { eq: "recentBlog.png" }) {
                 childImageSharp {
-                  fluid(maxWidth: 400, maxHeight: 150, quality: 100) {
+                  fluid(maxWidth: 350, maxHeight: 150, quality: 90) {
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }

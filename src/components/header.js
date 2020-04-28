@@ -130,7 +130,7 @@ const Header = props => {
           {getTabs(tabs)}
         </Nav>
         <div id="autocomplete-container" onBlur={onBlurSearchBar}>
-          <FormControl type="text" placeholder="Search..." className="searchbar mr-sm-2" onChange={onSearch} aria-labelledby="search" />
+          <FormControl type="text" placeholder="Search..." className="searchbar mr-sm-2" onChange={onSearch} aria-label="Search" />
         </div>
         <div className="switch-wrapper">
           <div className="toggle-wrapper">
