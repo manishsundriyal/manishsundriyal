@@ -1,9 +1,11 @@
-import React, { useContext } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby";
-import { navigate, useLocation } from "@reach/router"  
-import { Nav, Navbar, FormControl } from "react-bootstrap";
+import { navigate, useLocation } from "@reach/router"
+import { Nav, Navbar } from "react-bootstrap";
 import Img from "gatsby-image";
 import { ThemeContext } from "../context";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const tabs = [
   {
@@ -29,7 +31,8 @@ const tabs = [
 ];
 
 const Header = props => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme, toggleTheme, toggleDrawer } = useContext(ThemeContext);
+  const [showSearchInput, setShowSearchInput] =  useState(false);
   const location = useLocation();
   const currentPath = location.pathname;
 
@@ -100,7 +103,7 @@ const Header = props => {
       closeAllSearchItems();
       return;
     };
-    
+
     searchConfig.forEach((item, index) => {
       if (item.title.toLowerCase().includes(searchedValue.toLowerCase())) {
         const searchedItem = window.document.createElement("div");
@@ -117,28 +120,43 @@ const Header = props => {
     toggleTheme();
   };
 
+  useEffect(() => {
+    const searchBar = window.document.getElementById("search-bar");
+    if (showSearchInput) {
+      searchBar.classList.add("open");
+      const searchInput = window.document.getElementById("search-input");
+      searchInput.focus();
+    } else {
+      searchBar.classList.remove("open");
+    }
+
+  }, [showSearchInput])
+
   return (
     <Navbar bg="dark" expand="md" sticky="top" variant="dark">
+      <button className="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas" onClick={toggleDrawer} style={{ outline: "none"}}>        
+        <div id="hamburger-icon" className="hamburger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
       <Navbar.Brand onClick={() => navigate("/")}>
         <div style={{ height: "35px", width: "40px" }} className="d-inline-block align-top">
           <Img fluid={data.placeholderImage.childImageSharp.fluid} alt="Manish Sundrial logo"/>
         </div>
       </Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
+      <div className="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
         <Nav className="mr-auto">
           {getTabs(tabs)}
         </Nav>
-        <div id="autocomplete-container" onBlur={onBlurSearchBar}>
-          <FormControl type="text" placeholder="Search..." className="searchbar mr-sm-2" onChange={onSearch} aria-label="Search" />
+      </div>
+      <div id="autocomplete-container" onBlur={onBlurSearchBar}>
+        <div class="searchbar" id="search-bar">
+            <input id="search-input" class="search_input" type="text" name="" placeholder="Search for..." onChange={onSearch} onBlur={() => setShowSearchInput(!showSearchInput)} autocomplete="off"/>
+            <i onClick={() => !showSearchInput && setShowSearchInput(true)} className="search_icon"><FontAwesomeIcon icon={faSearch} className="mr-1" /></i>
         </div>
-        <div className="switch-wrapper">
-          <div className="toggle-wrapper">
-            <input id="switch" type="checkbox" checked={theme !== "light"} onChange={onThemeChange} />
-            <label htmlFor="switch" id="toggle">Toggle</label>
-          </div>
-        </div>
-      </Navbar.Collapse>
+      </div>
     </Navbar>
   )
 };

@@ -5,18 +5,20 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import Header from "./header";
 import Footer from "./footer";
+import { ThemeContext } from "../context";
 
 config.autoAddCss = false
 
 
 const Layout = ({ children }) => {
+  const { toggleDrawer } = useContext(ThemeContext);
   const runOnScroll = () => {
     const returnToTop = window.document.getElementById("return-to-top");
     const scrollPosition = window.document.documentElement.scrollTop
@@ -54,9 +56,9 @@ const Layout = ({ children }) => {
     );
   }
 
-
   return (
     <>
+        <div id="overlay" onClick={toggleDrawer}></div>
         <OverlayTrigger
           className="trigger"
           placement="top"
