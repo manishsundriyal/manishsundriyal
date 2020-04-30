@@ -1,7 +1,7 @@
 import React from 'react'
-import { Card, Row, Col } from 'react-bootstrap';
+import { Card, Row, Col, Image, Media } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShareAlt } from '@fortawesome/free-solid-svg-icons';
+import { faShareAlt, faShareSquare } from '@fortawesome/free-solid-svg-icons';
 
 const SnippetsListing = () => {
     const snippetsList = [
@@ -87,31 +87,43 @@ const SnippetsListing = () => {
         },
     ];
     const snippets = [];
-    const colSize = 4;
-    while (snippetsList.length) snippets.push(snippetsList.splice(0, colSize));
+    // const colSize = 4;
+    // while (snippetsList.length) snippets.push(snippetsList.splice(0, colSize));
     return (
-        <>
+        <Row>
             {
-                snippets.map(snippetRow => {
-                    const row = snippetRow.map(snippet => {
-                        return (
-                            <Col xs={12} sm={6} md={6} lg={3} xl={3}>
-                                <Card>
-                                    <Card.Img variant="top" src={snippet.media} alt="" />
-                                    <Card.Body>
-                                        {snippet.title}
-                                        <Card.Text>
-                                            <small>{snippet.date}</small> <FontAwesomeIcon icon={faShareAlt} className="float-right mt-1" />
-                                        </Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                        );
-                    });
-                    return <Row>{row}</Row>;
+                snippetsList.map(snippet => {
+                    return (
+                        <>
+                        <Col className="col-snippet" xs={12} sm={12} md={12} lg={12} xl={12}>
+                            <Media className="media-snippet">
+                                <Image className="media-image mr-4" src={snippet.media} alt="" rounded fluid />
+                                <Media.Body>
+                                    <span className="sm-snippet-heading">Asymptotic Notations - </span>
+                                    <span className="sm-snippet-sub-heading">Time Complexity Series</span>
+                                    {/* <small>April 04, 2020</small> */}
+                                    <div className="mt-4">
+                                        <small>April 04, 2020</small> <FontAwesomeIcon size="md" className="float-right mt-1 mr-3" icon={faShareSquare} />
+                                    </div>
+                                </Media.Body>
+                            </Media>
+                        </Col>
+                            <Col className="col-snippet-md" xs={12} sm={6} md={4} lg={3} xl={3}>
+                            <Card className="snippet">
+                                <Card.Img variant="top" src={snippet.media} alt="" />
+                                <Card.Body>
+                                    {snippet.title}
+                                    <Card.Text>
+                                        <small>{snippet.date}</small> <FontAwesomeIcon icon={faShareAlt} className="float-right mt-1" />
+                                    </Card.Text>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                        </>
+                    )
                 })
             }
-        </>
+        </Row>
     );
 }
 
