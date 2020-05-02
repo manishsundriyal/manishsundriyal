@@ -71,7 +71,7 @@ const IndexPage = () => {
   ];
   return (
     <Layout>
-      <SEO title="Manish Sundriyal" />
+      <SEO title="Full Stack Developer" />
       <HeroImage>
         <h1>Interested in programming?</h1>
         <p>

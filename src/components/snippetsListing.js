@@ -1,12 +1,14 @@
 import React from 'react'
-import { Card, Row, Col, Image, Media } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShareAlt, faShareSquare } from '@fortawesome/free-solid-svg-icons';
+import { Card, Row, Col, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import NewsLetter from '../templates/components/newsLetter';
+import Categories from '../templates/components/categories';
+import SideWidget from '../templates/components/sideWidget';
+import CopyToClipboard from './copyToClipboard';
 
 const SnippetsListing = () => {
     const snippetsList = [
         {
-            title: "Asymptotic Notations",
+            title: "Asymptotic Notationsa",
             media: "https://instagram.fdel3-2.fna.fbcdn.net/v/t51.2885-15/e35/87586083_201158331132166_500818753568006045_n.jpg?_nc_ht=instagram.fdel3-2.fna.fbcdn.net&_nc_cat=110&_nc_ohc=4dDIv3KKHrkAX_JzEgB&oh=fcf7ed3d3d25217093aff73f7edced01&oe=5ECB2BE3",
             date: "April 04, 2020",
         },
@@ -86,43 +88,41 @@ const SnippetsListing = () => {
             date: "April 04, 2020",
         },
     ];
-    const snippets = [];
-    // const colSize = 4;
-    // while (snippetsList.length) snippets.push(snippetsList.splice(0, colSize));
+
     return (
         <Row>
-            {
-                snippetsList.map(snippet => {
-                    return (
-                        <>
-                        <Col className="col-snippet" xs={12} sm={12} md={12} lg={12} xl={12}>
-                            <Media className="media-snippet">
-                                <Image className="media-image mr-4" src={snippet.media} alt="" rounded fluid />
-                                <Media.Body>
-                                    <span className="sm-snippet-heading">Asymptotic Notations - </span>
-                                    <span className="sm-snippet-sub-heading">Time Complexity Series</span>
-                                    {/* <small>April 04, 2020</small> */}
-                                    <div className="mt-4">
-                                        <small>April 04, 2020</small> <FontAwesomeIcon size="md" className="float-right mt-1 mr-3" icon={faShareSquare} />
-                                    </div>
-                                </Media.Body>
-                            </Media>
-                        </Col>
-                            <Col className="col-snippet-md" xs={12} sm={6} md={4} lg={3} xl={3}>
-                            <Card className="snippet">
-                                <Card.Img variant="top" src={snippet.media} alt="" />
-                                <Card.Body>
-                                    {snippet.title}
-                                    <Card.Text>
-                                        <small>{snippet.date}</small> <FontAwesomeIcon icon={faShareAlt} className="float-right mt-1" />
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        </>
-                    )
-                })
-            }
+            <Col xs={12} sm={12} md={8} lg={8} xl={8}>
+                <Row>
+                    {
+                        snippetsList.map(snippet => {
+                            return (
+                                <Col className="col-snippet-md" xs={12} sm={6} md={6} lg={4} xl={4}>
+                                    <Card className="snippet">
+                                        <Card.Img variant="top" src={snippet.media} alt="" />
+                                        <Card.Body className="snippet-heading">
+                                        <OverlayTrigger
+                                            placement="bottom-start"
+                                            delay={{ show: 1000 }}
+                                            overlay={<Tooltip>{snippet.title}</Tooltip>}
+                                            >
+                                            <span>{snippet.title}</span>
+                                        </OverlayTrigger>
+                                            <Card.Text>
+                                                <small>{snippet.date}</small> <CopyToClipboard />
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </Col>
+                            );
+                        })
+                    }
+                </Row>
+            </Col>
+            <Col xs={12} sm={12} md={4} lg={4} xl={4}>
+                <NewsLetter />
+                <Categories />
+                <SideWidget />
+            </Col>
         </Row>
     );
 }

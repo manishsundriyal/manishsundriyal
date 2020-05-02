@@ -44,7 +44,7 @@ const Footer = () => {
                   <div className="col-xs-4">
                     <ul className="social-icons">
                       <li><OutboundLink className="github" aria-label="Github" rel="noopener" target="_blank" href="https://github.com/manishsundriyal/"><FontAwesomeIcon icon={faGithub} /></OutboundLink></li>
-                      <li><OutboundLink className="medium" aria-label="Medium" rel="noopener" target="_blank" href="http://scanfcode.com/contribute-at-scanfcode/"><FontAwesomeIcon icon={faMediumM} /></OutboundLink></li>
+                      <li><OutboundLink className="medium" aria-label="Medium" rel="noopener" target="_blank" href="https://medium.com/@manishsundriyal/"><FontAwesomeIcon icon={faMediumM} /></OutboundLink></li>
                     </ul>
                   </div>
                 </div>

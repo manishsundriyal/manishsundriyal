@@ -1,9 +1,8 @@
 import React from 'react'
-import { Card, Row, Col } from 'react-bootstrap'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShareAlt } from "@fortawesome/free-solid-svg-icons";
+import { Card, Row, Col, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from "gatsby-image";
+import CopyToClipboard from "./copyToClipboard";
 
 const RecentSnippets = () => {
     const query = useStaticQuery(graphql`
@@ -38,54 +37,55 @@ const RecentSnippets = () => {
             }
         }
     `);
+    const snippets = [
+        {
+            title: "Asymptotic Notations",
+            date: "April 04, 2020",
+            media: query.image1.childImageSharp.fluid,
+        },
+        {
+            title: "Asymptotic Analysis",
+            date: "April 04, 2020",
+            media: query.image2.childImageSharp.fluid,
+        },
+        {
+            title: "Practice Problems - III (Recursion)",
+            date: "April 04, 2020",
+            media: query.image3.childImageSharp.fluid,
+        },
+        {
+            title: "Bubble Sort JS",
+            date: "April 04, 2020",
+            media: query.image4.childImageSharp.fluid,
+        }
+    ];
     return (
         <>
             <h1 className="heading">Recent Snippets</h1>
-            <Row className="mt-4">
-                <Col xs={12} sm={12} md={4} lg={3} xl={3}>
-                    <Card>
-                        <Img fluid={query.image1.childImageSharp.fluid} alt="" className="card-img-top" />
-                        <Card.Body>
-                            Asymptotic Notations
-                                <Card.Text>
-                                <small>April 04, 2020</small> <FontAwesomeIcon className="float-right mt-1" icon={faShareAlt} />
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col xs={12} sm={12} md={4} lg={3} xl={3}>
-                    <Card>
-                        <Img fluid={query.image2.childImageSharp.fluid} alt="" className="card-img-top" />
-                        <Card.Body>
-                            Asymptotic Analysis
-                                <Card.Text>
-                                <small>April 04, 2020</small> <FontAwesomeIcon className="float-right mt-1" icon={faShareAlt} />
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col xs={12} sm={12} md={4} lg={3} xl={3}>
-                    <Card>
-                        <Img fluid={query.image3.childImageSharp.fluid} alt="" className="card-img-top" />
-                        <Card.Body>
-                            Practice Problems - III (Recursion)
-                                <Card.Text>
-                                <small>April 04, 2020</small> <FontAwesomeIcon className="float-right mt-1" icon={faShareAlt} />
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col xs={12} sm={12} md={4} lg={3} xl={3}>
-                    <Card>
-                        <Img fluid={query.image4.childImageSharp.fluid} alt="" className="card-img-top" />
-                        <Card.Body>
-                            How to calculate?
-                                <Card.Text>
-                                <small>April 04, 2020</small> <FontAwesomeIcon className="float-right mt-1" icon={faShareAlt} />
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col>
+            <Row>
+                {
+                    snippets.map(snippet => {
+                        return (
+                            <Col className="col-snippet-md" xs={12} sm={6} md={4} lg={3} xl={3}>
+                                <Card className="snippet">
+                                    <Img fluid={snippet.media} alt="" className="card-img-top" />
+                                    <Card.Body className="snippet-heading">
+                                        <OverlayTrigger
+                                            placement="bottom-start"
+                                            delay={{ show: 1000 }}
+                                            overlay={<Tooltip>{snippet.title}</Tooltip>}
+                                            >
+                                            <span>{snippet.title}</span>
+                                        </OverlayTrigger>
+                                        <Card.Text>
+                                            <small>{snippet.date}</small> <CopyToClipboard />
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        )
+                    })
+                }
             </Row>
         </>
     );

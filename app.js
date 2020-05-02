@@ -47,6 +47,7 @@ const App = props => {
             theme,
         }}>
             {props.children}
+            <div className="copyToClipboard" id="copyToClipboard">Copied to clipboard</div>
         </ThemeProvider>
     )
 };

@@ -8,9 +8,9 @@ import SEO from "../components/seo";
 const About = () => {
     const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "gatsby-icon.png" }) {
+      placeholderImage: file(relativePath: { eq: "web-logo.png" }) {
         childImageSharp {
-          fluid(maxWidth: 200) {
+          fluid(maxWidth: 220) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
@@ -25,18 +25,35 @@ const About = () => {
                     <Col md={4} lg={4} xl={4} className="text-center mb-5">
                      <Image src={data.placeholderImage.childImageSharp.fluid.src} roundedCircle />
                     </Col>
-                    <Col md={8} lg={8} xl={8}>
+                    <Col md={8} lg={8} xl={8} className="lead">
                         <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                          <span className="emoji">👋 </span>I'm Manish Kr. Sundriyal, a Full Stack Developer from India. Currently, I work for the Product Team at <a href="https://successive.tech/" target="_blank">Successive Technologies</a>.
                         </p>
                         <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                          I believe developing good software is an art. Unlike some modern art mystery, it should be <span className="text-highlight">simple</span>, <span className="text-highlight">separated</span>, and <span className="text-highlight">unique</span>.
+                          <br />
+                          <div><span className="align-middle">✅</span>Simple (KISS)</div>
+                          <div><span className="align-middle">✅</span>Separated (SOC)</div>
+                          <div><span className="align-middle">✅</span>Unique (DRY/SRP)</div>
+                        </p>
+                        ---
+                        <p>
+                          Currently I work with MERN + GQL.<br />
+                          I have experience with:
+                          <div><span className="align-middle emoji">👉 </span>Java (android development)</div>
+                          <div><span className="align-middle emoji">👉 </span>C++ (competitive + teaching)</div>
+                          <div><span className="align-middle emoji">👉 </span>Python (pastime)</div>
+                          <div><span className="align-middle emoji">👉 </span>Gatsby (used to create this site)</div>
+                        </p>
+                        ---
+                        <p>
+                          I believe in the process of: Learn, Apply & Share.<br />So, I contribute to community through  <br />
+                          <div><span className="align-middle emoji">✍️ </span>Blogs - <a href="https://medium.com/@manishsundriyal" target="_blank">Medium</a></div>
+                          <div><span className="align-middle emoji">👨‍🎨 </span>Snippets - <a href="https://www.instagram.com/manish_sundriyal" target="_blank">Instagram</a>, <a href="https://twitter.com/sundriyalManish" target="_blank">Twitter</a></div>
+                          <div><span className="align-middle emoji">💡 </span>Answers - <a href="https://stackoverflow.com/users/7672624/manish-sundriyal?tab=profile" target="_blank">Stackoverflow</a></div>
+                          {/* <div><span className="align-middle emoji">👨‍💻 </span>Open Source - </div> */}
                         </p>
                         <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                         </p>
                     </Col>
                 </Row>

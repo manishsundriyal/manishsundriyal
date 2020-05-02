@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Manish Sundriyal`,
-    description: `Manish Sundriyal is a software developer, currently working at Successive Technologies. He is a content creator, who mostly shares his content on various platforms like Instagram and Medium`,
+    description: `I'm Manish Kr. Sundriyal, a Full Stack Developer from India. Currently, I work for the Product Team at Successive Technologies. He is a content creator, who mostly shares his content on various platforms like Instagram and Medium`,
     url: "manishsundriyal.com",
     author: `@manishsundriyal`,
   },
@@ -65,7 +65,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `manish-sundriyal`,
+        name: `manish sundriyal`,
         short_name: `manishsundriyal`,
         start_url: `/`,
         background_color: `#089ECA`,
