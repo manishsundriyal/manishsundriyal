@@ -53,7 +53,7 @@ const Snippets = props => {
                     </p>
                 </HeroImage>
                 <Container id="snippets-listing-container">
-                    <SnippetsListing snippets={sortedSnippets} selectedTag={props.location.state.tag} />
+                    <SnippetsListing snippets={sortedSnippets} selectedTag={props.location.state && props.location.state.tag} />
                 </Container>
             </Layout>
         </div>
