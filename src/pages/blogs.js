@@ -53,7 +53,7 @@ const Blogs = props => {
                 </p>
             </HeroImage>
             <Container id="blogs-listing-container">
-                <BlogsListing blogs={sortedBlogs} selectedTag={props.location.state.tag} />
+                <BlogsListing blogs={sortedBlogs} selectedTag={props.location.state && props.location.state.tag} />
             </Container>
         </Layout>
     )
