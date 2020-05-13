@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env`
+});
+
 module.exports = {
   siteMetadata: {
     title: `Manish Sundriyal`,
@@ -68,8 +72,8 @@ module.exports = {
         name: `manish sundriyal`,
         short_name: `manishsundriyal`,
         start_url: `/`,
-        background_color: `#089ECA`,
-        theme_color: `#089ECA`,
+        background_color: `#343a40`,
+        theme_color: `#26272b`,
         display: `standalone`,
         icon: `src/images/web-logo.png`, // This path is relative to the root of the site.
       },
@@ -77,11 +81,18 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: `UA-164789481-1`,
+        trackingId: process.env.GA_KEY,
         head: true,
         anonymize: true,
       },
     },
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-offline`,
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+        endpoint: process.env.MAILCHIMP_ENDPOINT,
+      },
+    },
   ],
 }

@@ -29,32 +29,23 @@ const About = () => {
                         <p>
                           <span className="emoji">👋 </span>I'm Manish Kr. Sundriyal, a Full Stack Developer from India. Currently, I work for the Product Team at <a href="https://successive.tech/" target="_blank">Successive Technologies</a>.
                         </p>
-                        <p>
                           I believe developing good software is an art. Unlike some modern art mystery, it should be <span className="text-highlight">simple</span>, <span className="text-highlight">separated</span>, and <span className="text-highlight">unique</span>.
-                          <br />
-                          <div><span className="align-middle">✅</span>Simple (KISS)</div>
-                          <div><span className="align-middle">✅</span>Separated (SOC)</div>
-                          <div><span className="align-middle">✅</span>Unique (DRY/SRP)</div>
-                        </p>
-                        ---
-                        <p>
+                          <div><span className="align-middle">📌</span>Simple (KISS)</div>
+                          <div><span className="align-middle">📌</span>Separated (SOC)</div>
+                          <div><span className="align-middle">📌</span>Unique (DRY/SRP)</div>
+                          <div className="mt-3 mb-3 text-secondary">• • •</div>
                           Currently I work with MERN + GQL.<br />
                           I have experience with:
                           <div><span className="align-middle emoji">👉 </span>Java (android development)</div>
                           <div><span className="align-middle emoji">👉 </span>C++ (competitive + teaching)</div>
                           <div><span className="align-middle emoji">👉 </span>Python (pastime)</div>
                           <div><span className="align-middle emoji">👉 </span>Gatsby (used to create this site)</div>
-                        </p>
-                        ---
-                        <p>
+                          <div className="mt-3 mb-3 text-secondary">• • •</div>
                           I believe in the process of: Learn, Apply & Share.<br />So, I contribute to community through  <br />
                           <div><span className="align-middle emoji">✍️ </span>Blogs - <a href="https://medium.com/@manishsundriyal" target="_blank">Medium</a></div>
                           <div><span className="align-middle emoji">👨‍🎨 </span>Snippets - <a href="https://www.instagram.com/manish_sundriyal" target="_blank">Instagram</a>, <a href="https://twitter.com/sundriyalManish" target="_blank">Twitter</a></div>
                           <div><span className="align-middle emoji">💡 </span>Answers - <a href="https://stackoverflow.com/users/7672624/manish-sundriyal?tab=profile" target="_blank">Stackoverflow</a></div>
                           {/* <div><span className="align-middle emoji">👨‍💻 </span>Open Source - </div> */}
-                        </p>
-                        <p>
-                        </p>
                     </Col>
                 </Row>
             </Container>

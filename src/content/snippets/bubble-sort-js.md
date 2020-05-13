@@ -1,11 +1,11 @@
 ---
 title: Bubble Sort - JS
-date: "April 08, 2020"
+date: "April 01, 2020"
 template: "snippet"
 slug: "bubble-sort-js"
 tags: ["sorting", "algorithms"]
 description: "We all may agree that Bubble sort is the simplest sorting algorithm, that traverses the list and compares adjacent elements and swaps them if they are in the wrong order."
-media: ""
+media: "bubble-sort-js"
 ---
 We all may agree that Bubble sort is the simplest sorting algorithm, that traverses the list and compares adjacent elements and swaps them if they are in the wrong order.
 
@@ -26,7 +26,7 @@ Bubble sort has a worst-case time complexity of $O(n^2)$, where n is the number 
 
 **Note:** Bubble sort is a stable sorting algorithm.
 What is stability in the sorting algorithm?
-[Find out here]([https://en.wikipedia.org/wiki/Sorting_algorithm#Stability](https://en.wikipedia.org/wiki/Sorting_algorithm#Stability))
+[Find out here]([https://en.wikipedia.org/wiki/Sorting_algorithm#Stability](https://en.wikipedia.org/wiki/Sorting_algorithm#Stability)).
 
 
 ### Implementation

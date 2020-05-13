@@ -1,41 +1,38 @@
 import React from 'react'
 import { Row, Col, Media } from 'react-bootstrap'
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, navigate } from 'gatsby';
 import Img from "gatsby-image";
 import CopyToClipboard from './copyToClipboard';
 
-const RecentBlogs = () => {
+const RecentBlogs = props => {
+    const { blogs } = props;
     const query = useStaticQuery(graphql`
         query {
-            image: file(relativePath: { eq: "recentBlog.png" }) {
-                childImageSharp {
-                  fluid(maxWidth: 350, maxHeight: 150, quality: 90) {
-                    ...GatsbyImageSharpFluid_withWebp
+            allFiles: allFile(filter: { sourceInstanceName: { eq: "images" } }) {
+                edges {
+                  node {
+                    name
+                    relativePath
+                    childImageSharp {
+                        fluid(maxWidth: 350, maxHeight:150, quality: 90) {
+                            ...GatsbyImageSharpFluid_withWebp
+                          }
+                      }
                   }
                 }
             }
         }
     `);
-    const blogsList = [
-        {
-            title: "A quick way for hashing passwords using Bcrypt with Nodejs",
-            highlight: 'When I first came across the bcrypt module, I felt that it was fun and easy to use it for hashing passwords. According to Wikipedia “bcrypt is a password hashing function designed by Niels Provos and David Mazières, based on the Blowfish cipher”.',
-            media: query.image.childImageSharp.fluid,
-            date: "April 04, 2020",
-        },
-        {
-            title: "Bubble sort in JS",
-            highlight: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...",
-            media: query.image.childImageSharp.fluid,
-            date: "April 04, 2020",
-        },
-        {
-            title: "Insertion sort in JS",
-            highlight: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...",
-            media: query.image.childImageSharp.fluid,
-            date: "April 04, 2020",
-        }
-    ];
+
+    const blogsList = blogs.map(blog => {
+        const image = query.allFiles.edges.find(edge => edge.node.name === blog.media);
+        return { ...blog, media: image && image.node.childImageSharp.fluid };
+    })
+  
+    const handleClick = slug => {
+        navigate(`/${slug}`);
+    };
+
     return (
         <>
             <h1 className="heading mt-5">Recent Blogs</h1>
@@ -43,16 +40,18 @@ const RecentBlogs = () => {
                 {
                     blogsList.map(blog => {
                         return (
-                            <Col xs={12} sm={12} md={6} lg={6} xl={6}>
+                            <Col xs={12} sm={12} md={6} lg={6} xl={6} key={blog.title}>
                                 <Media>
-                                    <Img fluid={blog.media} alt="" className="mr-3" />
+                                    <div onClick={() => handleClick(blog.slug)}>
+                                        <Img fluid={blog.media} alt="" className="mr-3 media-img" />
+                                    </div>
                                     <Media.Body className="media-blog-body">
-                                        <h5>{blog.title}</h5>
+                                        <h5 onClick={() => handleClick(blog.slug)}>{blog.title}</h5>
                                         <p className="text-secondary media-blog-summary">
-                                            {blog.highlight}
+                                            {blog.description}
                                         </p>
                                         <span className="position-absolute media-blog-footer">
-                                            <small>{blog.date}</small><CopyToClipboard />
+                                            <small>{blog.date}</small><CopyToClipboard slug={blog.slug}/>
                                         </span>
                                     </Media.Body>
                                 </Media>

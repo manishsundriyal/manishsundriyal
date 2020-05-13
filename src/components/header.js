@@ -30,7 +30,7 @@ const tabs = [
   }
 ];
 
-const Header = props => {
+const Header = () => {
   const { theme, toggleTheme, toggleDrawer } = useContext(ThemeContext);
   const [showSearchInput, setShowSearchInput] =  useState(false);
   const location = useLocation();
@@ -69,6 +69,16 @@ const Header = props => {
   const isActiveTab = path => {
     return path === currentPath ? "active" : "";
   }
+
+  const themeSwitcher = elem => (
+    <div className="switch-wrapper">
+        <div className="toggle-wrapper">
+          <input id={`switch`} type="checkbox" checked={theme !== "light"} onChange={onThemeChange} aria-label="search input"/>
+          <label htmlFor="switch" id={`toggle${elem}`}>Toggle</label>
+        </div>
+      </div>
+  );
+
   const getTabs = (tabList = []) => {
     return tabList.map(tab => {
       return (
@@ -95,8 +105,6 @@ const Header = props => {
     autocompleteList.setAttribute("class", "autocomplete-list");
     const autocompleteContainer = window.document.getElementById("autocomplete-container");
     autocompleteContainer.appendChild(autocompleteList);
-
-    autocompleteList.addEventListener("keydown", () => console.log("---key down---"));
 
     const searchedValue = event.target.value;
     if (!searchedValue) {
@@ -134,7 +142,7 @@ const Header = props => {
 
   return (
     <Navbar bg="dark" expand="md" sticky="top" variant="dark">
-      <button className="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas" onClick={toggleDrawer} style={{ outline: "none"}}>        
+      <button className="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas" onClick={toggleDrawer} style={{ outline: "none"}}  aria-label="toggle side bar">        
         <div id="hamburger-icon" className="hamburger-menu">
           <span></span>
           <span></span>
@@ -143,20 +151,22 @@ const Header = props => {
       </button>
       <Navbar.Brand onClick={() => navigate("/")}>
         <div style={{ height: "35px", width: "40px" }} className="d-inline-block align-top">
-          <Img fluid={data.placeholderImage.childImageSharp.fluid} alt="Manish Sundrial logo"/>
+          <Img fluid={data.placeholderImage.childImageSharp.fluid} alt=""/>
         </div>
       </Navbar.Brand>
       <div className="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
         <Nav className="mr-auto">
           {getTabs(tabs)}
+          {themeSwitcher("sidebar")}
         </Nav>
       </div>
       <div id="autocomplete-container" onBlur={onBlurSearchBar}>
-        <div class="searchbar" id="search-bar">
-            <input id="search-input" class="search_input" type="text" name="" placeholder="Search for..." onChange={onSearch} onBlur={() => setShowSearchInput(!showSearchInput)} autocomplete="off"/>
+        <div className="searchbar" id="search-bar">
+            <input id="search-input" className="search_input" type="text" name="" placeholder="Search for..." onChange={onSearch} onBlur={() => setShowSearchInput(!showSearchInput)} autoComplete="off" aria-label="search" />
             <i onClick={() => !showSearchInput && setShowSearchInput(true)} className="search_icon"><FontAwesomeIcon icon={faSearch} className="mr-1" /></i>
         </div>
       </div>
+      {themeSwitcher("header")}
     </Navbar>
   )
 };

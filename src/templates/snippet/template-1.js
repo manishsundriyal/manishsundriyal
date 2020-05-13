@@ -1,15 +1,20 @@
 import React from 'react'
-import { graphql } from "gatsby";
-import { Container, Row, Col, Image, Card } from "react-bootstrap";
+import { graphql, navigate } from "gatsby";
+import { Container, Row, Col } from "react-bootstrap";
 import Categories from '../components/categories';
-import SideWidget from '../components/sideWidget';
-import NewsLetter from '../components/newsLetter';
+// import SideWidget from '../components/sideWidget';
+import RecentPosts from "../components/recentPosts";
+// import NewsLetter from '../components/newsLetter';
 import Layout from "../../components/layout";
 import SEO from '../../components/seo';
+import SocialMediaWidget from '../components/socialMediaWidget';
 
 const Template1 = ({ data }) => {
     const post = data.markdownRemark;
     const { title, tags = [], description } = post.frontmatter;
+    const handleTagChange = tag => {
+        navigate("/snippets", { state: { tag }});
+    }
     return (
         <Layout>
             <SEO title={title} description={description} />
@@ -18,7 +23,6 @@ const Template1 = ({ data }) => {
                     <Col lg={8} xl={8}>
                         <h1 className="mt-4">{title}</h1>
                         <hr />
-                        {/* <Image src="http://placehold.it/900x300" alt="alt text" fluid /> */}
                         <div className="mt-4 main-content" dangerouslySetInnerHTML={{ __html: post.html }} />
                         <hr />
                         <div className="tag">
@@ -26,9 +30,11 @@ const Template1 = ({ data }) => {
                         </div>
                     </Col>
                     <Col lg={4} xl={4}>
-                        <NewsLetter />
-                        <Categories />
-                        <SideWidget />
+                        {/* <NewsLetter /> */}
+                        <RecentPosts />
+                        <Categories type="snippet" onSelect={handleTagChange} />
+                        <SocialMediaWidget />
+                        {/* <SideWidget /> */}
                     </Col>
                 </Row>
             </Container>

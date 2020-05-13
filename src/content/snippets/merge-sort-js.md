@@ -5,16 +5,18 @@ template: "snippet"
 slug: "merge-sort-js"
 tags: ["sorting", "algorithms"]
 description: ""
-media: ""
+media: "merge-sort-js"
 ---
 Sometimes the best way to solve a problem is to **break it down** *(divide)* into smaller problems, then solve those smaller problems separately, and finally **merge** *(conquer)* the solutions to solve the original problem. This approach is known as **Divide and Conquer**.
 
 That's why Merge sort is one of the most efficient sorting algorithms. It works on the idea of divide and conquer. It breaks the list into several sublists until each sublist consists of a single element and then it merges those elements while placing them in sorted order.
 
-![image here](asdas)
+![How I think of merge sort](../../images/how-i-thing-of-merge-sort.png)
+*How I think of merge sort*
+
 
 ### Naming
-It's obvious that the name **Merge sort** is because it works by merging the separated elements in sorted order.
+It's obvious that the name **Merge sort** is because it works by *merging* the separated elements in sorted order.
 
 ### Performance
 It's faster than sorting algorithms like the bubble sort, selection sort, and the insertion sort. However, the extra linear space required to merge sublists into a sorted list is a drawback of merge sort.

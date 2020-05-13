@@ -1,7 +1,8 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, navigate } from "gatsby";
 import { Container, Button } from "react-bootstrap";
 
+import { getDateDESCSort } from "../lib/helper";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import RecentSnippets from "../components/recentSnippets";
@@ -9,81 +10,56 @@ import RecentBlogs from "../components/recentBlogs";
 import HeroImage from "../components/hero-image";
 
 const IndexPage = () => {
-  const data = useStaticQuery(graphql`
+  const query = useStaticQuery(graphql`
     query {
-      jumbotronImageXl: file(relativePath: { eq: "light-hero.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 2800, maxHeight: 580, quality: 100) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-      jumbotronImageLg: file(relativePath: { eq: "light-hero.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 2500, maxHeight: 580, quality: 100) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-      jumbotronImageMd: file(relativePath: { eq: "light-hero.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1450, maxHeight: 400, quality: 100) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-      jumbotronImageSm: file(relativePath: { eq: "light-hero-sm.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1000, maxHeight: 719, quality: 100) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-      jumbotronImageXs: file(relativePath: { eq: "light-hero-sm.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 600, maxHeight: 631, quality: 100) {
-            ...GatsbyImageSharpFluid_withWebp
+      allMarkdownRemark {
+        nodes {
+          frontmatter {
+            title
+            date
+            template
+            slug
+            tags
+            description
+            media
           }
         }
       }
     }
   `);
-  const images = [
-    {
-      ...data.jumbotronImageXl.childImageSharp.fluid,
-    },
-    {
-      ...data.jumbotronImageLg.childImageSharp.fluid,
-      media: `(max-width: 991px)`
-    },
-    {
-      ...data.jumbotronImageMd.childImageSharp.fluid,
-      media: `(max-width: 767px)`
-    },
-    {
-      ...data.jumbotronImageSm.childImageSharp.fluid,
-      media: `(max-width: 576px)`
-    },
-    {
-      ...data.jumbotronImageXs.childImageSharp.fluid,
-      media: `(max-width: 476px)`
-    }
-  ];
+
+  const contentList = [...query.allMarkdownRemark.nodes];
+  const blogs = contentList.filter(content => content.frontmatter.template === "blog")
+    .map(content => {
+      const { date, media, slug, tags, title, description } = content.frontmatter;
+      return { date, media, slug, tags, title, description };
+    });
+
+  const snippets = contentList.filter(content => content.frontmatter.template === "snippet")
+    .map(content => {
+      const { date, media, slug, tags, title, description } = content.frontmatter;
+      return { date, media, slug, tags, title, description };
+    });
+
+  
+  const recentSortedBlogs = getDateDESCSort(blogs).slice(0, 4);
+  const recentSortedSnippets = getDateDESCSort(snippets).slice(0, 4);
+
   return (
     <Layout>
       <SEO title="Full Stack Developer" />
       <HeroImage>
-        <h1>Interested in programming?</h1>
+        <h1>Hello, World!</h1>
         <p>
-          We've got tutorials and resources geared towards self-taught web developers.
+          I am Manish Sundriyal, I use this space to share my content.
         </p>
         <p>
-          <Button variant="light">Check it out below!</Button>
+          <Button variant="light" onClick={() => navigate("/about")}>About me</Button>
         </p>
       </HeroImage>
       <Container>
-        <RecentSnippets />
-        <RecentBlogs />
+        <RecentSnippets snippets={recentSortedSnippets} />
+        <RecentBlogs blogs={recentSortedBlogs} />
       </Container>
     </Layout>
   );

@@ -58,6 +58,33 @@ body.night .card {
   background-color: #212121;
 }
 
+.tag {
+  color: #007bff;
+}
+
+.tag:hover {
+  cursor: pointer;
+  color: #0056b3;;
+}
+
+.cbutton {
+	position: relative;
+	transition: color 0.7s;
+}
+
+.cbutton::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -35px 0 0 -35px;
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	opacity: 0;
+	pointer-events: none;
+}
+
 span.wave {
   animation-name: wave-animation;
   animation-duration: 2.5s;
@@ -86,6 +113,11 @@ span.wave {
   background-color: #ffdc00;
 }
 
+body.night .text-highlight {
+  color: #000;
+}
+
+
 .contact-email a {
   cursor: pointer;
   -webkit-transition: all .2s ease-in-out;
@@ -98,6 +130,14 @@ span.wave {
   -webkit-box-shadow: inset 0 -3px 0 #ffdc00;
   box-shadow: inset 0 -3px 0 #ffdc00;
   color: #444452;
+}
+
+body.night .contact-email a {
+  color: #aaa;
+}
+
+body.night .contact-email a:hover {
+  color: #000;
 }
 
 .contact-email a:hover {
@@ -184,6 +224,10 @@ span.wave {
 .media-blog-body {
   height: 150px;
   position: relative;
+}
+
+.media-blog-body h5:hover {
+  cursor: pointer;
 }
 
 .media h5 {
@@ -306,10 +350,23 @@ body.night .main-content a {
   color: #fff;
 }
 
+.jumbotron .btn {
+  border-radius: 2rem;
+}
+
 @media (max-width: 476px) {
   .jumbotron {
     padding-left: 0;
   }
+}
+
+.ctc-wrapper {
+  background: #0077b5;
+  padding: 4px;
+}
+
+.fa-copy:active {
+  background: #ffdc00;
 }
 
 .fa-copy {
@@ -379,6 +436,10 @@ body.night .autocomplete-list div {
   border-radius: 0 0 0.8rem 0.8rem;
 }
 
+.media-img:hover {
+  cursor: pointer;
+}
+
 .card-img-top {
   border-radius: 0.8rem 0.8rem 0 0;
 }
@@ -437,6 +498,10 @@ body.night .tag span {
   line-height: 24px;
   color: #aaa;
   margin-top: 20px;
+}
+
+.site-footer ::selection {
+  color: #000;
 }
 
 body.night .site-footer {
@@ -615,6 +680,21 @@ body.night .site-footer {
   );
 }
 
+.instagram-widget a.instagram .fa-instagram {
+  background: radial-gradient(
+    circle at 30% 120%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  padding: 4px;
+  border-radius: 2rem;
+  color: #fff
+}
+
+
 .social-icons a.github:hover {
   background-color: #333;
 }
@@ -690,6 +770,15 @@ table {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
+
+body.night table tr {
+  background-color: #212121;
+}
+
+body.night table thead th {
+  background-color: #181818;
+}
+
 
 table,
 th,
@@ -787,6 +876,10 @@ td {
 
 /* start:Side Drawer */
 
+.offcanvas-collapse .switch-wrapper {
+  display: none;
+}
+
 @media (max-width: 767px) {
   .offcanvas-collapse {
     position: fixed;
@@ -800,9 +893,16 @@ td {
     background-color: #343a40;
     transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
   }
+  body.night .offcanvas-collapse {
+    background-color: #212121;
+  }  
   .offcanvas-collapse.open {
     left: 0;
     visibility: visible;
+  }
+  .offcanvas-collapse .switch-wrapper {
+    display: block;
+    margin-left: -10px;
   }
 }
 
@@ -863,6 +963,9 @@ td {
 
 @media (max-width: 767px) {
   .navbar-brand {
+    display: none;
+  }
+  .switch-wrapper {
     display: none;
   }
 }
@@ -980,8 +1083,8 @@ th {
 .switch-wrapper .toggle-wrapper label {
   cursor: pointer;
   text-indent: -9999px;
-  width: 45px;
-  height: 25px;
+  width: 40px;
+  height: 20px;
   background: grey;
   display: block;
   border-radius: 100px;
@@ -995,8 +1098,8 @@ th {
   position: absolute;
   top: 3px;
   left: 3px;
-  width: 19px;
-  height: 19px;
+  width: 14px;
+  height: 14px;
   background: #ffb200;
   border-radius: 100%;
 }

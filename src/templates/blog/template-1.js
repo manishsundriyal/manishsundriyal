@@ -1,16 +1,20 @@
 import React from 'react'
-import { graphql } from "gatsby";
-import { Container, Row, Col, Image, Card } from "react-bootstrap";
+import { graphql, navigate } from "gatsby";
+import { Container, Row, Col } from "react-bootstrap";
 import Categories from '../components/categories';
-import SideWidget from '../components/sideWidget';
-import NewsLetter from '../components/newsLetter';
+// import SideWidget from '../components/sideWidget';
+import RecentPosts from '../components/recentPosts';
+// import NewsLetter from '../components/newsLetter';
+import SocialMediaWidget from "../components/socialMediaWidget";
 import Layout from "../../components/layout";
-import { navigate, useLocation } from "@reach/router";  
 import SEO from '../../components/seo';
 
 const Template1 = ({ data }) => {
     const post = data.markdownRemark;
     const { title, tags = [], description } = post.frontmatter;
+    const handleTagChange = tag => {
+        navigate("/blogs", { state: { tag }});
+    }
     return (
         <Layout>
             <SEO title={title} description={description} />
@@ -26,9 +30,11 @@ const Template1 = ({ data }) => {
                         </div>
                     </Col>
                     <Col lg={4} xl={4}>
-                        <NewsLetter />
-                        <Categories />
-                        <SideWidget />
+                        {/* <NewsLetter /> */}
+                        <RecentPosts />
+                        <Categories type="blog" onSelect={handleTagChange} />
+                        <SocialMediaWidget />
+                        {/* <SideWidget /> */}
                     </Col>
                 </Row>
             </Container>

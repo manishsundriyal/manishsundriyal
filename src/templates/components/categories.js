@@ -1,45 +1,67 @@
-import React from 'react'
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import { Card, Row, Col } from "react-bootstrap";
 
-const Categories = () => {
+const Categories = props => {
+    const { type, onSelect } = props;
+    const query = useStaticQuery(graphql`
+        query {
+            allMarkdownRemark {
+                nodes {
+                    frontmatter {
+                        template
+                        tags
+                    }
+                }
+            }
+        }
+    `);
+    
+    const tags = [...query.allMarkdownRemark.nodes];
+    const typeTags = tags.filter(content => content.frontmatter.template === type)
+        .map(content => content.frontmatter.tags);
+    const uniqueTags = typeTags.flat().filter((tag, index, list) => list.indexOf(tag) === index);
+    const firstHalf = [...uniqueTags];
+    const mid = Math.ceil(firstHalf.length / 2);
+    const secondHalf = firstHalf.splice(0, mid);
+
     return (
         <Card className="my-4">
-                        <Card.Header>Categories</Card.Header>
-                        <Card.Body>
-                            <Row>
-                                <Col xs={6} sm={6} md={6} lg={6} xl={6}>
-                                    <ul className="list-unstyled mb-0">
-                                        <li>
-                                            <a href="#">Web Design</a>
+            <Card.Header>Categories</Card.Header>
+            <Card.Body>
+                <Row className="mb-0">
+                    <Col className="mt-0" xs={6} sm={6} md={6} lg={6} xl={6}>
+                        <ul className="list-unstyled mb-0">
+                            <li className="mb-2">
+                                <span className="tag" onClick={() => onSelect("")}>All</span>
+                            </li>
+                            {
+                                firstHalf.map(tag => {
+                                    return (
+                                        <li className="mb-2" key={tag}>
+                                            <span className="tag" onClick={() => onSelect(tag)}>{tag}</span>
                                         </li>
-                                        <li>
-                                            <a href="#">HTML</a>
+                                    );
+                                })
+                            }
+                        </ul>
+                    </Col>
+                    <Col className="mt-0" xs={6} sm={6} md={6} lg={6} xl={6}>
+                        <ul className="list-unstyled mb-0">
+                            {
+                                secondHalf.map(tag => {
+                                    return (
+                                        <li className="mb-2" key={tag}>
+                                            <span className="tag" onClick={() => onSelect(tag)}>{tag}</span>
                                         </li>
-                                        <li>
-                                            <a href="#">Freebies</a>
-                                        </li>
-                                    </ul>
-                                </Col>
-                                <Col xs={6} sm={6} md={6} lg={6} xl={6}>
-                                    <ul className="list-unstyled mb-0">
-                                        <li>
-                                            <a href="#">JavaScript</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">CSS</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Tutorials</a>
-                                        </li>
-                                    </ul>
-                                </Col>
-                            </Row>
-                            <Card.Text>
-                                This is a wider card with supporting text below as a natural lead-in to
-                                additional content.
-                        </Card.Text>
-                        </Card.Body>
-                    </Card>
+                                    );
+                                })
+                            }
+                        </ul>
+                    </Col>
+                </Row>
+            </Card.Body>
+        </Card>
     )
 }
 

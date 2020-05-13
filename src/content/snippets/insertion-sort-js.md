@@ -5,7 +5,7 @@ template: "snippet"
 slug: "insertion-sort-js"
 tags: ["sorting", "algorithms"]
 description: "In Selection sort, we first find the smallest element in the remaining list and then swap it with its appropriate position.What if instead of searching for the smallest element on each iteration, we just place the current element to its appropriate position in the so-far sorted list."
-media: ""
+media: "insertion-sort-js"
 ---
 In Selection sort, we first find the smallest element in the remaining list and then swap it with its appropriate position.
 
@@ -40,7 +40,9 @@ One of the major advantages of Insertion sort is it can sort a list as it receiv
 
 **Note:** Insertion sort is a stable sorting algorithm.
 What is stability in the sorting algorithm?
-[Find out here]([https://en.wikipedia.org/wiki/Sorting_algorithm#Stability](https://en.wikipedia.org/wiki/Sorting_algorithm#Stability))
+[Find out here]([https://en.wikipedia.org/wiki/Sorting_algorithm#Stability](https://en.wikipedia.org/wiki/Sorting_algorithm#Stability)).
+
+### Implementation
 
 ```javascript
 function insertionSort(unsortedList) {

@@ -5,13 +5,13 @@ template: "blog"
 slug: "a-quick-way-for-hashing-passwords-using-bcrypt-with-nodejs"
 tags: ["security", "bcrypt", "nodejs", "expressjs", "passwords"]
 description: 'When I first came across the bcrypt module, I felt that it was fun and easy to use it for hashing passwords. According to Wikipedia “bcrypt is a password hashing function designed by Niels Provos and David Mazières, based on the Blowfish cipher”.'
-media: "/folder/image.png"
+media: "a-quick-way-for-hashing-passwords-using-bcrypt-with-nodejs"
 ---
 When I first came across the bcrypt module, I felt that it was fun and easy to use it for hashing passwords. According to [Wikipedia](https://en.wikipedia.org/wiki/Bcrypt) “bcrypt is a password hashing function designed by [Niels Provos](https://en.wikipedia.org/wiki/Niels_Provos) and David Mazières, based on the [Blowfish](https://en.wikipedia.org/wiki/Blowfish_(cipher)) cipher”.
 
 Let’s see how we can use it in our Node.js application.
 
-![hero image](https://miro.medium.com/max/1400/1*sMVUfKt06jxJIhjPjFaRWQ.png)
+![Photo by Jon Moore](../../images/a-quick-way-for-hashing-passwords-using-bcrypt-with-nodejs.png)
 *Photo by [Jon Moore](https://unsplash.com/@thejmoore?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on Unsplash*
 ### Install via npm
 ```

@@ -8,16 +8,16 @@ description: "When it comes to sorting, our(at least mine) brain works in the fo
 1. Find the smallest element and swap it with the first element.
 2. Find the second smallest element and swap it with the second element.
 3. Find the third smallest element and swap it with the third element."
-media: ""
+media: "selection-sort-js"
 ---
 When it comes to sorting, our(at least mine) brain works in the following way?
 1. Find the smallest element and swap it with the first element.
 2. Find the second smallest element and swap it with the second element.
-3. Find the third smallest element and swap it with the third element.
-…
-n. Find the nth smallest element and swap it with the nth element. Do this till the array is sorted.
+3. Find the third smallest element and swap it with the third element.  
+…  
+4. Find the nth smallest element and swap it with the nth element. Do this till the array is sorted.
 
-That’s how **Selection sort** works. It selects the next smallest element and swaps it into its place.
+That’s how **Selection sort** works. It selects the next smallest element and swaps it into its place.  
 Simple right?
 
 ### Naming
@@ -37,7 +37,7 @@ The Selection sort works well with small lists. Especially when we need to check
 
 **Note:** Selection sort is not a stable sorting algorithm.
 What is stability in the sorting algorithm?
-[Find out here]([https://en.wikipedia.org/wiki/Sorting_algorithm#Stability](https://en.wikipedia.org/wiki/Sorting_algorithm#Stability))
+[Find out here]([https://en.wikipedia.org/wiki/Sorting_algorithm#Stability](https://en.wikipedia.org/wiki/Sorting_algorithm#Stability)).
 
 
 ### Implementation

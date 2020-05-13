@@ -1,70 +1,64 @@
-import React from 'react'
-import { Card, Row, Col, Media, Image } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCopy } from '@fortawesome/free-regular-svg-icons';
+import React, { useState } from 'react';
+import { useStaticQuery, graphql, navigate } from 'gatsby';
+import Img from "gatsby-image";
+import { Row, Col, Media } from 'react-bootstrap';
 import Categories from '../templates/components/categories';
-import NewsLetter from '../templates/components/newsLetter';
-import SideWidget from '../templates/components/sideWidget';
+// import NewsLetter from '../templates/components/newsLetter';
+// import SideWidget from '../templates/components/sideWidget';
 import CopyToClipboard from './copyToClipboard';
+import RecentPosts from '../templates/components/recentPosts';
 
-const BlogsListing = () => {
-    const blogsList = [
-        {
-            title: "A quick way for hashing passwords using Bcrypt with Nodejs",
-            highlight: 'When I first came across the bcrypt module, I felt that it was fun and easy to use it for hashing passwords. According to Wikipedia “bcrypt is a password hashing function designed by Niels Provos and David Mazières, based on the Blowfish cipher”.',
-            media: "https://miro.medium.com/max/1400/1*sMVUfKt06jxJIhjPjFaRWQ.png",
-            date: "April 04, 2020",
-        },
-        {
-            title: "Bubble sort in JS",
-            highlight: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...",
-            media: "https://miro.medium.com/max/1400/1*sMVUfKt06jxJIhjPjFaRWQ.png",
-            date: "April 04, 2020",
-        },
-        {
-            title: "Insertion sort in JS",
-            highlight: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...",
-            media: "https://miro.medium.com/max/1400/1*sMVUfKt06jxJIhjPjFaRWQ.png",
-            date: "April 04, 2020",
-        },
-        {
-            title: "Selection sort in JS",
-            highlight: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...",
-            media: "https://miro.medium.com/max/1400/1*sMVUfKt06jxJIhjPjFaRWQ.png",
-            date: "April 04, 2020",
-        },
-        {
-            title: "Merge sort in JS",
-            highlight: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...",
-            media: "https://miro.medium.com/max/1400/1*sMVUfKt06jxJIhjPjFaRWQ.png",
-            date: "April 04, 2020",
-        },
-        {
-            title: "Quick sort in JS",
-            highlight: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...",
-            media: "https://miro.medium.com/max/1400/1*sMVUfKt06jxJIhjPjFaRWQ.png",
-            date: "April 04, 2020",
+const BlogsListing = props => {
+    const { blogs = [], selectedTag = "" } = props;
+    const [tag, setTag] = useState(selectedTag);
+    const query = useStaticQuery(graphql`
+        query {
+            allFiles: allFile(filter: { sourceInstanceName: { eq: "images" } }) {
+                edges {
+                  node {
+                    name
+                    relativePath
+                    childImageSharp {
+                        fluid(maxWidth: 253, maxHeight:253, quality: 90) {
+                            ...GatsbyImageSharpFluid_withWebp
+                          }
+                      }
+                  }
+                }
+            }
         }
-    ];
+    `);
+
+    let blogsList = blogs.map(blog => {
+        const image = query.allFiles.edges.find(edge => edge.node.name === blog.media);
+        return { ...blog, media: image && image.node.childImageSharp.fluid };
+    });
+
+    if (tag) {
+        blogsList = blogsList.filter(blog => blog.tags.includes(tag));
+    }
+
+    const handleClick = slug => {
+        navigate(`/${slug}`);
+    };
+
     return (
         <div>
             <Row>
                 <Col xs={12} sm={12} md={8} lg={8} xl={8}>
                     {
                         blogsList.map(blog => (
-                            <Media className="mt-4">
-                                <Image
-                                    className="mr-3"
-                                    src={blog.media}
-                                    alt=""
-                                />
+                            <Media className="mt-4" key={blog.title}>
+                                <div onClick={() => handleClick(blog.slug)}>
+                                    <Img fluid={blog.media} alt="" className="mr-3 media-img" />
+                                </div>
                                 <Media.Body className="media-blog-body">
-                                    <h5>{blog.title}</h5>
+                                    <h5 onClick={() => handleClick(blog.slug)}>{blog.title}</h5>
                                     <p className="text-secondary media-blog-summary">
-                                        {blog.highlight}
+                                        {blog.description}
                                     </p>
                                     <span className="position-absolute media-blog-footer">
-                                        <small>{blog.date}</small><CopyToClipboard />
+                                        <small>{blog.date}</small><CopyToClipboard slug={blog.slug}/>
                                     </span>
                                 </Media.Body>
                             </Media>
@@ -72,9 +66,10 @@ const BlogsListing = () => {
                     }
                 </Col>
                 <Col xs={12} sm={12} md={4} lg={4} xl={4}>
-                    <NewsLetter />
-                    <Categories />
-                    <SideWidget />
+                    {/* <NewsLetter /> */}
+                    <RecentPosts />
+                    <Categories type="blog" onSelect={setTag} />
+                    {/* <SideWidget /> */}
                 </Col>
             </Row>
         </div>
