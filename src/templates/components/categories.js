@@ -20,7 +20,8 @@ const Categories = props => {
     const tags = [...query.allMarkdownRemark.nodes];
     const typeTags = tags.filter(content => content.frontmatter.template === type)
         .map(content => content.frontmatter.tags);
-    const uniqueTags = typeTags.flat().filter((tag, index, list) => list.indexOf(tag) === index);
+    const typeTagsFlat = [].concat.apply([], typeTags);
+    const uniqueTags = typeTagsFlat.filter((tag, index, list) => list.indexOf(tag) === index);
     const firstHalf = [...uniqueTags];
     const mid = Math.ceil(firstHalf.length / 2);
     const secondHalf = firstHalf.splice(0, mid);
