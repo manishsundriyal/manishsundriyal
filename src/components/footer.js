@@ -12,8 +12,8 @@ const Footer = () => {
               <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-el-6">
                 <h6>About</h6>
                 <p className="text-justify">
-                    manishsundriyal.com is an initiative to help / mentor / guide the upcoming programmers. 
-                    This will help people to build up concepts in various programming languages and tech. stacks.
+                    manishsundriyal.com is the space where I share all my content related to software development. It is also an initiative to help & mentor the upcoming programmers from all around the world.
+                    I am always open for interesting questions & collaborations <span className="align-middle eomji ml-1">😃</span>
                 </p>
               </div>
               <div className="col-xs-6 col-sm-6 col-md-3 col-lg-3 col-el-3">

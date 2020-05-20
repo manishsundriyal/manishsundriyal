@@ -37,7 +37,7 @@ The Selection sort works well with small lists. Especially when we need to check
 
 **Note:** Selection sort is not a stable sorting algorithm.
 What is stability in the sorting algorithm?
-[Find out here]([https://en.wikipedia.org/wiki/Sorting_algorithm#Stability](https://en.wikipedia.org/wiki/Sorting_algorithm#Stability)).
+[Find out here](https://en.wikipedia.org/wiki/Sorting_algorithm#Stability).
 
 
 ### Implementation

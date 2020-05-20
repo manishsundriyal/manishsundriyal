@@ -49,9 +49,9 @@ It’s one of the most efficient sorting algorithms. As its worst-case time comp
 **Worst case time complexity**|$O(n^2)$
 **Worst case space complexity**|$O(log(n))$
 
-**Note:** Quick sort is a stable sorting algorithm.
+**Note:** Quick sort is not a stable sorting algorithm.
 What is stability in the sorting algorithm?
-[Find out here]([https://en.wikipedia.org/wiki/Sorting_algorithm#Stability](https://en.wikipedia.org/wiki/Sorting_algorithm#Stability)).
+[Find out here](https://en.wikipedia.org/wiki/Sorting_algorithm#Stability).
 
 
 ### Implementation

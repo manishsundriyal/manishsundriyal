@@ -40,7 +40,7 @@ One of the major advantages of Insertion sort is it can sort a list as it receiv
 
 **Note:** Insertion sort is a stable sorting algorithm.
 What is stability in the sorting algorithm?
-[Find out here]([https://en.wikipedia.org/wiki/Sorting_algorithm#Stability](https://en.wikipedia.org/wiki/Sorting_algorithm#Stability)).
+[Find out here](https://en.wikipedia.org/wiki/Sorting_algorithm#Stability).
 
 ### Implementation
 
