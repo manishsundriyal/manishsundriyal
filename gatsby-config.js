@@ -4,7 +4,7 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: process.env.GATSBY_GA_KEY,
+    title: `Manish Sundriyal`,
     description: `I'm Manish Kr. Sundriyal, a Full Stack Developer from India. Currently, I work for the Product Team at Successive Technologies. He is a content creator, who mostly shares his content on various platforms like Instagram and Medium`,
     siteUrl: "https://manishsundriyal.com",
     url: "manishsundriyal.com",
