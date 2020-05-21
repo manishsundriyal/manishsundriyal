@@ -45,6 +45,8 @@ const IndexPage = () => {
   const recentSortedBlogs = getDateDESCSort(blogs).slice(0, 4);
   const recentSortedSnippets = getDateDESCSort(snippets).slice(0, 4);
 
+  console.log("---env---", process.env.NODE_ENV);
+
   return (
     <Layout>
       <SEO title="Full Stack Developer" />
