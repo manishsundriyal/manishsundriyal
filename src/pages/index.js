@@ -46,7 +46,7 @@ const IndexPage = () => {
   const recentSortedSnippets = getDateDESCSort(snippets).slice(0, 4);
 
   console.log("---env---", process.env.NODE_ENV);
-  console.log("---env-ga---", process.env.GATSBY_GA_KEY);
+  console.log("---env-ga---", process.env.GOOGLE_ANALYTICS_ID);
 
   return (
     <Layout>
