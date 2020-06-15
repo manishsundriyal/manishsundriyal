@@ -59,7 +59,7 @@ const Footer = () => {
                 </p>
               </div>
               <div className="col-md-4 col-sm-12 col-xs-12">
-              <div className="built-with-text">Built with<span className="align-middle eomji ml-1">❤️</span>& <a href="http://gatsbyjs.org/" rel="noopener" target="_blank">Gatsby</a></div>
+              <div className="built-with-text">Built with<span className="align-middle eomji ml-1">❤️</span> & <a href="http://gatsbyjs.org/" rel="noopener" target="_blank">Gatsby</a></div>
               </div>
             </div>
           </div>

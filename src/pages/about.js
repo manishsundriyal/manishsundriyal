@@ -44,8 +44,8 @@ const About = () => {
                           I believe in the process of: Learn, Apply & Share.<br />So, I contribute to community through  <br />
                           <div><span className="align-middle emoji">✍️ </span>Blogs - <a href="https://medium.com/@manishsundriyal" target="_blank">Medium</a></div>
                           <div><span className="align-middle emoji">👨‍🎨 </span>Snippets - <a href="https://www.instagram.com/manish_sundriyal" target="_blank">Instagram</a>, <a href="https://twitter.com/sundriyalManish" target="_blank">Twitter</a></div>
-                          <div><span className="align-middle emoji">💡 </span>Answers - <a href="https://stackoverflow.com/users/7672624/manish-sundriyal?tab=profile" target="_blank">Stackoverflow</a></div>
-                          {/* <div><span className="align-middle emoji">👨‍💻 </span>Open Source - </div> */}
+                          <div><span className="align-middle emoji">💡 </span>Answers & Reviews - <a href="https://stackoverflow.com/users/7672624/manish-sundriyal?tab=profile" target="_blank">Stackoverflow</a></div>
+                          <div><span className="align-middle emoji">👨‍💻 </span>Open Source - <a href="https://github.com/manishsundriyal" target="_blank">Github</a></div>
                     </Col>
                 </Row>
             </Container>

@@ -1,6 +1,6 @@
 # V2
 
-Second version of my personal website built with ❤️and Gatsby
+Second version of my personal website built with ❤️ and Gatsby
 
 
 ## Getting started

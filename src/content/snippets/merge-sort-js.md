@@ -73,4 +73,4 @@ function mergeSort(unsortedList) {
 ```
 
 ### Visualization
-![insertion-sort-visual](https://miro.medium.com/max/1400/1*GMuXWPqgqSbBdywbs3EMaQ.gif)
+![merge-sort-visual](https://miro.medium.com/max/1400/1*GMuXWPqgqSbBdywbs3EMaQ.gif)

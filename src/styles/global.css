@@ -1038,6 +1038,7 @@ th {
   border-radius: 50%;
   color: #F0F0EE;
   text-decoration: none;
+  cursor: pointer;
 }
 /* end:Search Bar */
 
