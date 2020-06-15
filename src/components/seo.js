@@ -50,7 +50,7 @@ const SEO = ({ description = "", lang = "", meta, title = "", image = "" }) => {
         },
         {
           property: `og:title`,
-          content: title,
+          content: `${site.siteMetadata.title} | ${title} `,
         },
         {
           property: `og:description`,
@@ -78,7 +78,7 @@ const SEO = ({ description = "", lang = "", meta, title = "", image = "" }) => {
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: `${site.siteMetadata.title} | ${title} `,
         },
         {
           name: `twitter:description`,
