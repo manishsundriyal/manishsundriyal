@@ -14,7 +14,7 @@ const RecentBlogs = props => {
                     name
                     relativePath
                     childImageSharp {
-                        fluid(maxWidth: 350, maxHeight:150, quality: 90) {
+                        fluid(maxWidth: 253, maxHeight:253, quality: 90) {
                             ...GatsbyImageSharpFluid_withWebp
                           }
                       }
