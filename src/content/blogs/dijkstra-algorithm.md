@@ -53,7 +53,7 @@ dijkstra(g,w,s){
 ### Example
 In the following graph we assign zero to source vertex and infinite (INT_MAX) to all other vertices.
 
-![](../../images/graph.png)
+![](../../images/Graph.png)
 
 
 Now, we select the vertex (vertex in red colour) with lowest number (source vertex in the beginning), then relax the outgoing edges from this vertex. After this relax operation number assigned to some vertices will be changed (Numbers in green colour), this means we get a better path when we reach to them through selected vertex. Again we will select a vertex with lowest number which in not yet selected and perform relax operation on all the outgoing edges that does not reach any vertices which was selected in previous iterations (vertices in green colour). We repeat this step till all the vertices are selected.
