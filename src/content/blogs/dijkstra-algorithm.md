@@ -28,7 +28,7 @@ dist[u] = distance between source vertex to vertex ‘u’ so far.
 
 cost[u][v] = weight of edge (u,v).
 
-This means we are checking weather going to vertex ‘v’ from some vertex ‘u’ will improve the path for reaching vertex ‘v’ or not.
+This means we are checking whether going to vertex ‘v’ from some vertex ‘u’ will improve the path for reaching vertex ‘v’ or not.
 
 ### Algorithm
 In dijkstra's algorithm each vertex will be assigned a number and algorithm updates this number for each vertex. When algorithm completes, this number is going to be the shortest path from source to that vertex. Let call this number dist[u], and in the beginning for source vertex this number is given value 0 (dist[s]=0) and for all other vertices it is given largest possible value (dist[u]=INT_MAX). We select the vertex ‘u’ with shortest value of dist[u] and relax all the edges from that vertex to all those vertices which are not selected yet, in the beginning this vertex will be source vertex. When a vertex ‘u’ is selected the value of dist[u] is the shortest path form source to vertex ‘u’. 
