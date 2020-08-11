@@ -14,7 +14,7 @@ Find the shortest paths from source vertex to all the vertices of the graph.
 ![Photo by Mandy Choi](../../images/dijkstra-algorithm.jpg)
 *Photo by [Mandy Choi](https://unsplash.com/@mandddysweettt?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText) on Unsplash*
 ### About Algorithm
-We have to find the shortest paths from a starting vertex to all the other vertices, here shortest path means sum of weights of all the edges in the path (cost) should be minimum. Dijkstra's Algorithm uses greedy approach to solve this problem. In dijkstra's algorithm we use relax operation which performs a check weather going from current vertex to a neighbouring vertex will reduce the path cost of reaching the neighbouring vertex.
+We have to find the shortest paths from a starting vertex to all the other vertices, here shortest path means sum of weights of all the edges in the path (cost) should be minimum. Dijkstra's Algorithm uses greedy approach to solve this problem. In dijkstra's algorithm we use relax operation which performs a check whether going from current vertex to a neighbouring vertex will reduce the path cost of reaching the neighbouring vertex.
 ```cpp
 relax(u,v,cost[u][v]){
     if(dist[v]>dist[u]+cost[u][v]){
