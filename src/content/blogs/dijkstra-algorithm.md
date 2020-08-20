@@ -14,7 +14,7 @@ Find the shortest paths from source vertex to all the vertices of the graph.
 ![Photo by Mandy Choi](../../images/dijkstra-algorithm.jpg)
 *Photo by [Mandy Choi](https://unsplash.com/@mandddysweettt?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText) on Unsplash*
 ### About Algorithm
-We have to find the shortest paths from a starting vertex to all the other vertices, here shortest path means sum of weights of all the edges in the path (cost) should be minimum. Dijkstra's Algorithm uses greedy approach to solve this problem. In dijkstra's algorithm we use relax operation which performs a check weather going from current vertex to a neighbouring vertex will reduce the path cost of reaching the neighbouring vertex.
+We have to find the shortest paths from a starting vertex to all the other vertices, here shortest path means sum of weights of all the edges in the path (cost) should be minimum. Dijkstra's Algorithm uses greedy approach to solve this problem. In dijkstra's algorithm we use relax operation which performs a check whether going from current vertex to a neighbouring vertex will reduce the path cost of reaching the neighbouring vertex.
 ```cpp
 relax(u,v,cost[u][v]){
     if(dist[v]>dist[u]+cost[u][v]){
@@ -28,7 +28,7 @@ dist[u] = distance between source vertex to vertex ‘u’ so far.
 
 cost[u][v] = weight of edge (u,v).
 
-This means we are checking weather going to vertex ‘v’ from some vertex ‘u’ will improve the path for reaching vertex ‘v’ or not.
+This means we are checking whether going to vertex ‘v’ from some vertex ‘u’ will improve the path for reaching vertex ‘v’ or not.
 
 ### Algorithm
 In dijkstra's algorithm each vertex will be assigned a number and algorithm updates this number for each vertex. When algorithm completes, this number is going to be the shortest path from source to that vertex. Let call this number dist[u], and in the beginning for source vertex this number is given value 0 (dist[s]=0) and for all other vertices it is given largest possible value (dist[u]=INT_MAX). We select the vertex ‘u’ with shortest value of dist[u] and relax all the edges from that vertex to all those vertices which are not selected yet, in the beginning this vertex will be source vertex. When a vertex ‘u’ is selected the value of dist[u] is the shortest path form source to vertex ‘u’. 
