@@ -27,7 +27,7 @@ const About = () => {
                     </Col>
                     <Col md={8} lg={8} xl={8} className="lead">
                         <p>
-                          <span className="emoji">👋 </span>I'm Manish Kr. Sundriyal, a Full Stack Developer from India. Currently, I work for the Product Team at <a href="https://successive.tech/" target="_blank">Successive Technologies</a>.
+                          <span className="emoji">👋 </span>I'm Manish Kr. Sundriyal, a Full Stack Developer from India. Currently, I work at <a href="https://www.peoplegrove.com/" target="_blank">PeopleGrove</a>.
                         </p>
                           I believe developing good software is an art. Unlike some modern art mystery, it should be <span className="text-highlight">simple</span>, <span className="text-highlight">separated</span>, and <span className="text-highlight">unique</span>.
                           <div><span className="align-middle">📌</span>Simple (KISS)</div>
