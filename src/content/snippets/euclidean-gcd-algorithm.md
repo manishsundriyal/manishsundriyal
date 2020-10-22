@@ -11,15 +11,8 @@ media: "euclidean-gcd-algorithm"
 ### Greatest Common Divisor
 GCD-Greatest Common Divisor of 2 numbers ‘x’ and ‘y’ can be defined as the largest number that divides both a and b with remainder zero.
 
-
-![Photo by Mandy Choi](../../images/dijkstra-algorithm.jpg)
-*Photo by [Mandy Choi](https://unsplash.com/@mandddysweettt?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText) on Unsplash*
-
-
 ### Regular Approach:
 Most basic idea to find GCD of 2 Numbers can be try to divide both numbers with all the numbers smaller than both the numbers starting from 1 and the largest number that divides both the numbers with remainder zero will be the GCD of those Numbers. This approach is simple and straight forward but it can be slow if smallest of two numbers is very large, Asymptotically we can say this approach takes O(n) time to compute GCD.
-
-![](../../images/dijkstra-algorithm-solution.png)
 
 
 ```cpp
@@ -69,7 +62,7 @@ Regular Approach:
 - Time Complexity = O(n)			
 - Space Complexity = O(1)
 
-Euclidean GCD:
+Euclidean's GCD Algorithm:
 - Time Complexity = O(Log(min(x,y))		
 - Space Complexity = O(Log(min(x,y))) (Size of Recursion Stack)
 
