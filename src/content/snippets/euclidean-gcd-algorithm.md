@@ -4,7 +4,7 @@ date: "October 23, 2020"
 template: "blog"
 slug: "euclidean-gcd-algorithm"
 tags: ["Euclidean", "Algorithm", "GCD", "Factorize"]
-description: 'GCD-Greatest Common Divisor of 2 numbers ‘x’ and ‘y’ can be defined as the largest number that divides both a and b with remainder zero.'
+description: 'GCD-Greatest Common Divisor of 2 numbers ‘x’ and ‘y’ can be defined as the largest number that divides both ‘x’ and ‘y’ with remainder zero.'
 media: "euclidean-gcd-algorithm"
 ---
 
