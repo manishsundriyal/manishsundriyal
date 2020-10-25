@@ -1,7 +1,7 @@
 ---
 title: Euclidean's GCD Algorithm
-date: "October 23, 2020"
-template: "blog"
+date: "October 25, 2020"
+template: "snippet"
 slug: "euclidean-gcd-algorithm"
 tags: ["Euclidean", "Algorithm", "GCD", "Factorize"]
 description: 'GCD-Greatest Common Divisor of 2 numbers ‘x’ and ‘y’ can be defined as the largest number that divides both ‘x’ and ‘y’ with remainder zero.'
@@ -9,7 +9,7 @@ media: "euclidean-gcd-algorithm"
 ---
 
 ### Greatest Common Divisor
-GCD-Greatest Common Divisor of 2 numbers ‘x’ and ‘y’ can be defined as the largest number that divides both a and b with remainder zero.
+GCD-Greatest Common Divisor of 2 numbers ‘x’ and ‘y’ can be defined as the largest number that divides both 'x' and 'y' with remainder zero.
 
 ### Regular Approach:
 Most basic idea to find GCD of 2 Numbers can be try to divide both numbers with all the numbers smaller than both the numbers starting from 1 and the largest number that divides both the numbers with remainder zero will be the GCD of those Numbers. This approach is simple and straight forward but it can be slow if smallest of two numbers is very large, Asymptotically we can say this approach takes O(n) time to compute GCD.
