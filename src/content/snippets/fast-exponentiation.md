@@ -5,7 +5,7 @@ template: "snippet"
 slug: "fast-exponentiation"
 tags: ["Exponentiation", "Exponent", "Divide & Conquer", "Binary Exponentiation"]
 description: 'Exponentiation is a mathematical operation on two numbers (binary operation), one of the number is called base and other one is called exponent or power.'
-media: "fast-exponentiation"
+media: "euclidean-gcd-algorithm"
 ---
 
 # Fast Exponentiation

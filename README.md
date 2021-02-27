@@ -6,7 +6,7 @@ Second version of my personal website built with ❤️ and Gatsby
 ## Getting started
 Clone
 ```
-git clone https://github.com/manishsundriyal/manishsundriyal.git
+git clone --branch v2 https://github.com/manishsundriyal/manishsundriyal.git
 ```
 Install
 ```
