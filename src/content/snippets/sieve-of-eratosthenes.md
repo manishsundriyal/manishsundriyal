@@ -5,7 +5,7 @@ template: "snippet"
 slug: "sieve-of-eratosthenes"
 tags: ["Natural Number", "Sieve", "Prime", "Composite", "Eratosthenes"]
 description: 'Natural Numbers that have only two factors 1 and itself are called Prime numbers. Numbers that have more than 2 factors are Composite Numbers.'
-media: "euclidean-gcd-algorithm"
+media: "sieve-of-eratosthenes"
 ---
 
 # Sieve of Eratosthenes
