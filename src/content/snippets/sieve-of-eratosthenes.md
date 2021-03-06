@@ -8,8 +8,6 @@ description: 'Natural Numbers that have only two factors 1 and itself are called
 media: "sieve-of-eratosthenes"
 ---
 
-# Sieve of Eratosthenes
-
 ### Prime Numbers
 Natural Numbers that have only two factors 1 and itself are called Prime numbers. Numbers that have more than 2 factors are Composite Numbers. 1 is neither a prime nor a composite numbers.
 

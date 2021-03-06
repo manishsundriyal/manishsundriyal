@@ -8,7 +8,6 @@ description: 'Exponentiation is a mathematical operation on two numbers (binary 
 media: "fast-exponentiation"
 ---
 
-# Fast Exponentiation
 ### Exponentiation:
 Exponentiation is a mathematical operation operates on two numbers (binary operation), one of the number is called base and other one is called exponent or power. It is denoted by a^n where 'a' is base and 'n' is exponent.
 ```
