@@ -1,0 +1,29 @@
+main.mainSection {
+  width: 100%;
+
+  .container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 200px;
+  }
+
+  @media (min-width: $screen-md) {
+    .container {
+      width: 750px;
+    }
+  }
+
+  @media (min-width: $screen-lg) {
+    .container {
+      width: 970px;
+    }
+  }
+
+  @media (min-width: $screen-xl) {
+    .container {
+      width: 1170px;
+    }
+  }
+}
