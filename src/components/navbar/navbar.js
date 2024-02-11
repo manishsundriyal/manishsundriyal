@@ -4,19 +4,20 @@ import { Red_Hat_Text, Lato } from "next/font/google";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import styles from "./navbar.module.scss";
+import useIsSideNavOpenAtom from "@/states/sideNavOpen";
 
 const links = [
   {
-    label: "Blogs",
-    path: "/blogs",
-  },
-  {
     label: "About",
-    path: "/about",
+    path: "#about",
   },
   {
-    label: "Mentorship",
-    path: "/mentorship",
+    label: "Experience",
+    path: "#experience",
+  },
+  {
+    label: "Contact",
+    path: "#contact",
   },
 ];
 
@@ -30,9 +31,7 @@ const Navbar = () => {
       <ul className={styles.horizontalNav}>
         <li>
           <Link className={`${styles.logo} ${latoText.className}`} href="/">
-            CODE
-            <br />
-            MASHEEN.
+            MS
           </Link>
         </li>
         {links.map((link) => (
