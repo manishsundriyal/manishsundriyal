@@ -1,21 +1,24 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin, faMediumM, faStackOverflow } from '@fortawesome/free-brands-svg-icons';
 import styles from './socialList.module.scss';
+import Link from 'next/link';
 
 const links = [
     {
-        icon: "social icon 1",
+        icon: faGithub,
         path: ""
     },
     {
-        icon: "social icon 2",
+        icon: faLinkedin,
         path: ""
     },
     {
-        icon: "social icon 3",
+        icon: faMediumM,
         path: ""
     },
     {
-        icon: "social icon 3",
+        icon: faStackOverflow,
         path: ""
     }
 ]
@@ -24,7 +27,7 @@ const SocialList = () => {
     <div className={styles.socialList}>
         <ul>
             {
-                links.map(link => <li key={link.path}>{link.icon}</li>)
+                links.map(link => <li key={link.path}><FontAwesomeIcon icon={link.icon} /></li>)
             }
         </ul>
     </div>

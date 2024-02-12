@@ -5,6 +5,12 @@ $screen-lg: 992px;
 $screen-xl: 1200px;
 $screen-xxl: 1600px;
 
+// colors 
+$darkBlue: #0e172a;
+$lavender: #ccd6f6;
+
+$nav-height: 100px;
+
 
 // media queries
 @mixin include-sm-up {

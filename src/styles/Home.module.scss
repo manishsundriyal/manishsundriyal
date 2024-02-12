@@ -1,7 +1,6 @@
 .heroContainer {
     width: 100%;
     min-height: 100vh;
-    background-color: aqua;
 
     .heroSection {
         display: flex;
@@ -11,5 +10,14 @@
         min-height: 100vh;
         height: 100vh;
         padding: 0px;
+
+        h1 {
+            color: #2ec4b6;
+            margin: 0px 0px 30px 0px;
+        }
+        h2 {
+            margin: 0px;
+            font-size: 3rem;
+        }
     }
 }

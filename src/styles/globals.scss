@@ -1,0 +1,13 @@
+html, body {
+    margin: 0px;
+    max-width: 100vw;
+    background-color: $darkBlue;
+    color: $lavender;
+}
+
+html, body, #__next {
+    height: 100%;
+    @include include-md-up {
+        height: auto;
+    }
+}
