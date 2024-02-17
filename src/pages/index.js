@@ -11,7 +11,7 @@ const Home = () => {
         <p>some extra details here</p>
         <a>Action button here</a>
       </section>
-      <section>
+      <section id="about">
         <h1>About Me</h1>
         <div>
           <h2>John Doe</h2>
@@ -29,7 +29,7 @@ const Home = () => {
           </p>
         </div>
       </section>
-      <section>
+      <section id="experience">
         <h2>Experience</h2>
         <div>
           <h3>Senior Web Developer</h3>
@@ -61,7 +61,7 @@ const Home = () => {
           </p>
         </div>
       </section>
-      <section>
+      <section id="contact">
         <h2>Get in Touch</h2>
         <p>
           I'm always open to new opportunities and collaborations. Feel free to

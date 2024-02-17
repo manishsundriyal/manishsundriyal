@@ -1,17 +1,17 @@
 import React from "react";
 import styles from "./layout.module.scss";
 import clsx from "clsx";
-import { Source_Sans_3 } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 import { Navbar, SocialList } from "@/components";
 
-const sourceSans3 = Source_Sans_3({ subsets: ["latin"], weight: "400", display: "swap" });
+const poppins = Poppins({ subsets: ["latin"], weight: "400", display: "swap" });
 
 
 const Layout = ({ children }) => {
   return (
     <>
       <Navbar />
-      <main className={clsx(styles.mainSection, sourceSans3.className)}>
+      <main className={clsx(styles.mainSection, poppins.className)}>
         <div
           className={styles.container}
           style={{ height: "100%" }}
