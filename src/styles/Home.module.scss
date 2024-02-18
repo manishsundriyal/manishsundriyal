@@ -18,18 +18,66 @@
         }
         h2, h3 {
             margin: 0px;
-            font-size: 3rem;
             line-height: 1.1;
-            font-weight: 600;
+            font-size: 4.5rem;
+            font-weight: 500;
+            font-style: normal;
+            font-family: $font-heading;
         }
         h3 {
             color: $slate;
+            font-size: 3.5rem;
         }
         p {
             margin: 20px 0px 0px;
         }
         a {
             margin-top: 50px; 
+            border: 1px solid;
+            padding: 10px;
+        }
+
+        .rocket {
+            display: inline-block;
+            font-size: 2rem;
+        }
+
+        .wave {
+            animation-name: wave-animation;
+            animation-duration: 2.5s;
+            animation-iteration-count: infinite;
+            transform-origin: 70% 70%;
+            display: inline-block;
+            font-size: 4rem;
+        }
+        @keyframes wave-animation {
+            0% {
+                transform: rotate(0deg)
+            }
+
+            10% {
+                transform: rotate(-10deg)
+            }
+
+            20% {
+                transform: rotate(12deg)
+            }
+
+            30% {
+                transform: rotate(-10deg)
+            }
+
+            40% {
+                transform: rotate(9deg)
+            }
+
+            50% {
+                transform: rotate(0deg)
+            }
+
+            to {
+                transform: rotate(0deg)
+            }
         }
     }
 }

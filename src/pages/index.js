@@ -1,20 +1,21 @@
 import React from "react";
 import styles from "@/styles/Home.module.scss";
+import { Emoji } from "@/components"
 
 const Home = () => {
   return (
     <main className={styles.heroContainer}>
       <section className={styles.heroSection}>
         <h1>Hello, I am</h1>
-        <h2>Manish Sundriyal</h2>
-        <h3>Some h3 here</h3>
-        <p>some extra details here</p>
+        <h2>Manish Sundriyal. <Emoji symbol="👋" className={styles.wave} /></h2>
+        <h3>Software Artisan</h3>
+        <p><Emoji symbol="🚀" className={styles.rocket} /> Crafting exceptional digital experiences, specializing in scaling projects and teams.</p>
         <a>Action button here</a>
       </section>
       <section id="about">
         <h1>About Me</h1>
         <div>
-          <h2>John Doe</h2>
+          <h2>Manish Sundriyal</h2>
           <p>
             <strong>Profession:</strong> Web Developer
           </p>

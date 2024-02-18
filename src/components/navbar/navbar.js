@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { Red_Hat_Text, Lato } from "next/font/google";
+import { Poppins } from "next/font/google";
 import styles from "./navbar.module.scss";
 import useIsSideNavOpenAtom from "@/states/sideNavOpen";
 
@@ -19,8 +19,7 @@ const links = [
   },
 ];
 
-const redHatText = Red_Hat_Text({ subsets: ["latin"], weight: "500" });
-const latoText = Lato({ subsets: ["latin"], weight: "900" });
+const poppins = Poppins({ subsets: ["latin"], weight: "500" });
 
 const Navbar = () => {
   const [isSideNavOpen, setIsSideNavOpen] = useIsSideNavOpenAtom();
@@ -28,7 +27,7 @@ const Navbar = () => {
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
-        <Link className={`${styles.logo} ${latoText.className}`} href="/">
+        <Link className={`${styles.logo} ${poppins.className}`} href="/">
           MS Office
         </Link>
         <ul className={styles.horizontalNav}>
@@ -36,7 +35,7 @@ const Navbar = () => {
             <li key={link.label} className={styles.desktopNavItem}>
               <Link
                 href={link.path}
-                className={redHatText.className}
+                className={poppins.className}
               >
                 {link.label}
               </Link>
@@ -60,7 +59,7 @@ const Navbar = () => {
               <li key={link.label} className={styles.desktopNavItem}>
                 <Link
                   href={link.path}
-                  className={redHatText.className}
+                  className={poppins.className}
                 >
                   {link.label}
                 </Link>

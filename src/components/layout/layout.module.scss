@@ -10,19 +10,19 @@ main.mainSection {
 
   @media (min-width: $screen-md) {
     .container {
-      width: 650px;
+      width: 675px;
     }
   }
 
   @media (min-width: $screen-lg) {
     .container {
-      width: 839px;
+      width: 870px;
     }
   }
 
   @media (min-width: $screen-xl) {
     .container {
-      width: 1012px;
+      width: 1050px;
     }
   }
 }
