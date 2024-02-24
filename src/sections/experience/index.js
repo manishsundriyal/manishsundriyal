@@ -1,79 +1,91 @@
-import React from 'react';
-import styles from './index.module.scss';
+import React from "react";
+import styles from "./index.module.scss";
 
-const EXPERIENCES = [
+const FULL_TIME_EXPERIENCES = [
   {
-    title: 'SDE 2',
-    company: 'PeopleGrove',
-    start: '',
-    end: '',
-    description: '',
+    title: "SDE 2",
+    company: "PeopleGrove",
+    start: "MAR 2021",
+    end: "PRESENT",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
   {
-    title: 'SDE',
-    company: 'PeopleGrove',
-    start: '',
-    end: '',
-    description: '',
+    title: "SDE",
+    company: "PeopleGrove",
+    start: "SEPT 2020",
+    end: "MAR 2021",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
   {
-    title: 'Software Engineer - Trainee',
-    company: 'Successive Technologies',
-    start: '',
-    end: '',
-    description: '',
+    title: "Software Engineer - Trainee",
+    company: "Successive Technologies",
+    start: "JULY 2018",
+    end: "JAN 2019",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
   {
-    title: 'Associate Engineer',
-    company: 'Successive Technologies',
-    start: '',
-    end: '',
-    description: '',
+    title: "Associate Engineer",
+    company: "Successive Technologies",
+    start: "JAN 2019",
+    end: "SEPT 2020",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
   {
-    title: 'Software Developer Intern',
-    company: 'Daphnis Labs',
-    start: '',
-    end: '',
-    description: '',
-  }
+    title: "Software Developer Intern",
+    company: "Daphnis Labs",
+    start: "DEC 2017",
+    end: "FEB 2018",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  },
+];
+
+const PART_TIME_EXPERIENCES = [
+  {
+    title: "Tech Mentor",
+    company: "Pesto Tech",
+    start: "DEC 2022",
+    end: "PRESENT",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  },
+  {
+    title: "Teaching Assistant",
+    company: "Coding Blocks",
+    start: "SEPT 2017",
+    end: "NOV 2017",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  },
 ];
 
 const ExperienceSection = () => {
   return (
     <section id="experience" className={styles.experienceSection}>
-        <h2>Experience</h2>
-        <div>
-          <h3>Senior Web Developer</h3>
-          <p>
-            <strong>Company:</strong> Tech Solutions Inc.
-          </p>
-          <p>
-            <strong>Duration:</strong> 2018 - Present
-          </p>
-          <p>
-            Led a team of developers in designing and implementing scalable web
-            applications. Collaborated with clients to understand their
-            requirements and provided technical solutions to meet their needs.
-          </p>
-        </div>
-
-        <div>
-          <h3>Junior Developer</h3>
-          <p>
-            <strong>Company:</strong> CodeCrafters Ltd.
-          </p>
-          <p>
-            <strong>Duration:</strong> 2016 - 2018
-          </p>
-          <p>
-            Gained hands-on experience in front-end and back-end development.
-            Contributed to the development of several successful projects and
-            worked closely with senior developers.
-          </p>
-        </div>
-      </section>
-  )
-}
+      <h2>Experience</h2>
+      <div className={styles.timeline}>
+        <ol>
+          {FULL_TIME_EXPERIENCES.map(
+            ({ title, company, start, end, description }) => (
+              <li key={title}>
+                <div className={styles.listWrapper}>
+                  <header>{`${start} — ${end}`}</header>
+                  <div className={styles.description}>
+                    <div>{`${company}, ${title}`}</div>
+                    <div>{description}</div>
+                  </div>
+                </div>
+              </li>
+            )
+          )}
+        </ol>
+      </div>
+    </section>
+  );
+};
 
 export default ExperienceSection;

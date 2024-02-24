@@ -5,4 +5,19 @@
     p {
         font-size: $p-font-size;
     }
+    .timeline {
+        ol {
+            list-style: none;
+            gap: 20px;
+            li .listWrapper {
+                display: flex;
+            }
+            header {
+                flex: 30;
+            }
+            .description {
+                flex: 70;
+            }
+        }
+    }
 }
