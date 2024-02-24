@@ -1,8 +1,47 @@
-import React from 'react'
+import React from 'react';
+import styles from './index.module.scss';
+
+const EXPERIENCES = [
+  {
+    title: 'SDE 2',
+    company: 'PeopleGrove',
+    start: '',
+    end: '',
+    description: '',
+  },
+  {
+    title: 'SDE',
+    company: 'PeopleGrove',
+    start: '',
+    end: '',
+    description: '',
+  },
+  {
+    title: 'Software Engineer - Trainee',
+    company: 'Successive Technologies',
+    start: '',
+    end: '',
+    description: '',
+  },
+  {
+    title: 'Associate Engineer',
+    company: 'Successive Technologies',
+    start: '',
+    end: '',
+    description: '',
+  },
+  {
+    title: 'Software Developer Intern',
+    company: 'Daphnis Labs',
+    start: '',
+    end: '',
+    description: '',
+  }
+];
 
 const ExperienceSection = () => {
   return (
-    <section id="experience">
+    <section id="experience" className={styles.experienceSection}>
         <h2>Experience</h2>
         <div>
           <h3>Senior Web Developer</h3>

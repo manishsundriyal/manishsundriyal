@@ -1,11 +1,13 @@
 import React from "react";
 import styles from "./index.module.scss";
 import Link from "next/link";
+import Image from "next/image";
+import userImage from '../../assets/user_image.jpg';
 
 const AboutSection = () => {
   return (
     <section id="about" className={styles.aboutSection}>
-      <h1>About Me</h1>
+      <h2>About Me</h2>
       <div className={styles.sectionWrapper}>
         <div>
           <p>
@@ -17,7 +19,7 @@ const AboutSection = () => {
             My coding journey began in 2017 as an Android Developer Intern, and
             like a well-crafted story, it smoothly transitioned into the
             exciting world of web development. Today, I proudly hold the
-            position of an SDE 2 at
+            position of an SDE 2 at &nbsp;
             <Link href="https://www.peoplegrove.com" target="_blank">
               PeopleGrove
             </Link>
@@ -28,19 +30,21 @@ const AboutSection = () => {
           <p>
             When I&apos;m not immersed in the PERN stack, you can catch me
             spreading knowledge and good vibes by mentoring folks in my free
-            time. I collaborate with organizations like{" "}
+            time. I collaborate with organizations like&nbsp;
             <Link href="https://www.pesto.tech" target="_blank">
               pesto.tech
-            </Link>{" "}
-            and{" "}
+            </Link>&nbsp;
+            and&nbsp;
             <Link href="https://www.feaindia.org" target="_blank">
               feaindia.org
             </Link>
-            because sharing is caring, even in the coding realm!
+            &nbsp;because sharing is caring, even in the coding realm!
           </p>
         </div>
+        <div className={styles.userImage}>
+          <Image src={userImage} alt="manish image"/>
+        </div>
       </div>
-      <div></div>
     </section>
   );
 };
