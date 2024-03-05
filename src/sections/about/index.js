@@ -2,13 +2,16 @@ import React from "react";
 import styles from "./index.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-import userImage from '../../assets/user_image.jpg';
+import userImage from "../../assets/user_image.jpg";
 
 const AboutSection = () => {
   return (
     <section id="about" className={styles.aboutSection}>
       <h2>About Me</h2>
       <div className={styles.sectionWrapper}>
+        <div className={styles.userImage}>
+          <Image src={userImage} alt="manish image" />
+        </div>
         <div>
           <p>
             Hello there! I&apos;m Manish, a developer hailing from the diverse
@@ -33,16 +36,13 @@ const AboutSection = () => {
             time. I collaborate with organizations like&nbsp;
             <Link href="https://www.pesto.tech" target="_blank">
               pesto.tech
-            </Link>&nbsp;
-            and&nbsp;
+            </Link>
+            &nbsp; and&nbsp;
             <Link href="https://www.feaindia.org" target="_blank">
               feaindia.org
             </Link>
             &nbsp;because sharing is caring, even in the coding realm!
           </p>
-        </div>
-        <div className={styles.userImage}>
-          <Image src={userImage} alt="manish image"/>
         </div>
       </div>
     </section>

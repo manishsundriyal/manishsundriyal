@@ -10,7 +10,11 @@ $darkBlue: #0e172a;
 $lavender: #ccd6f6;
 $slate: #8892b0;
 
-$nav-height: 100px;
+// font-sizes
+$page-heading: clamp(40px, 8vw, 60px);
+$section-heading: clamp(30px, 6vw, 35px);
+
+$nav-height: 50.5px;
 
 $font-heading: "Poppins", sans-serif;
 
