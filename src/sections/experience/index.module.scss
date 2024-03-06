@@ -17,14 +17,24 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
+            
             li .listWrapper {
-                display: flex;
-            }
-            header {
-                flex: 30;
-            }
-            .description {
-                flex: 70;
+                margin-bottom: 2.5rem;
+                .title {
+                    font-size: clamp(16px, 3vw, 32px);
+                    &.previousDesignation {
+                        color: #64748b
+                    }
+                }
+                .date {
+                    font-size: clamp(12px, 2.5vw, 24px);
+                    margin: 4px 0px 6px 0px;
+                }
+                .description {
+                    font-size: clamp(14px, 2vw, 18px);
+                    margin: 8px 0px 0px 0px;
+                    color: $slate;
+                }
             }
         }
     }
