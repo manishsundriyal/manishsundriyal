@@ -1,36 +1,40 @@
 import React from "react";
 
+const CONTACT_OPTIONS = [
+  {
+    reason: "Exploring Opportunities",
+    description: "Interested in potential collaborations, partnerships, or other opportunities? Let's discuss how we can create positive outcomes together."
+  },
+  {
+    reason: "Seeking Mentorship",
+    description: "If you're looking for guidance and mentorship, I'm here to share my knowledge and experience."
+  },
+  {
+    reason: "Project Assistance",
+    description: "Need help with a project? Whether it's brainstorming ideas or hands-on support, I'm ready to contribute."
+  },
+  {
+    reason: "Invitation",
+    description: "Planning an event or collaboration? Extend an invitation, and let's explore exciting opportunities together."
+  },
+  {
+    reason: "Feedback and Suggestions",
+    description: "Your insights and recommendations are invaluable. Whether it's feedback or suggestions, I'm eager to hear your thoughts."
+  },
+];
+
+
 const ContactSection = () => {
   return (
     <section id="contact">
       <h2>Get in Touch</h2>
       <p>
-        I'm always open to new opportunities and collaborations. Feel free to
-        reach out to me using the following methods:
+        Looks like you&apos;d like to connect with me. You might want to connect with me because
       </p>
-
       <ul>
-        <li>
-          Email: <a href="mailto:john.doe@example.com">john.doe@example.com</a>
-        </li>
-        <li>
-          LinkedIn:{" "}
-          <a href="https://www.linkedin.com/in/johndoe" target="_blank">
-            linkedin.com/in/johndoe
-          </a>
-        </li>
-        <li>
-          GitHub:{" "}
-          <a href="https://github.com/johndoe" target="_blank">
-            github.com/johndoe
-          </a>
-        </li>
-        <li>
-          Twitter:{" "}
-          <a href="https://twitter.com/johndoe" target="_blank">
-            @johndoe
-          </a>
-        </li>
+        {
+          CONTACT_OPTIONS.map(option => <li key={option.reason}><span>{option.reason}: </span>{option.description}</li>)
+        }
       </ul>
     </section>
   );
