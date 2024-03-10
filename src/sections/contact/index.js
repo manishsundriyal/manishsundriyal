@@ -1,4 +1,5 @@
 import React from "react";
+import styles from './index.module.scss';
 
 const CONTACT_OPTIONS = [
   {
@@ -26,16 +27,18 @@ const CONTACT_OPTIONS = [
 
 const ContactSection = () => {
   return (
-    <section id="contact">
+    <section id="contact" className={styles.contactSection}>
       <h2>Get in Touch</h2>
-      <p>
-        Looks like you&apos;d like to connect with me. You might want to connect with me because
-      </p>
-      <ul>
-        {
-          CONTACT_OPTIONS.map(option => <li key={option.reason}><span>{option.reason}: </span>{option.description}</li>)
-        }
-      </ul>
+      <div className={styles.sectionWrapper}>
+        <p>
+          Looks like you&apos;d like to connect with me. You might want to connect with me because
+          <ul>
+            {
+              CONTACT_OPTIONS.map(option => <li key={option.reason}><span className={styles.reason}>{option.reason}: </span>{option.description}</li>)
+            }
+          </ul>
+        </p>
+      </div>
     </section>
   );
 };

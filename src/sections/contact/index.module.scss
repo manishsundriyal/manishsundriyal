@@ -1,0 +1,25 @@
+.contactSection {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    h2 {
+        font-size: $section-heading;
+    }
+    .sectionWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    p {
+        font-size: $p-font-size;
+        color: $slate;
+    }
+
+    .reason {
+        font-weight: 800;
+        color: $lavender;
+    }
+}
