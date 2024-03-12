@@ -7,8 +7,8 @@
     h2 {
         font-size: $section-heading;
     }
-    p {
-        font-size: $p-font-size;
+    h3 {
+        font-size: clamp(20px, 3vw, 32px);
     }
     .timeline {
         ol {
@@ -21,17 +21,17 @@
             li .listWrapper {
                 margin-bottom: 2.5rem;
                 .title {
-                    font-size: clamp(16px, 3vw, 32px);
+                    font-size: clamp(20px, 3vw, 32px);
                     &.previousDesignation {
                         color: #64748b
                     }
                 }
                 .date {
-                    font-size: clamp(12px, 2.5vw, 24px);
+                    font-size: clamp(14px, 2.5vw, 24px);
                     margin: 4px 0px 6px 0px;
                 }
                 .description {
-                    font-size: clamp(14px, 2vw, 18px);
+                    font-size: $p-font-size;
                     margin: 8px 0px 0px 0px;
                     color: $slate;
                 }

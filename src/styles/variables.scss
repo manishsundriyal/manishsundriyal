@@ -18,7 +18,7 @@ $nav-height: 50.5px;
 
 $font-heading: "Poppins", sans-serif;
 
-$p-font-size: 1.25rem;
+$p-font-size: clamp(18px, 3vw, 24px);
 
 
 // media queries
