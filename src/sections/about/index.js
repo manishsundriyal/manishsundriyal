@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./index.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-import userImage from "../../assets/user_image.jpg";
+import userImage from "@/assets/user_image.jpg";
 
 const AboutSection = () => {
   return (

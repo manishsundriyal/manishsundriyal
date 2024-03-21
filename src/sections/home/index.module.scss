@@ -1,11 +1,31 @@
 .heroSection {
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: column-reverse;
+    padding-top: 50px;
+    gap: 30px;
     min-height: 100vh;
     height: 100vh;
-    padding: 0px;
+    align-items: center;
+    justify-content: start;
+
+    @include include-md-up {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0;
+        gap: 40px;
+    }
+
+    .textContent {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .heroAnimation {
+        height: 350px;
+        width: auto;
+    }
 
     h1 {
         color: #2ec4b6;
@@ -37,7 +57,22 @@
     .rocket {
         display: inline-block;
         font-size: 2rem;
+        animation-name: shake;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
     }
+
+    @keyframes shake {
+        0% {
+          transform: rotateZ(0deg);
+        }
+        50% {
+          transform: rotateZ(10deg);
+        }
+        100% {
+          transform: rotateZ(0deg);
+        }
+      }
 
     .wave {
         animation-name: wave-animation;

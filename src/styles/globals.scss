@@ -13,4 +13,12 @@ html, body, #__next {
     @include include-md-up {
         height: auto;
     }
+
+    .lineContainer {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
 }

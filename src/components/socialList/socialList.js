@@ -7,19 +7,19 @@ import Link from 'next/link';
 const links = [
     {
         icon: faGithub,
-        path: ""
+        path: "/github"
     },
     {
         icon: faLinkedin,
-        path: ""
+        path: "/linkedin"
     },
     {
         icon: faMediumM,
-        path: ""
+        path: "/medium"
     },
     {
         icon: faStackOverflow,
-        path: ""
+        path: "/stackoverflow"
     }
 ]
 const SocialList = () => {

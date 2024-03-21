@@ -7,19 +7,19 @@ import styles from "./footer.module.scss";
 const SOCIAL_LINKS = [
     {
         icon: faLinkedin,
-        path: "",
+        path: "linkedin",
     },
     {
         icon: faGithub,
-        path: "",
+        path: "github",
     },
     {
         icon: faXTwitter,
-        path: "",
+        path: "twiiter",
     },
     {
         icon: faMedium,
-        path: "",
+        path: "medium",
     }
 ]
 

@@ -12,10 +12,19 @@
         flex-direction: column;
         align-items: center;
         gap: 50px;
+
+        @include include-md-up {
+            flex-direction: row-reverse;
+            align-items: start;
+        }
     }
 
     p {
         font-size: $p-font-size;
+    }
+
+    p:first-of-type {
+        margin-top: 0px;
     }
     .userImage {
         img {

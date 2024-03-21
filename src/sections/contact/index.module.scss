@@ -4,6 +4,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: flex-start;
+
     h2 {
         font-size: $section-heading;
     }
@@ -11,6 +12,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        @include include-md-up {
+            align-items: start;
+        }
     }
 
     p, ul {
