@@ -33,12 +33,67 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      // padding: 28 20px;
       gap: 5px;
 
       @include include-md-up {
         padding: 0;
         margin: 1rem 0;
+      }
+
+      .mobileMenuIcon {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 2rem;
+        height: 2rem;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: 0.5s ease-in-out;
+        -moz-transition: 0.5s ease-in-out;
+        -o-transition: 0.5s ease-in-out;
+        transition: 0.5s ease-in-out;
+        cursor: pointer;
+
+        span {
+          width: 100%;
+          height: 0.25rem;
+          background: white;
+          border-radius: 10px;
+          -webkit-transform: rotate(0deg);
+          -moz-transform: rotate(0deg);
+          -o-transform: rotate(0deg);
+          transform: rotate(0deg);
+          -webkit-transition: 0.25s ease-in-out;
+          -moz-transition: 0.25s ease-in-out;
+          -o-transition: 0.25s ease-in-out;
+          transition: 0.25s ease-in-out;
+          transform-origin: 1px;
+          
+          &:nth-child(1), &:nth-child(3) {
+            transform: rotate(0); 
+          }
+  
+           &:nth-child(2) {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        &.open {
+           span {
+             &:nth-child(1) {
+               transform: rotate(45deg);
+             }
+             &:nth-child(2) {
+              opacity: 0;
+            }
+            &:nth-child(3) {
+              transform: rotate(-45deg);
+            }
+          }
+        }
       }
 
       .desktopNavItem {
@@ -56,7 +111,11 @@
       }
 
       li {
-        a, a:link, a:visited, a:focus, a:active{
+        a,
+        a:link,
+        a:visited,
+        a:focus,
+        a:active {
           text-decoration: none;
           font-size: 20px;
           line-height: 76.3%; /* 15.26px */
@@ -83,7 +142,7 @@
       top: calc($nav-height + 1px);
       transition: 0.3s;
       padding-top: 20px;
-      
+
       &.open {
         padding: 24px 20px;
         width: 60vw;

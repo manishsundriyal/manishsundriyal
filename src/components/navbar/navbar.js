@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { Poppins } from "next/font/google";
 import styles from "./navbar.module.scss";
 import useIsSideNavOpenAtom from "@/states/sideNavOpen";
+import clsx from "clsx";
 
 const links = [
   {
@@ -59,11 +60,11 @@ const Navbar = () => {
             className={styles.menuButton}
             onClick={() => setIsSideNavOpen(!isSideNavOpen)}
           >
-            {isSideNavOpen
-              ? // <FontAwesomeIcon icon={faXmark} />
-                "Close"
-              : // <FontAwesomeIcon icon={faBars} />
-                "Open"}
+            <div className={clsx(styles.mobileMenuIcon, { [styles.open]: isSideNavOpen})}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
           </div>
         </ul>
         <div className={`${styles.sideNav} ${isSideNavOpen && styles.open}`}>
