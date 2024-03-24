@@ -6,9 +6,11 @@
     align-items: flex-start;
     h2 {
         font-size: $section-heading;
+        color: $contrast-color-light;
     }
     h3 {
         font-size: clamp(20px, 3vw, 26px);
+        color: $contrast-color-dark;
     }
     .timeline {
         ol {
@@ -19,21 +21,35 @@
             gap: 20px;
             
             li .listWrapper {
-                margin-bottom: 2.5rem;
+                padding: 12px;
+                &:hover {
+                    transition-property: all;
+                    transition-duration: .15s;
+                    cursor: pointer;
+                    background: rgba(255, 255, 255, 0.1);
+                    border-radius: 16px;
+                    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                    transform: scale(1.01);
+                }
                 .title {
                     font-size: clamp(20px, 3vw, 24px);
+                    color: $text-color;
                     &.previousDesignation {
-                        color: #64748b
+                        color: $text-color-off;
+                    }
+                    .company {
+                        color: $contrast-color-light;
                     }
                 }
                 .date {
                     font-size: clamp(14px, 2.5vw, 18px);
                     margin: 4px 0px 6px 0px;
+                    color: $text-color-off;
                 }
                 .description {
                     font-size: $p-font-size;
                     margin: 8px 0px 0px 0px;
-                    color: $slate;
+                    color: $text-color;
                 }
             }
         }

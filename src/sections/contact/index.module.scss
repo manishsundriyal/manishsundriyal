@@ -7,6 +7,7 @@
 
     h2 {
         font-size: $section-heading;
+        color: $contrast-color-light;
     }
     .sectionWrapper {
         display: flex;
@@ -19,11 +20,11 @@
 
     p, ul {
         font-size: $p-font-size;
-        color: $slate;
+        color: $text-color;
     }
 
     .reason {
         font-weight: 800;
-        color: $lavender;
+        color: $secondary-color-light;
     }
 }

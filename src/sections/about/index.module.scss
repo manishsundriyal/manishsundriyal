@@ -6,6 +6,7 @@
     align-items: flex-start;
     h2 {
         font-size: $section-heading;
+        color: $contrast-color-light;
     }
     .sectionWrapper {
         display: flex;
@@ -21,6 +22,16 @@
 
     p {
         font-size: $p-font-size;
+        color: $text-color;
+
+        a {
+            color: $contrast-color-light;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 
     p:first-of-type {

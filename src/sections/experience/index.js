@@ -70,7 +70,7 @@ const ExperienceSection = () => {
     }) => (<li key={title}>
       <div className={styles.listWrapper}>
         <div className={styles.date}>{`${start} — ${end}`}</div>
-        <div className={styles.title}>{` ${title}, ${company}`}</div>
+        <div className={styles.title}><span>{title}</span>, <span className={styles.company}>{company}</span></div>
         {previousDesignations.map((designation) => (
           <div key={designation} className={clsx(styles.title, styles.previousDesignation)}>
             {designation}
@@ -84,13 +84,13 @@ const ExperienceSection = () => {
   return (
     <section id="experience" className={styles.experienceSection}>
       <h2>Experience</h2>
-      <h3>Full Time Experiences</h3>
+      {/* <h3>Full Time Experiences</h3> */}
       <div className={styles.timeline}>
         <ol>
           {getExperienceCard(FULL_TIME_EXPERIENCES)}
         </ol>
       </div>
-      <h3>Intern / Part Time Experiences</h3>
+      {/* <h3>Intern / Part Time Experiences</h3> */}
       <div className={styles.timeline}>
         <ol>
           {getExperienceCard(PART_TIME_EXPERIENCES)}

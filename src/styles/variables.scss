@@ -6,8 +6,13 @@ $screen-xl: 1200px;
 $screen-xxl: 1600px;
 
 // colors 
-$darkBlue: #0e172a;
-$lavender: #ccd6f6;
+$primary-color: #023047;
+$text-color: #F7F2F7;
+$text-color-off: rgba(255,255,255,.8);
+$secondary-color-dark: #219EBC;
+$secondary-color-light: #8ECAE6;
+$contrast-color-dark: #FB8500;
+$contrast-color-light: #FFB703;
 $slate: #8892b0;
 
 // font-sizes
@@ -18,7 +23,7 @@ $nav-height: 50.5px;
 
 $font-heading: "Poppins", sans-serif;
 
-$p-font-size: clamp(18px, 3vw, 24px);
+$p-font-size: 18px;
 
 
 // media queries
