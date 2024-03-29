@@ -38,9 +38,25 @@
         margin-top: 0px;
     }
     .userImage {
+        background: aqua;
+        transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
         img {
             height: auto;
             width: 300px;
+            mix-blend-mode: multiply;
+            filter: grayscale(100%) contrast(1);
+            // transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+
+            &:hover {
+                mix-blend-mode: normal;
+                filter: none;
+            }
         }
+
+        &:hover {
+            transform: scale(1.04);
+            transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+        }
+
     }
 }

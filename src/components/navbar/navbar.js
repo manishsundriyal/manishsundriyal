@@ -38,13 +38,9 @@ const Navbar = () => {
     }
   }, [])
 
-  useEffect(() => {
-    document.body.classList.toggle('lockScroll');
-  }, [isSideNavOpen])
-
   return (
     <header className={styles.header} id="navbar">
-      {isSideNavOpen ? <div className={clsx(styles.overlay, { [styles.visible]: isSideNavOpen } )}></div> : null}
+      <div className={clsx(styles.overlay, { [styles.visible]: isSideNavOpen } )}></div>
       <nav className={styles.nav}>
         <Link className={`${styles.logo} ${poppins.className}`} href="/">
           MS Office
@@ -63,7 +59,10 @@ const Navbar = () => {
           <div
             role="button"
             className={styles.menuButton}
-            onClick={() => setIsSideNavOpen(!isSideNavOpen)}
+            onClick={() => {
+                document.body.classList.toggle('lockScroll');
+                setIsSideNavOpen(!isSideNavOpen);
+            }}
           >
             <div className={clsx(styles.mobileMenuIcon, { [styles.open]: isSideNavOpen})}>
               <span></span>
