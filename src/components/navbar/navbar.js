@@ -38,8 +38,13 @@ const Navbar = () => {
     }
   }, [])
 
+  useEffect(() => {
+    document.body.classList.toggle('lockScroll');
+  }, [isSideNavOpen])
+
   return (
     <header className={styles.header} id="navbar">
+      <div className={clsx(styles.overlay, { [styles.visible]: isSideNavOpen } )}></div>
       <nav className={styles.nav}>
         <Link className={`${styles.logo} ${poppins.className}`} href="/">
           MS Office

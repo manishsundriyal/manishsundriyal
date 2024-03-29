@@ -20,4 +20,8 @@ html, body, #__next {
         left: 0;
         width: 100%;
     }
+
+    .lockScroll {
+        overflow: hidden;
+    }
 }

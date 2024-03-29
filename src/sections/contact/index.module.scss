@@ -21,6 +21,10 @@
     p, ul {
         font-size: $p-font-size;
         color: $text-color;
+
+        li {
+            margin-bottom: 12px;
+        }
     }
 
     .reason {
