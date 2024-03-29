@@ -44,7 +44,7 @@ const Navbar = () => {
 
   return (
     <header className={styles.header} id="navbar">
-      <div className={clsx(styles.overlay, { [styles.visible]: isSideNavOpen } )}></div>
+      {isSideNavOpen ? <div className={clsx(styles.overlay, { [styles.visible]: isSideNavOpen } )}></div> : null}
       <nav className={styles.nav}>
         <Link className={`${styles.logo} ${poppins.className}`} href="/">
           MS Office
