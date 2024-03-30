@@ -64,7 +64,7 @@ const Navbar = () => {
       <div className={clsx(styles.overlay, { [styles.visible]: isSideNavOpen } )}></div>
       <nav className={styles.nav}>
         <Link className={`${styles.logo} ${poppins.className}`} href="/">
-          MS Office
+          MS
         </Link>
         <ul className={styles.horizontalNav}>
           {links.map((link) => (
