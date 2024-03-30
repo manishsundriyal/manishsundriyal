@@ -1,5 +1,7 @@
 import Link from "next/link";
 import React, { useEffect } from "react";
+import { faGithub, faLinkedin, faMedium, faTwitter, faXTwitter } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Poppins } from "next/font/google";
 import styles from "./navbar.module.scss";
 import useIsSideNavOpenAtom from "@/states/sideNavOpen";
@@ -19,6 +21,25 @@ const links = [
     path: "#contact",
   },
 ];
+
+const SOCIAL_LINKS = [
+  {
+      icon: faLinkedin,
+      path: "linkedin",
+  },
+  {
+      icon: faGithub,
+      path: "github",
+  },
+  {
+      icon: faXTwitter,
+      path: "twiiter",
+  },
+  {
+      icon: faMedium,
+      path: "medium",
+  }
+]
 
 const poppins = Poppins({ subsets: ["latin"], weight: "500" });
 
@@ -78,13 +99,21 @@ const Navbar = () => {
                 <Link
                   href={link.path}
                   className={poppins.className}
-                  onClick={() => setIsSideNavOpen(false)}
+                  onClick={() => {
+                    setIsSideNavOpen(false);
+                    document.body.classList.toggle('lockScroll');
+                  }}
                 >
                   {link.label}
                 </Link>
               </li>
             ))}
           </ul>
+          <ul className={styles.socialLinks}>
+            {
+                SOCIAL_LINKS.map(link => <li key={link.path}><FontAwesomeIcon icon={link.icon} /></li>)
+            }
+        </ul>
         </div>
       </nav>
     </header>

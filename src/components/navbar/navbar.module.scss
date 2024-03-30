@@ -145,7 +145,7 @@
         }
 
         a:hover {
-          color: blue;
+          color: $text-color;
         }
       }
     }
@@ -160,11 +160,9 @@
       top: calc($nav-height + 1px);
       transition: 0.3s;
       padding-top: 20px;
-
-      &.open {
-        padding: 24px 20px;
-        width: 60vw;
-      }
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
 
       @include hide-desktop;
       ul.verticalNav {
@@ -186,6 +184,25 @@
             letter-spacing: -0.6px;
           }
         }
+      }
+      ul.socialLinks {
+        overflow: hidden;
+        color: $text-color;
+        margin: 0;
+        @include hide-desktop;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        padding: 0px;
+        li {
+            list-style: none;
+        }
+      }
+
+      &.open {
+        padding: 24px 20px;
+        width: 60vw;
       }
     }
   }
