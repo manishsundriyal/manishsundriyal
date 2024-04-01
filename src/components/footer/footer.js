@@ -1,24 +1,25 @@
-import { faGithub, faLinkedin, faMedium, faTwitter, faXTwitter } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin, faMediumM, faStackOverflow } from '@fortawesome/free-brands-svg-icons';
 import React from 'react'
 import styles from "./footer.module.scss";
+import Link from 'next/link';
 
 const SOCIAL_LINKS = [
     {
-        icon: faLinkedin,
-        path: "linkedin",
-    },
-    {
         icon: faGithub,
-        path: "github",
+        path: "https://github.com/manishsundriyal/"
     },
     {
-        icon: faXTwitter,
-        path: "twiiter",
+        icon: faLinkedin,
+        path: "https://linkedin.com/in/manish-kumar-sundriyal"
     },
     {
-        icon: faMedium,
-        path: "medium",
+        icon: faMediumM,
+        path: "https://medium.com/@manishsundriyal"
+    },
+    {
+        icon: faStackOverflow,
+        path: "https://stackoverflow.com/users/7672624/manish-sundriyal"
     }
 ]
 
@@ -27,7 +28,7 @@ const Footer = () => {
     <footer className={styles.footer}>
         <ul className={styles.socialLinks}>
             {
-                SOCIAL_LINKS.map(link => <li key={link.path}><FontAwesomeIcon icon={link.icon} /></li>)
+                SOCIAL_LINKS.map(link => <li key={link.path}><Link href={link.path} target="_blank"><FontAwesomeIcon icon={link.icon} /></Link></li>)
             }
         </ul>
         <hr />

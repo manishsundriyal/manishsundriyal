@@ -199,6 +199,10 @@
         padding: 0px;
         li {
             list-style: none;
+
+            a {
+              color: $text-color;
+            }
         }
       }
 

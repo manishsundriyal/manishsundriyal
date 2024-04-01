@@ -27,7 +27,7 @@ const SocialList = () => {
     <div className={styles.socialList}>
         <ul>
             {
-                links.map(link => <li key={link.path}><FontAwesomeIcon icon={link.icon} /></li>)
+                links.map(link => <li key={link.path}><Link href={link.path} target='_blank'><FontAwesomeIcon icon={link.icon} /></Link></li>)
             }
         </ul>
     </div>

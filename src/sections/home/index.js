@@ -1,28 +1,17 @@
-import dynamic from 'next/dynamic';
 import React from "react";
 import { Emoji } from "@/components";
 import styles from "./index.module.scss";
 import Image from "next/image";
-// import avatarImage from "@/assets/avatar.png";
-const Lottie = dynamic(() => import('react-lottie'), { ssr: false });
-import heroAnimation from '@/assets/hero_animation.json';
+import animatedImage from '@/assets/animated_image.png';
 
 const HomeSection = () => {
-  const defaultOptions = {
-    loop: true,
-    autoplay: true, 
-    animationData: heroAnimation,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice',
-    }
-  };
+
   return (
     <section className={styles.heroSection}>
       <div className={styles.textContent}>
         <h1>Hello, I am</h1>
         <h2>
           Manish Sundriyal.
-          {/* <Emoji symbol="👋" className={styles.wave} /> */}
         </h2>
         <h3>Software Artisan</h3>
         <p>
@@ -32,7 +21,7 @@ const HomeSection = () => {
         <a href="/Manish_Sundriyal_Resume.pdf" target='_blank'>Download Resume</a>
       </div>
       <div className={styles.heroAnimation}>
-        <Lottie options={defaultOptions} />
+        <Image src={animatedImage} alt=''/>
       </div>
     </section>
   );

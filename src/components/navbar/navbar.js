@@ -1,7 +1,12 @@
 import Link from "next/link";
 import React, { useEffect } from "react";
-import { faGithub, faLinkedin, faMedium, faStackOverflow } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faGithub,
+  faLinkedin,
+  faMedium,
+  faStackOverflow,
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Poppins } from "next/font/google";
 import styles from "./navbar.module.scss";
 import useIsSideNavOpenAtom from "@/states/sideNavOpen";
@@ -23,23 +28,23 @@ const links = [
 ];
 
 const SOCIAL_LINKS = [
-    {
-        icon: faGithub,
-        path: "https://github.com/manishsundriyal/"
-    },
-    {
-        icon: faLinkedin,
-        path: "https://linkedin.com/in/manish-kumar-sundriyal"
-    },
-    {
-        icon: faMedium,
-        path: "https://medium.com/@manishsundriyal"
-    },
-    {
-        icon: faStackOverflow,
-        path: "https://stackoverflow.com/users/7672624/manish-sundriyal"
-    }
-]
+  {
+    icon: faGithub,
+    path: "https://github.com/manishsundriyal/",
+  },
+  {
+    icon: faLinkedin,
+    path: "https://linkedin.com/in/manish-kumar-sundriyal",
+  },
+  {
+    icon: faMedium,
+    path: "https://medium.com/@manishsundriyal",
+  },
+  {
+    icon: faStackOverflow,
+    path: "https://stackoverflow.com/users/7672624/manish-sundriyal",
+  },
+];
 
 const poppins = Poppins({ subsets: ["latin"], weight: "500" });
 
@@ -48,20 +53,22 @@ const Navbar = () => {
 
   useEffect(() => {
     let prevScrollPosition = window.scrollY;
-    window.onscroll = function() {
-    var currentScrollPosition = window.scrollY;
+    window.onscroll = function () {
+      var currentScrollPosition = window.scrollY;
       if (prevScrollPosition > currentScrollPosition) {
         document.getElementById("navbar").style.top = "0";
       } else {
         document.getElementById("navbar").style.top = "-51px";
       }
       prevScrollPosition = currentScrollPosition;
-    }
-  }, [])
+    };
+  }, []);
 
   return (
     <header className={styles.header} id="navbar">
-      <div className={clsx(styles.overlay, { [styles.visible]: isSideNavOpen } )}></div>
+      <div
+        className={clsx(styles.overlay, { [styles.visible]: isSideNavOpen })}
+      ></div>
       <nav className={styles.nav}>
         <Link className={`${styles.logo} ${poppins.className}`} href="/">
           MS
@@ -69,10 +76,7 @@ const Navbar = () => {
         <ul className={styles.horizontalNav}>
           {links.map((link) => (
             <li key={link.label} className={styles.desktopNavItem}>
-              <Link
-                href={link.path}
-                className={poppins.className}
-              >
+              <Link href={link.path} className={poppins.className}>
                 {link.label}
               </Link>
             </li>
@@ -81,11 +85,15 @@ const Navbar = () => {
             role="button"
             className={styles.menuButton}
             onClick={() => {
-                document.body.classList.toggle('lockScroll');
-                setIsSideNavOpen(!isSideNavOpen);
+              document.body.classList.toggle("lockScroll");
+              setIsSideNavOpen(!isSideNavOpen);
             }}
           >
-            <div className={clsx(styles.mobileMenuIcon, { [styles.open]: isSideNavOpen})}>
+            <div
+              className={clsx(styles.mobileMenuIcon, {
+                [styles.open]: isSideNavOpen,
+              })}
+            >
               <span></span>
               <span></span>
               <span></span>
@@ -101,7 +109,7 @@ const Navbar = () => {
                   className={poppins.className}
                   onClick={() => {
                     setIsSideNavOpen(false);
-                    document.body.classList.toggle('lockScroll');
+                    document.body.classList.toggle("lockScroll");
                   }}
                 >
                   {link.label}
@@ -110,10 +118,14 @@ const Navbar = () => {
             ))}
           </ul>
           <ul className={styles.socialLinks}>
-            {
-                SOCIAL_LINKS.map(link => <li key={link.path}><FontAwesomeIcon icon={link.icon} /></li>)
-            }
-        </ul>
+            {SOCIAL_LINKS.map((link) => (
+              <li key={link.path}>
+                <Link href={link.path} target="_blank">
+                  <FontAwesomeIcon icon={link.icon} />
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </nav>
     </header>

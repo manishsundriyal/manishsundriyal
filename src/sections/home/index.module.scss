@@ -25,6 +25,10 @@
     .heroAnimation {
         height: 350px;
         width: auto;
+        margin-top: 20px;
+        @include include-md-up {
+            margin-top: 0;
+        }
     }
 
     h1 {
@@ -58,6 +62,14 @@
         padding: 10px;
         color: $text-color;
         text-decoration: none;
+        transition: transform 0.3s ease-in-out;
+
+        &:hover {
+            background-color: $contrast-color-dark;
+            color: #000;
+            border-color: #000;
+            transform: scale(1.02);
+        }
     }
 
     .rocket {
