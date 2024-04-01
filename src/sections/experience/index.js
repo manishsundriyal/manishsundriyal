@@ -10,8 +10,15 @@ const FULL_TIME_EXPERIENCES = [
     start: "SEPT 2020",
     end: "PRESENT",
     previousDesignations: ["SDE"],
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    description: [
+      "Implemented bulk email service using Postmark, replacing Sendgrid for cost reduction.",
+      "Implemented an access control management tool for admins.",
+      "Worked on features like groups, programs, and career paths." ,
+      "Icons Audit: Migrated icons from codebase to CDN to reduce overall bundle size.",
+      "Designed a widget enabling users to ask questions, utilized the ChatGPT API to generate specific queries, and directed them to relevant experts for responses",
+      "Developed migration scripts for seamless user data updates at scale.",
+      "Collaborated with the design team to address platform-wide accessibility issues, ensuring compliance and securing accessibility certification.",
+    ],
   },
   {
     title: "Associate Engineer",
@@ -20,18 +27,15 @@ const FULL_TIME_EXPERIENCES = [
     start: "JULY 2018",
     end: "SEPT 2020",
     previousDesignations: ["Software Engineer - Trainee"],
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  },
-  {
-    title: "Software Developer Intern",
-    company: "Daphnis Labs",
-    companyUrl: "https://www.daphnislabs.com/",
-    start: "DEC 2017",
-    end: "FEB 2018",
-    previousDesignations: [],
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    description: [
+      "Implemented bulk email service using Postmark, replacing Sendgrid for cost reduction.",
+      "Implemented an access control management tool for admins.",
+      "Worked on features like groups, programs, and career paths." ,
+      "Icons Audit: Migrated icons from codebase to CDN to reduce overall bundle size.",
+      "Designed a widget enabling users to ask questions, utilized the ChatGPT API to generate specific queries, and directed them to relevant experts for responses",
+      "Developed migration scripts for seamless user data updates at scale.",
+      "Collaborated with the design team to address platform-wide accessibility issues, ensuring compliance and securing accessibility certification.",
+    ],
   },
 ];
 
@@ -43,7 +47,17 @@ const PART_TIME_EXPERIENCES = [
     start: "DEC 2022",
     end: "PRESENT",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "Working as a tech mentor for the Plus program. Mentored 17+ students so far in the following technologies: HTML, CSS, JavaScript, NodeJs, ExpressJS, ReaactJS, Redux, MySQL, MongoDB, Data Structures, Algorithms, and System Design.",
+  },
+  {
+    title: "Software Developer Intern",
+    company: "Daphnis Labs",
+    companyUrl: "https://www.daphnislabs.com/",
+    start: "DEC 2017",
+    end: "FEB 2018",
+    previousDesignations: [],
+    description:
+      "Developed the features to analyze and manage data in the admin and analytics web panel of the Perb health & fitness Android application.",
   },
   {
     title: "Teaching Assistant",
@@ -52,7 +66,7 @@ const PART_TIME_EXPERIENCES = [
     start: "SEPT 2017",
     end: "NOV 2017",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Worked as a teaching assistant for the Algorithms & Data Structures course, helped students to clear their doubts in algorithms and data structures. Prepared assignment problems and reviewed student's solution codes to help them in writing fast and efficient code.",
   },
 ];
 
@@ -76,7 +90,13 @@ const ExperienceSection = () => {
             {designation}
           </div>
         ))}
-        <p className={styles.description}>{description}</p>
+        {typeof description === 'string' ? <p className={styles.description}>
+          {description}
+        </p> : 
+        <ul className={styles.description}>
+          {description.map(text => <li key={text}>{text}</li>)}
+        </ul>
+  }
       </div>
     </li>))
   }

@@ -29,7 +29,7 @@ const HomeSection = () => {
           <Emoji symbol="🚀" className={styles.rocket} /> Crafting exceptional
           digital experiences, specializing in scaling projects and teams.
         </p>
-        <a>Download Resume</a>
+        <a href="/Manish_Sundriyal_Resume.pdf" target='_blank'>Download Resume</a>
       </div>
       <div className={styles.heroAnimation}>
         <Lottie options={defaultOptions} />

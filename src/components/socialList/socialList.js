@@ -7,19 +7,19 @@ import Link from 'next/link';
 const links = [
     {
         icon: faGithub,
-        path: "/github"
+        path: "https://github.com/manishsundriyal/"
     },
     {
         icon: faLinkedin,
-        path: "/linkedin"
+        path: "https://linkedin.com/in/manish-kumar-sundriyal"
     },
     {
         icon: faMediumM,
-        path: "/medium"
+        path: "https://medium.com/@manishsundriyal"
     },
     {
         icon: faStackOverflow,
-        path: "/stackoverflow"
+        path: "https://stackoverflow.com/users/7672624/manish-sundriyal"
     }
 ]
 const SocialList = () => {

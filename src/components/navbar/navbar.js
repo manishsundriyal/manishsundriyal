@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { useEffect } from "react";
-import { faGithub, faLinkedin, faMedium, faTwitter, faXTwitter } from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faLinkedin, faMedium, faStackOverflow } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Poppins } from "next/font/google";
 import styles from "./navbar.module.scss";
@@ -23,22 +23,22 @@ const links = [
 ];
 
 const SOCIAL_LINKS = [
-  {
-      icon: faLinkedin,
-      path: "linkedin",
-  },
-  {
-      icon: faGithub,
-      path: "github",
-  },
-  {
-      icon: faXTwitter,
-      path: "twiiter",
-  },
-  {
-      icon: faMedium,
-      path: "medium",
-  }
+    {
+        icon: faGithub,
+        path: "https://github.com/manishsundriyal/"
+    },
+    {
+        icon: faLinkedin,
+        path: "https://linkedin.com/in/manish-kumar-sundriyal"
+    },
+    {
+        icon: faMedium,
+        path: "https://medium.com/@manishsundriyal"
+    },
+    {
+        icon: faStackOverflow,
+        path: "https://stackoverflow.com/users/7672624/manish-sundriyal"
+    }
 ]
 
 const poppins = Poppins({ subsets: ["latin"], weight: "500" });
