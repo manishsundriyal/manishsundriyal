@@ -2,7 +2,6 @@ import React from "react";
 import { Emoji } from "@/components";
 import styles from "./index.module.scss";
 import Image from "next/image";
-import animatedImage from '@/assets/animated_image.png';
 
 const HomeSection = () => {
 
@@ -21,7 +20,14 @@ const HomeSection = () => {
         <a href="/Manish_Sundriyal_Resume.pdf" target='_blank'>Download Resume</a>
       </div>
       <div className={styles.heroAnimation}>
-        <Image src={animatedImage} alt=''/>
+        <Image 
+          src="/animated_image.png"
+          alt=''
+          width={318}
+          height={297}
+          blurDataURL="/blur.webp"
+          placeholder="blur"
+         />
       </div>
     </section>
   );
