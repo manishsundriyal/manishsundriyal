@@ -38,7 +38,9 @@
         margin-top: 0px;
     }
     .userImage {
-        background: aqua;
+        height: 300px;
+        width: 300px;
+        background: #0bfdff;
         transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
         img {
             height: auto;

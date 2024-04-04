@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./index.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-import userImage from "@/assets/user_image.jpg";
 
 const AboutSection = () => {
   return (
@@ -10,7 +9,7 @@ const AboutSection = () => {
       <h2>About Me</h2>
       <div className={styles.sectionWrapper}>
         <div className={styles.userImage}>
-          <Image src={userImage} alt="manish image" />
+          <Image src="https://ik.imagekit.io/zfvhvoweg/user_image.jpg?tr=f-webp&q-100" alt="manish image" width={300} height={300} />
         </div>
         <div>
           <p>

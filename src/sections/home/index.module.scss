@@ -23,9 +23,8 @@
     }
 
     .heroAnimation {
-        height: 350px;
-        width: auto;
         margin-top: 20px;
+
         @include include-md-up {
             margin-top: 0;
         }

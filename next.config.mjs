@@ -11,7 +11,12 @@ const nextConfig = {
     additionalData: `@import "${path.resolve(__dirname, 'src/styles/variables.scss')}";`,
   },
   images: {
-    domains: ['ik.imagekit.io']
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "ik.imagekit.io",
+      },
+    ]
   }
   //  experimental: {
 //   swcPlugins: [['@swc-jotai/react-refresh', {}]],
