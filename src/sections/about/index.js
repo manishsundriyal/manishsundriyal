@@ -21,9 +21,9 @@ const AboutSection = () => {
             My coding journey began in 2017 as an Android Developer Intern, and
             like a well-crafted story, it smoothly transitioned into the
             exciting world of web development. Today, I proudly hold the
-            position of an SDE 2 at &nbsp;
-            <Link href="https://www.peoplegrove.com" target="_blank">
-              PeopleGrove
+            position of Software Engineer - Fullstack at &nbsp;
+            <Link href="https://probo.in/" target="_blank">
+              Probo
             </Link>
             , where I happily contribute to creating accessible and
             user-friendly products.
