@@ -5,6 +5,7 @@ import Image from "next/image";
 
 const HomeSection = () => {
 
+  console.log("--hello---");
   return (
     <section className={styles.heroSection}>
       <div className={styles.textContent}>
