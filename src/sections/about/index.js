@@ -25,8 +25,7 @@ const AboutSection = () => {
             <Link href="https://probo.in/" target="_blank">
               Probo
             </Link>
-            , where I happily contribute to creating accessible and
-            user-friendly products.
+            , where I contribute to building highly scalable and efficient products.
           </p>
 
           <p>
