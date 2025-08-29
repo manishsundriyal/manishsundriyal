@@ -4,11 +4,26 @@ import clsx from "clsx";
 
 const FULL_TIME_EXPERIENCES = [
   {
+    title: "Software Engineer - Full-stack",
+    company: "Probo",
+    companyUrl: "https://probo.in/",
+    start: "Jun 2024",
+    end: "PRESENT",
+    previousDesignations: [],
+    description: [
+      "Led development of internal tools and scripts to automate payment corrections and support tasks, boosting operational efficiency.",
+"Led a payments-focused backend team to build and scale systems handling high-traffic prediction events with low latency and minimal downtime.",
+"Implemented mobile-number-based bank linking, enabling 80%+ user migration from UPI to IMPS and increasing transaction success rate.",
+"Built and launched a leaderboard with contact sync, enabling in-app connections and ranking, which boosted user engagement and profile visits.",
+"Initiated and led the development of a freemium trading vertical, leading the team from concept to launch and scaling it to 60K trades per day.",
+    ],
+  },
+  {
     title: "SDE 2",
     company: "PeopleGrove",
     companyUrl: "https://www.peoplegrove.com/",
     start: "SEPT 2020",
-    end: "PRESENT",
+    end: "Jun 2024",
     previousDesignations: ["SDE"],
     description: [
       "Implemented bulk email service using Postmark, replacing Sendgrid for cost reduction.",
