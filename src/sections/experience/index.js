@@ -8,7 +8,7 @@ const FULL_TIME_EXPERIENCES = [
     company: "Probo",
     companyUrl: "https://probo.in/",
     start: "Jun 2024",
-    end: "PRESENT",
+    end: "Aug 2025",
     previousDesignations: [],
     description: [
       "Led development of internal tools and scripts to automate payment corrections and support tasks, boosting operational efficiency.",
