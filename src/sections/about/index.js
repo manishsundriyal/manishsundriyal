@@ -21,9 +21,9 @@ const AboutSection = () => {
             My coding journey began in 2017 as an Android Developer Intern, and
             like a well-crafted story, it smoothly transitioned into the
             exciting world of web development. Today, I proudly hold the
-            position of Software Engineer - Fullstack at &nbsp;
-            <Link href="https://probo.in/" target="_blank">
-              Probo
+            position of SDE III at &nbsp;
+            <Link href="https://www.mesta.xyz/" target="_blank">
+              Mesta
             </Link>
             , where I contribute to building highly scalable and efficient products.
           </p>
